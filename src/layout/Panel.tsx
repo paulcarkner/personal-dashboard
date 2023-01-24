@@ -12,6 +12,7 @@ import React from "react";
 //Styles
 import styles from "./Panel.module.css";
 
+//Type Declarations
 type Props = {
   title: string;
   children?: JSX.Element;

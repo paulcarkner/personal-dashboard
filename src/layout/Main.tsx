@@ -1,3 +1,12 @@
+/*****************
+
+Name: Main
+Description: The main content container
+Props: (none)
+Output: JSX.Element
+
+*****************/
+
 import React from "react";
 
 //Components

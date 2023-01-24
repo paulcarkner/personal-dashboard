@@ -1,0 +1,17 @@
+.Logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  margin-block: 3em;
+  color: var(--theme-text-primary);
+}
+
+.LogoIcon {
+  width: 4em;
+}
+
+.LogoName {
+  font-family: "MuseoModerno", sans-serif;
+  font-size: 3rem;
+}
