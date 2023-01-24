@@ -1,0 +1,15 @@
+.Settings {
+  padding: 0.5em;
+  display: flex;
+  justify-content: end;
+  gap: 0.25em;
+  color: var(--theme-text-primary);
+}
+
+.Button {
+  border: none;
+  background: none;
+  padding: 0.5em;
+  color: inherit;
+  cursor: pointer;
+}

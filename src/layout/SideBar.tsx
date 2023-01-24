@@ -1,3 +1,12 @@
+/*****************
+
+Name: SideBar
+Description: The side menu for the website
+Props: (none)
+Output: JSX.Element
+
+*****************/
+
 import React from "react";
 
 //Styles

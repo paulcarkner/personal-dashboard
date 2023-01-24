@@ -21,7 +21,7 @@ type Props = {
 export const Panel = ({ title, children }: Props): JSX.Element => {
   return (
     <section className={styles.Panel}>
-      <h1>title</h1>
+      <h1>{title}</h1>
       {children}
     </section>
   );
