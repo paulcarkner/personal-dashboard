@@ -1,5 +1,6 @@
 :root {
   --theme-text-primary: #fff;
+  --theme-text-secondary: hsl(225, 15%, 65%);
 
   --theme-bg-primary: hsl(225, 15%, 25%);
   --theme-bg-secondary: hsl(225, 25%, 10%);
@@ -10,6 +11,7 @@
   flex-direction: row;
   height: 100vh;
   background-color: var(--theme-bg-secondary);
+  font-family: "Nunito Sans", sans-serif;
 }
 
 header {

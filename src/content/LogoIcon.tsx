@@ -12,7 +12,6 @@ import React from "react";
 //Components
 
 //Styles
-import styles from "./Logo.module.css";
 
 //Type Declarations
 type Props = {

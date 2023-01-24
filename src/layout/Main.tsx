@@ -8,10 +8,11 @@ Output: JSX.Element
 *****************/
 
 import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 //Components
-import { Panel } from "./Panel";
 import { Settings } from "./Settings";
+import { Dashboard } from "./../boards/Dashboard";
 
 //Styles
 import styles from "./Main.module.css";
@@ -20,9 +21,11 @@ export function Main(): JSX.Element {
   return (
     <main className={styles.Main}>
       <Settings />
-      <Panel title="hello world!">
-        <button>Click me!</button>
-      </Panel>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+        </Routes>
+      </Router>
     </main>
   );
 }
