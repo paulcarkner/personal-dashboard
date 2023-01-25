@@ -5,6 +5,8 @@
   text-shadow: 0 0 1px #000;
   display: flex;
   flex-direction: column;
+  height: 100%;
+  overflow: hidden;
 }
 
 .PanelTitle {

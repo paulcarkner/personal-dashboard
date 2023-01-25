@@ -1,5 +1,8 @@
 .Board {
-  display: flex;
   padding: 1em;
+  overflow: hidden;
+  display: grid;
   gap: 1em;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
 }
