@@ -31,7 +31,7 @@ export const RssFeed: React.FC<Props> = ({ url }: Props) => {
   }, [url]);
 
   return (
-    <div className={styles.RssFeed}>
+    <div className={`${styles.RssFeed} customScroll`}>
       {feed?.items?.map((movie: RssFeedItemType, index: number) => (
         <a
           key={index}

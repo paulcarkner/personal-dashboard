@@ -21,7 +21,7 @@ import { RssFeed } from "./../features/RssFeed/RssFeed";
 export const Dashboard = (): JSX.Element => {
   return (
     <section className={boardStyles.Board}>
-      <Panel title="Latest Movie Trailers">
+      <Panel title="Latest Movie Trailers (RSS Feed)">
         <RssFeed url="https://trailers.apple.com/trailers/home/rss/newtrailers.rss" />
       </Panel>
     </section>

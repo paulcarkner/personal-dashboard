@@ -4,6 +4,7 @@
 
   --theme-bg-primary: hsl(225, 15%, 25%);
   --theme-bg-secondary: hsl(225, 25%, 10%);
+  --theme-bg-tertiary: hsl(225, 25%, 5%);
 }
 
 .App {
@@ -18,4 +19,24 @@ header {
   color: var(--theme-text-primary);
   background-color: var(--theme-bg-primary);
   box-shadow: inset 0 0 1px 0 #fff8, 0 0 3px 0px #000;
+}
+
+.customScroll {
+  overflow-y: auto;
+}
+
+.customScroll::-webkit-scrollbar {
+  width: 0.8em;
+}
+
+.customScroll::-webkit-scrollbar-track {
+  background: var(--theme-bg-tertiary);
+}
+
+.customScroll::-webkit-scrollbar-thumb {
+  background: var(--theme-bg-secondary);
+}
+
+.customScroll::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
