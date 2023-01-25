@@ -14,14 +14,15 @@ import boardStyles from "./BoardStyles.module.css";
 
 //Components
 import { Panel } from "./../layout/Panel";
+import { RssFeed } from "./../features/RssFeed/RssFeed";
 
 //Type Declarations
 
 export const Dashboard = (): JSX.Element => {
   return (
     <section className={boardStyles.Board}>
-      <Panel title="Something">
-        <button>Click me!</button>
+      <Panel title="Latest Movie Trailers">
+        <RssFeed url="https://trailers.apple.com/trailers/home/rss/newtrailers.rss" />
       </Panel>
     </section>
   );
