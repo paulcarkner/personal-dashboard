@@ -31,7 +31,7 @@ export const RssFeed: React.FC<Props> = ({ url }: Props) => {
   }, [url]);
 
   return (
-    <section className={styles.RssFeed}>
+    <div className={styles.RssFeed}>
       {feed?.items?.map((movie: RssFeedItemType, index: number) => (
         <a
           key={index}
@@ -56,6 +56,6 @@ export const RssFeed: React.FC<Props> = ({ url }: Props) => {
           </div>
         </a>
       ))}
-    </section>
+    </div>
   );
 };
