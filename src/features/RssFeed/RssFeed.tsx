@@ -11,8 +11,8 @@ import React, { useEffect } from "react";
 
 //Redux Imports
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
-import { RssFeedType, RssFeedItemType } from "./RssFeedSlice";
-import { RssFeedFetchUrl, FeedSelector } from "./RssFeedSlice";
+import { RssFeedType, RssFeedItemType } from "./RssFeedSlice"; //type import
+import { RssFeedFetchUrl, FeedSelector } from "./RssFeedSlice"; //action/selector import
 
 //Styles
 import styles from "./RssFeed.module.css";

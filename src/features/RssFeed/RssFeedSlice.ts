@@ -3,7 +3,6 @@ import { RootState, AppThunk } from "../../app/store";
 
 //Function/Type Imports
 import { fetchUrl } from "./RssFeedAPI";
-//import { RssFeedType, RssFeedItemType } from "./RssFeedTypes";
 
 //Declared Types
 export type RssFeedType = {
@@ -46,7 +45,7 @@ const initialState: RssFeedState = {
 };
 
 //Async Actions
-//USAGE: dispatch(sampleAsyncAction(var))
+//USAGE: dispatch(RssFeedFetchUrl(url))
 export const RssFeedFetchUrl = createAsyncThunk(
   "RssFeed/fetchUrl",
   async (url: string) => {
