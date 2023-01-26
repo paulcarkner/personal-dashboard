@@ -1,3 +1,6 @@
 .SideBar {
   flex: 0 0 20em;
+  color: var(--theme-text-primary);
+  background-color: var(--theme-bg-primary);
+  box-shadow: inset 0 0 1px 0 #fff8, 0 0 3px 0px #000;
 }

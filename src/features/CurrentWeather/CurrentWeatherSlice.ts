@@ -133,7 +133,6 @@ export const CurrentWeatherSlice = createSlice({
       .addCase(FetchCurrentWeather.fulfilled, (state, action) => {
         state.status = "idle";
         state.weather = action.payload;
-        console.log(state.weather);
       })
       .addCase(FetchCurrentWeather.rejected, (state) => {
         state.status = "failed";

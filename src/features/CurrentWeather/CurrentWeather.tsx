@@ -21,6 +21,7 @@ import {
 import styles from "./CurrentWeather.module.css";
 
 //Components
+import { CelsiusTemperature, WeatherIcon, WeatherDate } from "./WeatherUtils";
 
 //Type Declarations
 
@@ -30,7 +31,7 @@ export const CurrentWeather: React.FC = (): JSX.Element => {
   );
   const dispatch = useAppDispatch();
 
-  const lat = 43.6534817;
+  const lat = 43.6534817; //Toronto, ON
   const lon = -79.3839347;
   const exclude = "minutely,alerts";
   const apiKey = "f4bcb6a805ca765f7df85383dc7fdbab"; //for demonstration only, key is domain-restricted
@@ -42,6 +43,45 @@ export const CurrentWeather: React.FC = (): JSX.Element => {
     );
   }, []);
   return (
-    <section className={styles.CurrentWeather}>{weather?.current.temp}</section>
+    <section className={styles.CurrentWeather}>
+      <WeatherIcon
+        className={styles.WeatherIcon}
+        icon={weather?.current?.weather[0]?.id}
+        time={weather?.current?.dt}
+        timezone={weather?.timezone_offset}
+      />
+      <CelsiusTemperature
+        className={styles.Temperature}
+        temperatureK={weather?.current?.temp}
+      />
+      <div className={styles.ForecastContainer}>
+        {weather?.daily?.map((w, index) => {
+          if (index > 3) return null;
+          return (
+            <div className={styles.ForecastDay} key={index}>
+              <WeatherDate
+                className={styles.ForecastDate}
+                time={w.dt}
+                timezone={weather?.timezone_offset}
+              />
+              <WeatherIcon
+                className={styles.ForecastIcon}
+                icon={w.weather[0]?.id}
+                time={w.dt}
+                timezone={weather?.timezone_offset}
+              />
+              <CelsiusTemperature
+                className={styles.ForecastMaxTemperature}
+                temperatureK={w.temp.max}
+              />
+              <CelsiusTemperature
+                className={styles.ForecastMinTemperature}
+                temperatureK={w.temp.min}
+              />
+            </div>
+          );
+        })}
+      </div>
+    </section>
   );
 };
