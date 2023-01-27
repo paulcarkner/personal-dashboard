@@ -11,8 +11,12 @@ import React, { useEffect } from "react";
 
 //Redux Imports
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
-import { RssFeedType, RssFeedItemType } from "./RssFeedSlice"; //type import
-import { RssFeedFetchUrl, FeedSelector } from "./RssFeedSlice"; //action/selector import
+import { RssFeedType, RssFeedItemType, RssFeedStateType } from "./RssFeedSlice"; //type import
+import {
+  RssFeedFetchUrl,
+  FeedSelector,
+  FeedStateSelector,
+} from "./RssFeedSlice"; //action/selector import
 
 //Styles
 import styles from "./RssFeed.module.css";
@@ -24,6 +28,8 @@ type Props = {
 
 export const RssFeed: React.FC<Props> = ({ url }: Props) => {
   const feed: RssFeedType | undefined = useAppSelector(FeedSelector);
+  const feedState: RssFeedStateType | undefined =
+    useAppSelector(FeedStateSelector);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -31,7 +37,11 @@ export const RssFeed: React.FC<Props> = ({ url }: Props) => {
   }, [url]);
 
   return (
-    <div className={`${styles.RssFeed} customScroll`}>
+    <div
+      className={`${styles.RssFeed} customScroll ${
+        feedState.status === "loading" ? "loading" : ""
+      }`}
+    >
       {feed?.items?.map((movie: RssFeedItemType, index: number) => (
         <a
           key={index}

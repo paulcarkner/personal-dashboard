@@ -11,10 +11,14 @@ import React, { useEffect } from "react";
 
 //Redux Imports
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
-import { CurrentWeatherType } from "./CurrentWeatherSlice"; //type import
+import {
+  CurrentWeatherType,
+  CurrentWeatherStateType,
+} from "./CurrentWeatherSlice"; //type import
 import {
   FetchCurrentWeather,
   CurrentWeatherSelector,
+  CurrentWeatherStateSelector,
 } from "./CurrentWeatherSlice"; //action/selector import
 
 //Styles
@@ -28,6 +32,9 @@ import { CelsiusTemperature, WeatherIcon, WeatherDate } from "./WeatherUtils";
 export const CurrentWeather: React.FC = (): JSX.Element => {
   const weather: CurrentWeatherType | undefined = useAppSelector(
     CurrentWeatherSelector
+  );
+  const weatherState: CurrentWeatherStateType | undefined = useAppSelector(
+    CurrentWeatherStateSelector
   );
   const dispatch = useAppDispatch();
 
@@ -43,7 +50,11 @@ export const CurrentWeather: React.FC = (): JSX.Element => {
     );
   }, []);
   return (
-    <section className={styles.CurrentWeather}>
+    <section
+      className={`${styles.CurrentWeather} ${
+        weatherState.status === "loading" ? "loading" : ""
+      }`}
+    >
       <WeatherIcon
         className={styles.WeatherIcon}
         icon={weather?.current?.weather[0]?.id}

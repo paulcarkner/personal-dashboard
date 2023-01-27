@@ -19,15 +19,25 @@ import { CurrentWeather } from "./../features/CurrentWeather/CurrentWeather";
 
 //Type Declarations
 
-export const Dashboard = (): JSX.Element => {
-  return (
-    <section className={boardStyles.Board}>
-      <Panel title="Latest Movie Trailers (RSS Feed)">
-        <RssFeed url="https://trailers.apple.com/trailers/home/rss/newtrailers.rss" />
-      </Panel>
-      <Panel title="Current Weather (API JSON)">
-        <CurrentWeather />
-      </Panel>
-    </section>
-  );
-};
+export class Dashboard extends React.Component {
+  constructor(props: any) {
+    super(props);
+  }
+
+  handleLoadingChange = (e: any) => {
+    console.log(e);
+  };
+
+  render() {
+    return (
+      <section className={boardStyles.Board}>
+        <Panel title="Latest Movie Trailers (RSS Feed)">
+          <RssFeed url="https://trailers.apple.com/trailers/home/rss/newtrailers.rss" />
+        </Panel>
+        <Panel title="Current Weather (API JSON)">
+          <CurrentWeather />
+        </Panel>
+      </section>
+    );
+  }
+}

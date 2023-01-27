@@ -89,12 +89,12 @@ export type CurrentWeatherType = {
 };
 
 //State Interface
-export interface CurrentWeather {
+export interface CurrentWeatherStateType {
   status: "loading" | "idle" | "failed";
   weather?: CurrentWeatherType;
 }
 
-const initialState: CurrentWeather = {
+const initialState: CurrentWeatherStateType = {
   status: "idle",
   weather: undefined,
 };
@@ -143,6 +143,7 @@ export const CurrentWeatherSlice = createSlice({
 //Selectors
 export const CurrentWeatherSelector = (state: RootState) =>
   state.CurrentWeather.weather;
-export const CurrentWeatherState = (state: RootState) => state.CurrentWeather;
+export const CurrentWeatherStateSelector = (state: RootState) =>
+  state.CurrentWeather;
 
 export default CurrentWeatherSlice.reducer;

@@ -32,13 +32,13 @@ export type RssFeedItemType = {
 };
 
 //State Interface
-export interface RssFeedState {
+export interface RssFeedStateType {
   url?: string;
   status: "loading" | "idle" | "failed";
   feed?: RssFeedType;
 }
 
-const initialState: RssFeedState = {
+const initialState: RssFeedStateType = {
   url: undefined,
   status: "idle",
   feed: undefined,
@@ -106,5 +106,6 @@ export const sampleTypedThunkAction =
 //Selectors
 //USAGE: useAppSelector(sampleSelector)
 export const FeedSelector = (state: RootState) => state.RssFeed.feed;
+export const FeedStateSelector = (state: RootState) => state.RssFeed;
 
 export default RssFeedSlice.reducer;
