@@ -85,6 +85,7 @@ export const CurrentWeather: React.FC = (): JSX.Element => {
                 className={styles.ForecastMaxTemperature}
                 temperatureK={w.temp.max}
               />
+              <hr />
               <CelsiusTemperature
                 className={styles.ForecastMinTemperature}
                 temperatureK={w.temp.min}

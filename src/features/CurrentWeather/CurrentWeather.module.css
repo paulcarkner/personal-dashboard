@@ -57,7 +57,14 @@
 }
 
 .ForecastMaxTemperature {
+}
+
+.ForecastDay hr {
+  padding: 0;
+  border: none;
   border-bottom: 1px solid var(--theme-bg-secondary);
+  width: 2em;
+  margin: 0 auto;
 }
 
 .ForecastMinTemperature {
