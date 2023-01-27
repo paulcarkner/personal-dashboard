@@ -9,12 +9,26 @@
   overflow: hidden;
 }
 
+.PanelHeader {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  margin: 1.2em;
+  margin-bottom: 0;
+  color: var(--theme-text-secondary);
+}
+
 .PanelTitle {
   font-size: 1em;
   font-weight: 600;
-  color: var(--theme-text-secondary);
-  margin: 1.2em;
-  margin-bottom: 0;
+}
+
+.PanelInfo {
+  font-size: 1em !important;
+  cursor: pointer;
+}
+
+.PanelInfo:hover {
+  color: var(--theme-text-primary);
 }
 
 .Panel:has(:global(.loading)) {

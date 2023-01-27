@@ -31,10 +31,10 @@ export class Dashboard extends React.Component {
   render() {
     return (
       <section className={boardStyles.Board}>
-        <Panel title="Latest Movie Trailers (RSS Feed)">
+        <Panel title="Latest Movie Trailers" info="RSS Feed">
           <RssFeed url="https://trailers.apple.com/trailers/home/rss/newtrailers.rss" />
         </Panel>
-        <Panel title="Current Weather (API JSON)">
+        <Panel title="Current Weather" info="API JSON">
           <CurrentWeather />
         </Panel>
       </section>
