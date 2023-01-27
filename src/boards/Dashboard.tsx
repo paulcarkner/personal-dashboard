@@ -35,7 +35,11 @@ export class Dashboard extends React.Component {
           <RssFeed url="https://trailers.apple.com/trailers/home/rss/newtrailers.rss" />
         </Panel>
         <Panel title="Current Weather" info="API JSON">
-          <CurrentWeather />
+          <CurrentWeather
+            lat={43.6534817}
+            lon={-79.3839347}
+            location="Toronto, ON"
+          />
         </Panel>
       </section>
     );

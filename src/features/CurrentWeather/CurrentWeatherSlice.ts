@@ -88,23 +88,38 @@ export type CurrentWeatherType = {
   }>;
 };
 
-//State Interface
-export interface CurrentWeatherStateType {
+type FetchPropsType = {
+  location: string;
+  lat: number;
+  lon: number;
+  exclude: string;
+};
+
+export type WeatherLocationType = {
+  location: string;
   status: "loading" | "idle" | "failed";
   weather?: CurrentWeatherType;
+};
+
+//State Interface
+export interface CurrentWeatherStateType {
+  locations: Array<WeatherLocationType>;
 }
 
 const initialState: CurrentWeatherStateType = {
-  status: "idle",
-  weather: undefined,
+  locations: [],
 };
+
+const apiKey = "f4bcb6a805ca765f7df85383dc7fdbab"; //for demonstration only, key is domain-restricted
 
 //Async Actions
 export const FetchCurrentWeather = createAsyncThunk(
   "CurrentWeather/FetchCurrentWeather",
-  async (url: string) => {
-    const response = await fetchJson(url);
-    return response.data;
+  async (props: FetchPropsType) => {
+    const response = await fetchJson(
+      `https://api.openweathermap.org/data/3.0/onecall?exclude=${props.exclude}&lat=${props.lat}&lon=${props.lon}&appid=${apiKey}`
+    );
+    return { location: props.location, data: response.data };
   }
 );
 
@@ -112,37 +127,58 @@ export const FetchCurrentWeather = createAsyncThunk(
 export const CurrentWeatherSlice = createSlice({
   name: "CurrentWeather",
   initialState,
-  reducers: {
-    /*
-    //USAGE: dispatch(sampleAction1)
-    sampleAction1: (state) => {
-      state.value += 1;
-    },
-    //USAGE: dispatch(sampleAction2(var))
-    sampleAction2: (state, action: PayloadAction<number>) => {
-      state.value += action.payload;
-    },
-    */
-  },
+  reducers: {},
   extraReducers: (builder) => {
     //handle imported actions or Thunk status
     builder
-      .addCase(FetchCurrentWeather.pending, (state) => {
-        state.status = "loading";
+      .addCase(FetchCurrentWeather.pending, (state, action) => {
+        console.log(action);
+        // if (
+        //   !state.locations?.some(
+        //     (item: WeatherLocationType) =>
+        //       item.location === action.payload.location
+        //   )
+        // ) {
+        //   state.locations.push(new WeatherLocationType() {location: location});
+        // }
+        //state.status = "loading";
       })
       .addCase(FetchCurrentWeather.fulfilled, (state, action) => {
-        state.status = "idle";
-        state.weather = action.payload;
+        console.log(action);
+        //state.status = "idle";
+        //   const w = Object.assign(action.payload.data, {
+        //     location: action.payload.location,
+        //   });
+        //   if (
+        //     !state.locations?.some(
+        //       (item: WeatherLocationType) =>
+        //         item.location === action.payload.location
+        //     )
+        //   ) {
+        //     state.locations.push(new WeatherLocationType() {location: location});
+        //   }
+        //     state.locations.filter((item: WeatherLocationType) =>
+        //     item.location === action.payload.location
+        // )[0].weather = w;
       })
-      .addCase(FetchCurrentWeather.rejected, (state) => {
-        state.status = "failed";
+      .addCase(FetchCurrentWeather.rejected, (state, action) => {
+        console.log(action);
+        // if (
+        //   !state.locations?.some(
+        //     (item: WeatherLocationType) =>
+        //       item.location === action.payload.location
+        //   )
+        // ) {
+        //   state.locations.push(({location: action.payload.location, status: "failed"}) as WeatherLocationType);
+        // }
+        // state.locations[0].status = "failed";
       });
   },
 });
 
 //Selectors
-export const CurrentWeatherSelector = (state: RootState) =>
-  state.CurrentWeather.weather;
+// export const CurrentWeatherSelector = (state: RootState) =>
+//   state.CurrentWeather.locations;
 export const CurrentWeatherStateSelector = (state: RootState) =>
   state.CurrentWeather;
 

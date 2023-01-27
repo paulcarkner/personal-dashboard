@@ -12,14 +12,15 @@ import React, { useEffect } from "react";
 //Redux Imports
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import {
+  //types
   CurrentWeatherType,
   CurrentWeatherStateType,
-} from "./CurrentWeatherSlice"; //type import
-import {
+  WeatherLocationType,
+  //actions
   FetchCurrentWeather,
-  CurrentWeatherSelector,
+  //selectors
   CurrentWeatherStateSelector,
-} from "./CurrentWeatherSlice"; //action/selector import
+} from "./CurrentWeatherSlice";
 
 //Styles
 import styles from "./CurrentWeather.module.css";
@@ -28,31 +29,41 @@ import styles from "./CurrentWeather.module.css";
 import { CelsiusTemperature, WeatherIcon, WeatherDate } from "./WeatherUtils";
 
 //Type Declarations
+type Props = {
+  lat: number;
+  lon: number;
+  location: string;
+};
 
-export const CurrentWeather: React.FC = (): JSX.Element => {
-  const weather: CurrentWeatherType | undefined = useAppSelector(
-    CurrentWeatherSelector
-  );
+export const CurrentWeather: React.FC<Props> = ({
+  lat,
+  lon,
+  location,
+}: Props): JSX.Element => {
+  // const weatherTemp: Array<CurrentWeatherType> | undefined = useAppSelector(
+  //   CurrentWeatherSelector
+  // ); //.filter((item: CurrentWeatherType) => item.location === location)[0];
+  // let weather = weatherTemp ? weatherTemp[0] : null;
   const weatherState: CurrentWeatherStateType | undefined = useAppSelector(
     CurrentWeatherStateSelector
-  );
+  ); //.filter((item: CurrentWeatherType) => item.location === location)[0];
+  const weather: CurrentWeatherType | underfined =
+    weatherState.locations.filter(
+      (item: WeatherLocationType) => item.location === location
+    )[0].weather;
   const dispatch = useAppDispatch();
 
-  const lat = 43.6534817; //Toronto, ON
-  const lon = -79.3839347;
+  //const lat = 43.6534817; //Toronto, ON
+  //const lon = -79.3839347;
   const exclude = "minutely,alerts";
-  const apiKey = "f4bcb6a805ca765f7df85383dc7fdbab"; //for demonstration only, key is domain-restricted
   useEffect(() => {
-    dispatch(
-      FetchCurrentWeather(
-        `https://api.openweathermap.org/data/3.0/onecall?exclude=${exclude}&lat=${lat}&lon=${lon}&appid=${apiKey}`
-      )
-    );
+    dispatch(FetchCurrentWeather({ location, lat, lon, exclude }));
   }, []);
   return (
     <section
       className={`${styles.CurrentWeather} ${
-        weatherState.status === "loading" ? "loading" : ""
+        ""
+        // weatherState?.status === "loading" ? "loading" : ""
       }`}
     >
       <WeatherIcon
@@ -66,7 +77,7 @@ export const CurrentWeather: React.FC = (): JSX.Element => {
         temperatureK={weather?.current?.temp}
       />
       <div className={styles.ForecastContainer}>
-        {weather?.daily?.map((w, index) => {
+        {weather?.daily?.map((w, index: number) => {
           if (index > 3) return null;
           return (
             <div className={styles.ForecastDay} key={index}>

@@ -26,7 +26,7 @@ type Props = {
   url: string;
 };
 
-export const RssFeed: React.FC<Props> = ({ url }: Props) => {
+export const RssFeed: React.FC<Props> = ({ url }: Props): JSX.Element => {
   const feed: RssFeedType | undefined = useAppSelector(FeedSelector);
   const feedState: RssFeedStateType | undefined =
     useAppSelector(FeedStateSelector);
