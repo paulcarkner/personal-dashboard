@@ -59,7 +59,6 @@ export const FetchWeather = createAsyncThunk(
   }
 );
 
-//Actions
 export const WeatherManagerSlice = createSlice({
   name: "WeatherManager",
   initialState,

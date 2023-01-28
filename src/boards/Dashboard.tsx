@@ -15,7 +15,7 @@ import boardStyles from "./BoardStyles.module.css";
 //Components
 import { Panel } from "./../layout/Panel";
 import { RssFeed } from "./../features/RssFeed/RssFeed";
-import { CurrentWeather } from "./../features/Weather/WeatherTest";
+import { CurrentWeather } from "./../features/Weather/Weather";
 
 //Type Declarations
 
