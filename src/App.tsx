@@ -6,11 +6,11 @@ import { Main } from "./layout/Main";
 import { SideBar } from "./layout/SideBar";
 
 //Styles
-import "./App.css";
+import styles from "./App.module.css";
 
 function App(): JSX.Element {
   return (
-    <div className="App">
+    <div className={styles.App}>
       <SideBar />
       <Main />
     </div>

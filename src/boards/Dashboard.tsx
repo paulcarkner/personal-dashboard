@@ -16,6 +16,7 @@ import boardStyles from "./BoardStyles.module.css";
 import { Panel } from "./../layout/Panel";
 import { RssFeed } from "./../features/RssFeed/RssFeed";
 import { CurrentWeather } from "./../features/Weather/Weather";
+import { Notes } from "./../features/Notes/Notes";
 
 //Type Declarations
 
@@ -47,6 +48,12 @@ export class Dashboard extends React.Component {
             lon={-69.9886}
             location="Santo Domingo"
           />
+        </Panel>
+        <Panel title="Business Notes" info="localStorage Data">
+          <Notes category="business" />
+        </Panel>
+        <Panel title="Personal Notes" info="localStorage Data">
+          <Notes category="personal" />
         </Panel>
       </section>
     );
