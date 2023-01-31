@@ -1,7 +1,15 @@
-import React, { useRef, forwardRef, useState, MutableRefObject } from "react";
+import React, {
+  useRef,
+  forwardRef,
+  useState,
+  useEffect,
+  MutableRefObject,
+} from "react";
 
 //Redux Imports
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
+import type { AppDispatch } from "../../app/store";
+
 import {
   //types
   NoteType,
@@ -12,6 +20,7 @@ import {
   DeleteNote,
   UpdateNoteName,
   UpdateNoteContent,
+  AddNoteItem,
   DeleteNoteContent,
 
   //selectors
@@ -31,6 +40,7 @@ type Props = {
 type DialogProps = {
   note: NoteType;
   closeDialog: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  dispatch: AppDispatch;
 };
 
 export const Notes: React.FC<Props> = ({ category }: Props): JSX.Element => {
@@ -51,7 +61,30 @@ export const Notes: React.FC<Props> = ({ category }: Props): JSX.Element => {
   });
 
   function handleAddNoteClick() {
-    //setDialogState(notes.filter((note) => note.id === e.target.value));
+    const newId = crypto.randomUUID();
+    const newNote: NoteType = {
+      id: newId,
+      name: "",
+      type: "text",
+      category: category,
+      content: [{ checked: false, value: "" }],
+    };
+    dispatch(CreateNote(newNote));
+    setDialogState(newNote);
+    dialogRef.current?.showModal();
+  }
+
+  function handleAddToDoClick() {
+    const newId = crypto.randomUUID();
+    const newNote: NoteType = {
+      id: newId,
+      name: "",
+      type: "todo",
+      category: category,
+      content: [{ checked: false, value: "" }],
+    };
+    dispatch(CreateNote(newNote));
+    setDialogState(newNote);
     dialogRef.current?.showModal();
   }
 
@@ -65,12 +98,19 @@ export const Notes: React.FC<Props> = ({ category }: Props): JSX.Element => {
         {notes?.map((note, index) => {
           switch (note.type) {
             case "text":
-              return <div></div>;
+              return (
+                <div className={styles.Note} key={index}>
+                  <div className={styles.NoteTitle}>{note.name}</div>
+                  <div className={styles.NoteContent}>
+                    {note.content[0].value}
+                  </div>
+                </div>
+              );
 
             case "todo":
-              return <div></div>;
+              return <div className={styles.Note} key={index}></div>;
           }
-          return <div></div>;
+          return <div key={index}></div>;
         })}
         <div className={styles.NoNotes}>No Notes</div>
       </div>
@@ -82,7 +122,10 @@ export const Notes: React.FC<Props> = ({ category }: Props): JSX.Element => {
           <span className="material-symbols-sharp">add_circle</span>
           Add Note
         </button>
-        <button className={`${styles.AddToDoBtn} btn`} onClick={() => {}}>
+        <button
+          className={`${styles.AddToDoBtn} btn`}
+          onClick={handleAddToDoClick}
+        >
           <span className="material-symbols-sharp">add_circle</span>
           Add Checklist
         </button>
@@ -91,6 +134,7 @@ export const Notes: React.FC<Props> = ({ category }: Props): JSX.Element => {
         ref={dialogRef}
         note={dialogState}
         closeDialog={handleCloseDialog}
+        dispatch={dispatch}
       />
     </div>
   );
@@ -100,18 +144,34 @@ export const Notes: React.FC<Props> = ({ category }: Props): JSX.Element => {
 const NoteDialog = forwardRef<HTMLDialogElement, DialogProps>((props, ref) => {
   const [inputState, setInputState] = useState<NoteType>(props.note);
 
-  const handleInputChange = (
+  useEffect(() => {
+    setInputState(props.note);
+  }, [props.note]);
+
+  const handleNameChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    let value: string | Array<{ checked: boolean; value: string }> =
-      e.target.value;
-    if (e.target.name === "content") {
-      let index = parseInt("0" + e.target.getAttribute("data-index"), 10);
-      value = inputState.content.map((c, i) =>
+    setInputState(Object.assign({}, inputState, { name: e.target.value }));
+    props.dispatch(UpdateNoteName({ id: inputState.id, name: e.target.value }));
+  };
+
+  const handleContentChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    let index = parseInt("0" + e.target.getAttribute("data-index"), 10);
+    let value: Array<{ checked: boolean; value: string }> =
+      inputState.content.map((c, i) =>
         i === index ? { checked: c.checked, value: e.target.value } : c
       );
-    }
-    setInputState(Object.assign({}, inputState, { [e.target.name]: value }));
+    setInputState(Object.assign({}, inputState, { content: value }));
+    props.dispatch(
+      UpdateNoteContent({
+        id: inputState.id,
+        contentIndex: index,
+        checked: inputState.content[index].checked,
+        value: value[index].value,
+      })
+    );
   };
 
   const handleCheckClick = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -120,9 +180,44 @@ const NoteDialog = forwardRef<HTMLDialogElement, DialogProps>((props, ref) => {
       i === index ? { checked: !c.checked, value: c.value } : c
     );
     setInputState(Object.assign({}, inputState, { content: value }));
+    props.dispatch(
+      UpdateNoteContent({
+        id: inputState.id,
+        contentIndex: index,
+        checked: value[index].checked,
+        value: value[index].value,
+      })
+    );
   };
 
-  const handleDeleteClick = (e: React.MouseEvent<HTMLButtonElement>) => {};
+  const handleAddItemClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    setInputState(
+      Object.assign({}, inputState, {
+        content: [...inputState.content, { checked: false, value: "" }],
+      })
+    );
+    props.dispatch(AddNoteItem({ id: inputState.id }));
+  };
+
+  const handleRemoveClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    let index = parseInt("0" + e.currentTarget.getAttribute("data-index"), 10);
+    let value = inputState.content;
+    value.splice(index, 1);
+    setInputState(Object.assign({}, inputState, { content: value }));
+    props.dispatch(
+      DeleteNoteContent({
+        id: inputState.id,
+        contentIndex: index,
+      })
+    );
+  };
+
+  const handleDeleteClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    if (window.confirm("Are you sure you want to delete this note?")) {
+      props.dispatch(DeleteNote(inputState.id));
+      props.closeDialog(e);
+    }
+  };
 
   const handleCloseClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     props.closeDialog(e);
@@ -135,7 +230,8 @@ const NoteDialog = forwardRef<HTMLDialogElement, DialogProps>((props, ref) => {
         <input
           className={styles.NoteName}
           value={inputState.name}
-          onChange={handleInputChange}
+          onChange={handleNameChange}
+          placeholder="Untitled Note"
           name="name"
         />
         {inputState.type === "text" ? (
@@ -143,7 +239,7 @@ const NoteDialog = forwardRef<HTMLDialogElement, DialogProps>((props, ref) => {
             name="content"
             key={0}
             value={inputState.content[0].value}
-            onChange={handleInputChange}
+            onChange={handleContentChange}
           ></textarea>
         ) : (
           <div className={styles.List}>
@@ -165,14 +261,23 @@ const NoteDialog = forwardRef<HTMLDialogElement, DialogProps>((props, ref) => {
                     data-index={index}
                     value={c.value}
                     checked={c.checked}
-                    onChange={handleInputChange}
+                    onChange={handleContentChange}
                   />
+                  <button
+                    className={styles.RemoveBtn}
+                    data-index={index}
+                    onClick={handleRemoveClick}
+                  >
+                    <span className="material-symbols-sharp">cancel</span>
+                  </button>
                 </div>
               );
             })}
             <div className={`${styles.ListItem} ${styles.AddItem}`}>
               <span className="material-symbols-sharp">add</span>
-              <div>Add Item...</div>
+              <button className={styles.AddItem} onClick={handleAddItemClick}>
+                Add Item...
+              </button>
             </div>
           </div>
         )}

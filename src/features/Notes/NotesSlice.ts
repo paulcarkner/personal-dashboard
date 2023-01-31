@@ -16,7 +16,7 @@ export type NoteType = {
 
 //State Interface
 const initialState: NotesStateType = {
-  notes: JSON.parse(localStorage.getItem("notes") + ""),
+  notes: JSON.parse(localStorage.getItem("notes") ?? "[]"),
 };
 
 //Actions
@@ -61,6 +61,15 @@ export const NotesSlice = createSlice({
       });
       updateStorage(state);
     },
+    AddNoteItem: (
+      state: NotesStateType,
+      action: PayloadAction<{ id: string }>
+    ) => {
+      state.notes.forEach((note) => {
+        if (note.id === action.payload.id)
+          note.content.push({ checked: false, value: "" });
+      });
+    },
     DeleteNoteContent: (
       state: NotesStateType,
       action: PayloadAction<{ id: string; contentIndex: number }>
@@ -75,7 +84,7 @@ export const NotesSlice = createSlice({
 });
 
 const updateStorage = (state: NotesStateType) => {
-  localStorage.setItem("notes", JSON.stringify(state));
+  localStorage.setItem("notes", JSON.stringify(state.notes));
 };
 
 export const {
@@ -83,6 +92,7 @@ export const {
   DeleteNote,
   UpdateNoteName,
   UpdateNoteContent,
+  AddNoteItem,
   DeleteNoteContent,
 } = NotesSlice.actions;
 
