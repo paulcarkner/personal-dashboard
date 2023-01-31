@@ -11,7 +11,7 @@ export type NoteType = {
   name: string;
   type: "text" | "todo";
   category: string;
-  content: Array<string>;
+  content: Array<{ checked: boolean; value: string }>;
 };
 
 //State Interface
@@ -46,14 +46,16 @@ export const NotesSlice = createSlice({
       action: PayloadAction<{
         id: string;
         contentIndex: number;
-        content: string;
+        checked: boolean;
+        value: string;
       }>
     ) => {
       state.notes.forEach((note) => {
         if (note.id === action.payload.id) {
           note.content.forEach((content, index) => {
             if (index === action.payload.contentIndex)
-              content = action.payload.content;
+              content.value = action.payload.value;
+            content.checked = action.payload.checked;
           });
         }
       });

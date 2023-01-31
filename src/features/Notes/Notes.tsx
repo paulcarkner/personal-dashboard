@@ -44,7 +44,10 @@ export const Notes: React.FC<Props> = ({ category }: Props): JSX.Element => {
     name: "some name",
     type: "todo",
     category: "business",
-    content: ["hello world", "goodbye"],
+    content: [
+      { checked: true, value: "hello world" },
+      { checked: false, value: "goodbye" },
+    ],
   });
 
   function handleAddNoteClick() {
@@ -100,20 +103,28 @@ const NoteDialog = forwardRef<HTMLDialogElement, DialogProps>((props, ref) => {
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    let value: string | string[] = e.target.value;
+    let value: string | Array<{ checked: boolean; value: string }> =
+      e.target.value;
     if (e.target.name === "content") {
       let index = parseInt("0" + e.target.getAttribute("data-index"), 10);
       value = inputState.content.map((c, i) =>
-        i === index ? e.target.value : c
+        i === index ? { checked: c.checked, value: e.target.value } : c
       );
     }
     setInputState(Object.assign({}, inputState, { [e.target.name]: value }));
   };
 
-  const handleSaveClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    props.closeDialog(e);
+  const handleCheckClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    let index = parseInt("0" + e.currentTarget.getAttribute("data-index"), 10);
+    let value = inputState.content.map((c, i) =>
+      i === index ? { checked: !c.checked, value: c.value } : c
+    );
+    setInputState(Object.assign({}, inputState, { content: value }));
   };
-  const handleCancelClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+
+  const handleDeleteClick = (e: React.MouseEvent<HTMLButtonElement>) => {};
+
+  const handleCloseClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     props.closeDialog(e);
   };
 
@@ -131,21 +142,29 @@ const NoteDialog = forwardRef<HTMLDialogElement, DialogProps>((props, ref) => {
           <textarea
             name="content"
             key={0}
-            value={inputState.content[0]}
+            value={inputState.content[0].value}
             onChange={handleInputChange}
           ></textarea>
         ) : (
           <div className={styles.List}>
             {inputState.content.map((c, index) => {
               return (
-                <div className={styles.ListItem}>
-                  <span className="material-symbols-sharp">check_box</span>
+                <div className={styles.ListItem} key={index}>
+                  <button
+                    className={styles.CheckBtn}
+                    data-index={index}
+                    onClick={handleCheckClick}
+                  >
+                    <span className="material-symbols-sharp">
+                      {c.checked ? "check_box" : "check_box_outline_blank"}
+                    </span>
+                  </button>
                   <input
                     className={styles.ListInput}
                     name="content"
-                    key={index}
                     data-index={index}
-                    value={c}
+                    value={c.value}
+                    checked={c.checked}
                     onChange={handleInputChange}
                   />
                 </div>
@@ -159,11 +178,11 @@ const NoteDialog = forwardRef<HTMLDialogElement, DialogProps>((props, ref) => {
         )}
       </div>
       <div className={styles.DialogFooter}>
-        <button className="btn" onClick={handleSaveClick}>
-          Save
+        <button className="btn btn-secondary" onClick={handleDeleteClick}>
+          <span className="material-symbols-sharp">delete</span>
         </button>
-        <button className="btn btn-secondary" onClick={handleCancelClick}>
-          Cancel
+        <button className="btn" onClick={handleCloseClick}>
+          Close
         </button>
       </div>
     </dialog>
