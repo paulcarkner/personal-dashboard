@@ -50,15 +50,19 @@ export const Notes: React.FC<Props> = ({ category }: Props): JSX.Element => {
 
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [dialogState, setDialogState] = useState<NoteType>({
-    id: "a",
-    name: "some name",
-    type: "todo",
-    category: "business",
-    content: [
-      { checked: true, value: "hello world" },
-      { checked: false, value: "goodbye" },
-    ],
+    id: "",
+    name: "",
+    type: "text",
+    category: "",
+    content: [{ checked: false, value: "" }],
   });
+
+  const handleEditClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    let id = e.currentTarget.getAttribute("data-id");
+    console.log(id);
+    setDialogState(notes.filter((note) => note.id === id)[0]);
+    dialogRef.current?.showModal();
+  };
 
   function handleAddNoteClick() {
     const newId = crypto.randomUUID();
@@ -100,17 +104,60 @@ export const Notes: React.FC<Props> = ({ category }: Props): JSX.Element => {
             case "text":
               return (
                 <div className={styles.Note} key={index}>
-                  <div className={styles.NoteTitle}>{note.name}</div>
+                  <div className={styles.NoteTitle}>
+                    {note.name.length > 0 ? note.name : <i>[Untitled]</i>}
+                  </div>
                   <div className={styles.NoteContent}>
                     {note.content[0].value}
                   </div>
+                  <button
+                    className={styles.EditNoteBtn}
+                    onClick={handleEditClick}
+                    data-id={note.id}
+                  >
+                    <span className="material-symbols-sharp">edit_note</span>
+                  </button>
                 </div>
               );
 
             case "todo":
-              return <div className={styles.Note} key={index}></div>;
+              return (
+                <div className={styles.Note} key={index}>
+                  <div className={styles.NoteTitle}>
+                    {note.name.length > 0 ? note.name : <i>[Untitled]</i>}
+                  </div>
+                  <div className={`${styles.NoteContent}`}>
+                    {note.content.map((c, index) => {
+                      if (index === 5 && note.content.length > 6)
+                        return (
+                          <div className={styles.MoreItems} key={index}>
+                            {note.content.length - 5} More Items...
+                          </div>
+                        );
+                      if (index > 5) return null;
+                      return (
+                        <div className={styles.ListItem} key={index}>
+                          <span className="material-symbols-sharp">
+                            {c.checked
+                              ? "check_box"
+                              : "check_box_outline_blank"}
+                          </span>
+                          <div className={styles.ListItemText}>{c.value}</div>
+                        </div>
+                      );
+                    })}
+                    <button
+                      className={styles.EditNoteBtn}
+                      onClick={handleEditClick}
+                      data-id={note.id}
+                    >
+                      <span className="material-symbols-sharp">edit_note</span>
+                    </button>
+                  </div>
+                </div>
+              );
           }
-          return <div key={index}></div>;
+          return null;
         })}
         <div className={styles.NoNotes}>No Notes</div>
       </div>
@@ -201,8 +248,9 @@ const NoteDialog = forwardRef<HTMLDialogElement, DialogProps>((props, ref) => {
 
   const handleRemoveClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     let index = parseInt("0" + e.currentTarget.getAttribute("data-index"), 10);
-    let value = inputState.content;
+    let value = [...inputState.content];
     value.splice(index, 1);
+    console.log(value);
     setInputState(Object.assign({}, inputState, { content: value }));
     props.dispatch(
       DeleteNoteContent({
@@ -260,7 +308,6 @@ const NoteDialog = forwardRef<HTMLDialogElement, DialogProps>((props, ref) => {
                     name="content"
                     data-index={index}
                     value={c.value}
-                    checked={c.checked}
                     onChange={handleContentChange}
                   />
                   <button

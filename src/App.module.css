@@ -6,6 +6,7 @@
   --theme-bg-primary: hsl(225, 15%, 25%);
   --theme-bg-secondary: hsl(225, 25%, 10%);
   --theme-bg-tertiary: hsl(225, 25%, 5%);
+  --theme-bg-fade-transparent: hsla(0, 0%, 0%, 50%);
 
   --theme-accent-primary: hsl(235, 20%, 40%);
   --theme-accent-secondary: hsl(355, 20%, 40%);

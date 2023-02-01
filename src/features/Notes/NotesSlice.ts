@@ -53,9 +53,10 @@ export const NotesSlice = createSlice({
       state.notes.forEach((note) => {
         if (note.id === action.payload.id) {
           note.content.forEach((content, index) => {
-            if (index === action.payload.contentIndex)
+            if (index === action.payload.contentIndex) {
               content.value = action.payload.value;
-            content.checked = action.payload.checked;
+              content.checked = action.payload.checked;
+            }
           });
         }
       });

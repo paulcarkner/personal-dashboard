@@ -31,6 +31,7 @@
   overflow: hidden;
   flex: 0 0 auto;
   padding: 0.5em;
+  position: relative;
 }
 
 .NoteTitle {
@@ -42,6 +43,11 @@
   padding: 0.5em;
 }
 
+.NoteTitle i {
+  color: var(--theme-text-secondary);
+  font-style: italic;
+}
+
 .NoteContent {
   display: -webkit-box;
   -webkit-line-clamp: 8;
@@ -49,6 +55,44 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: pre-line;
+  line-height: 1.3em;
+}
+
+.NoteContent .ListItem {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.NoteContent .ListItemText {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.NoteContent .MoreItems {
+  padding: 0.3em;
+  color: var(--theme-text-secondary);
+}
+
+.EditNoteBtn {
+  position: absolute;
+  display: none;
+  inset: 0;
+  background-color: var(--theme-bg-fade-transparent);
+  color: var(--theme-text-primary);
+  border: none;
+  font-size: 3em;
+  cursor: pointer;
+}
+
+.EditNoteBtn span {
+  font-size: 1.5em;
+}
+
+.Note:hover .EditNoteBtn {
+  display: block;
 }
 
 .ButtonBar {
