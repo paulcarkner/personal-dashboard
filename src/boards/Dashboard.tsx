@@ -55,6 +55,12 @@ export class Dashboard extends React.Component {
         <Panel title="Personal Notes" info="localStorage Data">
           <Notes category="personal" />
         </Panel>
+        <Panel
+          title="Monthly Website Visitors"
+          info="Visualization of JSON Data"
+        >
+          <LineChart />
+        </Panel>
       </section>
     );
   }

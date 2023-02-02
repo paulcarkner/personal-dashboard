@@ -59,7 +59,6 @@ export const Notes: React.FC<Props> = ({ category }: Props): JSX.Element => {
 
   const handleEditClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     let id = e.currentTarget.getAttribute("data-id");
-    console.log(id);
     setDialogState(notes.filter((note) => note.id === id)[0]);
     dialogRef.current?.showModal();
   };
@@ -250,7 +249,6 @@ const NoteDialog = forwardRef<HTMLDialogElement, DialogProps>((props, ref) => {
     let index = parseInt("0" + e.currentTarget.getAttribute("data-index"), 10);
     let value = [...inputState.content];
     value.splice(index, 1);
-    console.log(value);
     setInputState(Object.assign({}, inputState, { content: value }));
     props.dispatch(
       DeleteNoteContent({
