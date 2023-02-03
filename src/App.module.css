@@ -10,6 +10,7 @@
 
   --theme-accent-primary: hsl(235, 20%, 40%);
   --theme-accent-secondary: hsl(355, 20%, 40%);
+  --theme-accent-tertiary: hsl(115, 20%, 40%);
 }
 
 /* ELEMENT STYLING RESETS */

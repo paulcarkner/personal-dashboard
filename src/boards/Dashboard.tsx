@@ -17,6 +17,7 @@ import { Panel } from "./../layout/Panel";
 import { RssFeed } from "./../features/RssFeed/RssFeed";
 import { CurrentWeather } from "./../features/Weather/Weather";
 import { Notes } from "./../features/Notes/Notes";
+import { LineChart } from "./../features/DataChart/DataChart";
 
 //Type Declarations
 
@@ -59,7 +60,7 @@ export class Dashboard extends React.Component {
           title="Monthly Website Visitors"
           info="Visualization of JSON Data"
         >
-          <LineChart />
+          <LineChart x="" y="" />
         </Panel>
       </section>
     );
