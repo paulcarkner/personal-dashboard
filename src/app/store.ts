@@ -5,6 +5,7 @@ import sampleReducer from "../features/_sample/_sampleSlice"; //SAMPLE
 import RssFeedReducer from "../features/RssFeed/RssFeedSlice";
 import WeatherManagerReducer from "../features/Weather/WeatherSlice";
 import NotesReducer from "../features/Notes/NotesSlice";
+import DataChartReducer from "../features/DataChart/DataChartSlice";
 
 export const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ export const store = configureStore({
     RssFeed: RssFeedReducer,
     WeatherManager: WeatherManagerReducer,
     NotesManager: NotesReducer,
+    DataChartManager: DataChartReducer,
   },
 });
 

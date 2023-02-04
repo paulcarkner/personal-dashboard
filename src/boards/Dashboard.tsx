@@ -60,7 +60,7 @@ export class Dashboard extends React.Component {
           title="Monthly Website Visitors"
           info="Visualization of JSON Data"
         >
-          <LineChart x="" y="" />
+          <LineChart url="" x="" y="" />
         </Panel>
       </section>
     );

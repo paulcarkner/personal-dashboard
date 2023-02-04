@@ -2,6 +2,8 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  container-type: size;
+  container-name: panel-size;
 }
 
 .WeatherIcon {
@@ -10,21 +12,28 @@
   align-items: center;
   justify-content: center;
   container-type: size;
+  container-name: icon;
   text-align: center;
 }
 
+.Temperature {
+  flex: 0 0 1em;
+  text-align: center;
+  padding-bottom: 0.5em;
+  line-height: 1em;
+}
+
 /* Resizes Webfont Icon to fit container */
-@container (min-width: 0px) {
+@container icon (min-width: 0px) {
   .WeatherIcon:before {
     font-size: 80cqmin;
   }
 }
 
-.Temperature {
-  flex: 0;
-  font-size: 2em;
-  text-align: center;
-  padding-bottom: 0.1em;
+@container panel-size (min-width: 0px) {
+  .Temperature {
+    font-size: 12cqmin;
+  }
 }
 
 .ForecastContainer {

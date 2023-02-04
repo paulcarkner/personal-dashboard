@@ -24,11 +24,16 @@ import { Line } from "react-chartjs-2";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import type { AppDispatch } from "../../app/store";
 
-//types
+import {
+  //types
+  DataChartStateType,
 
-//actions
+  //actions
+  FetchDataSource,
 
-//selectors
+  //selectors
+  DataChartStateSelector,
+} from "./DataChartSlice";
 
 //Styles
 import styles from "./DataChart.module.css";
@@ -37,6 +42,7 @@ import styles from "./DataChart.module.css";
 
 //Type Declarations
 type Props = {
+  url: string;
   x: any;
   y: any;
 };
@@ -51,7 +57,7 @@ ChartJS.register(
   Legend
 );
 
-export const LineChart = ({ x, y }: Props): JSX.Element => {
+export const LineChart = ({ url, x, y }: Props): JSX.Element => {
   const labels = [
     "January",
     "February",
@@ -61,6 +67,17 @@ export const LineChart = ({ x, y }: Props): JSX.Element => {
     "June",
     "July",
   ];
+
+  const dataChartState: DataChartStateType = useAppSelector(
+    DataChartStateSelector
+  );
+  const dataChart = dataChartState.dataSources?.filter(
+    (source) => source.url === url
+  );
+  const dispatch = useAppDispatch();
+
+  dispatch(FetchDataSource({ url }));
+
   return (
     <div className={styles.ChartContainer}>
       <Line
@@ -68,6 +85,22 @@ export const LineChart = ({ x, y }: Props): JSX.Element => {
         options={{
           responsive: true,
           maintainAspectRatio: false,
+          scales: {
+            x: {
+              grid: {
+                color: getComputedStyle(document.body).getPropertyValue(
+                  "--theme-text-tertiary"
+                ),
+              },
+            },
+            y: {
+              grid: {
+                color: getComputedStyle(document.body).getPropertyValue(
+                  "--theme-text-tertiary"
+                ),
+              },
+            },
+          },
           plugins: {
             legend: {
               position: "top" as const,
@@ -84,9 +117,7 @@ export const LineChart = ({ x, y }: Props): JSX.Element => {
           datasets: [
             {
               label: "Dataset 1",
-              data: labels.map((x: string, i: number) =>
-                Math.pow((i - 3) * 2, 3)
-              ),
+              data: [55, 150, 78, 66, 120, 182, 40],
               borderColor: getComputedStyle(document.body).getPropertyValue(
                 "--theme-accent-primary"
               ),
@@ -97,7 +128,7 @@ export const LineChart = ({ x, y }: Props): JSX.Element => {
             },
             {
               label: "Dataset 2",
-              data: labels.map((x: string, i: number) => 85 - i * i * 10),
+              data: [35, 112, 68, 83, 112, 144, 54],
               borderColor: getComputedStyle(document.body).getPropertyValue(
                 "--theme-accent-secondary"
               ),
@@ -108,7 +139,7 @@ export const LineChart = ({ x, y }: Props): JSX.Element => {
             },
             {
               label: "Dataset 3",
-              data: labels.map((x: string, i: number) => 35 + i * 10),
+              data: [65, 198, 88, 46, 144, 155, 78],
               borderColor: getComputedStyle(document.body).getPropertyValue(
                 "--theme-accent-tertiary"
               ),
