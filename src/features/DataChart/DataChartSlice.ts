@@ -35,12 +35,17 @@ export const DataChartSlice = createSlice({
     builder
       .addCase(FetchDataSource.pending, (state, action) => {
         let url: string = action.meta.arg.url;
+        addDataSourceIfMissing(url, state);
+        setDataSourceStatus(url, state, "pending");
       })
       .addCase(FetchDataSource.fulfilled, (state, action) => {
         let url: string = action.meta.arg.url;
+        setDataSourceData(url, state, action.payload);
+        setDataSourceStatus(url, state, "fulfilled");
       })
       .addCase(FetchDataSource.rejected, (state, action) => {
         let url: string = action.meta.arg.url;
+        setDataSourceStatus(url, state, "failed");
       });
   },
 });

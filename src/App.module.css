@@ -10,8 +10,8 @@
   --theme-bg-fade-transparent: hsla(0, 0%, 0%, 50%);
 
   --theme-accent-primary: hsl(235, 20%, 40%);
-  --theme-accent-secondary: hsl(355, 20%, 40%);
-  --theme-accent-tertiary: hsl(115, 20%, 40%);
+  --theme-accent-secondary: hsl(235, 20%, 60%);
+  --theme-accent-tertiary: hsl(235, 20%, 80%);
 }
 
 /* ELEMENT STYLING RESETS */
