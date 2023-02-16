@@ -9,9 +9,25 @@
   --theme-bg-tertiary: hsl(225, 25%, 5%);
   --theme-bg-fade-transparent: hsla(0, 0%, 0%, 50%);
 
-  --theme-accent-primary: hsl(235, 20%, 40%);
-  --theme-accent-secondary: hsl(235, 20%, 60%);
-  --theme-accent-tertiary: hsl(235, 20%, 80%);
+  --theme-accent-hue: 235;
+  --theme-accent-sat: 20%;
+  --theme-accent-lit: 40%;
+
+  --theme-accent-primary: hsl(
+    var(--theme-accent-hue),
+    var(--theme-accent-sat),
+    var(--theme-accent-lit)
+  );
+  --theme-accent-secondary: hsl(
+    var(--theme-accent-hue),
+    var(--theme-accent-sat),
+    60%
+  );
+  --theme-accent-tertiary: hsl(
+    var(--theme-accent-hue),
+    var(--theme-accent-sat),
+    80%
+  );
 }
 
 /* ELEMENT STYLING RESETS */

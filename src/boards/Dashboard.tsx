@@ -17,7 +17,11 @@ import { Panel } from "./../layout/Panel";
 import { RssFeed } from "./../features/RssFeed/RssFeed";
 import { CurrentWeather } from "./../features/Weather/Weather";
 import { Notes } from "./../features/Notes/Notes";
-import { LineChart, GoalChart } from "./../features/DataChart/DataChart";
+import {
+  LineChart,
+  GoalChart,
+  MapChart,
+} from "./../features/DataChart/DataChart";
 
 //Type Declarations
 
@@ -100,6 +104,13 @@ export class Dashboard extends React.Component {
             dataProcessor={(data: any) =>
               Object.entries(data.monthly_visits || {})
             }
+          />
+        </Panel>
+        <Panel title="Visitor Locations" info="API JSON">
+          <MapChart
+            url="/sample_data/sample1.json"
+            labelsProcessor={() => null}
+            dataProcessor={(data: any) => data.monthly_locations}
           />
         </Panel>
       </section>

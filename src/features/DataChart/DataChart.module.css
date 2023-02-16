@@ -49,3 +49,12 @@
 .GoalChartContainer canvas {
   height: 100% !important;
 }
+
+.MapContainer {
+  display: flex;
+  padding: 1em;
+}
+
+.Map {
+  flex: 1;
+}
