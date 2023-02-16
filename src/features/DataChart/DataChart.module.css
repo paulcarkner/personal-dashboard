@@ -53,6 +53,7 @@
 .MapContainer {
   display: flex;
   padding: 1em;
+  overflow: hidden;
 }
 
 .Map {

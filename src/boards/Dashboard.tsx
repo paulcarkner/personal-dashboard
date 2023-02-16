@@ -106,7 +106,7 @@ export class Dashboard extends React.Component {
             }
           />
         </Panel>
-        <Panel title="Visitor Locations" info="API JSON">
+        <Panel title="Visitor Locations" info="API JSON" colSpan={2}>
           <MapChart
             url="/sample_data/sample1.json"
             labelsProcessor={() => null}

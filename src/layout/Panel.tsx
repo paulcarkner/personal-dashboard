@@ -17,11 +17,22 @@ type Props = {
   title: string;
   info: string;
   children?: JSX.Element;
+  colSpan?: number;
 };
 
-export const Panel = ({ title, info, children }: Props): JSX.Element => {
+export const Panel = ({
+  title,
+  info,
+  children,
+  colSpan = 1,
+}: Props): JSX.Element => {
   return (
-    <section className={styles.Panel}>
+    <section
+      className={styles.Panel}
+      style={
+        { gridColumn: "span " + colSpan.toString() } as React.CSSProperties
+      }
+    >
       <div className={styles.PanelHeader}>
         <h1 className={styles.PanelTitle}>{title}</h1>
         <span

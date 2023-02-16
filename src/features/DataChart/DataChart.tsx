@@ -267,7 +267,7 @@ export const MapChart = ({
       (svgRef.current as SVGSVGElement)
         ?.querySelectorAll("[fill]")
         .forEach((el: Element, key: number) => el.removeAttribute("fill"));
-      let maxValue: number = 0;
+      let maxValue: number = 1;
       Object.entries(dataProcessor(dataChart.data)).forEach((country) => {
         if ((country[1] as number) > maxValue) maxValue = country[1] as number;
       });
