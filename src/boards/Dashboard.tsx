@@ -30,10 +30,6 @@ export class Dashboard extends React.Component {
     super(props);
   }
 
-  handleLoadingChange = (e: any) => {
-    console.log(e);
-  };
-
   render() {
     return (
       <section className={boardStyles.Board}>
