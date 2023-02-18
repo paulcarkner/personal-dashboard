@@ -9,12 +9,24 @@ Output: JSX.Element
 
 import React, { useEffect, useState } from "react";
 
+//Redux Imports
+import { useAppSelector, useAppDispatch } from "./../app/hooks";
+import type { AppDispatch } from "./../app/store";
+
+import {
+  isDarkSelector,
+  toggleDarkMode,
+} from "./../features/DarkMode/DarkModeSlice";
+
 //Styles
 import styles from "./Settings.module.css";
 
 //Type Declarations
 
-export const Settings = (): JSX.Element => {
+export const Settings: React.FC = (): JSX.Element => {
+  const isDark: boolean = useAppSelector(isDarkSelector);
+  const dispatch = useAppDispatch();
+
   const [t, setTime] = useState(new Date()); //create clock state
 
   //update clock every second
@@ -27,13 +39,19 @@ export const Settings = (): JSX.Element => {
     };
   }, []);
 
+  const toggleDarkModeHandler = () => {
+    dispatch(toggleDarkMode());
+  };
+
   return (
     <div className={styles.Settings}>
       <button className={styles.Button}>
         <span className="material-symbols-sharp">search</span>
       </button>
-      <button className={styles.Button}>
-        <span className="material-symbols-sharp">dark_mode</span>
+      <button className={styles.Button} onClick={toggleDarkModeHandler}>
+        <span className="material-symbols-sharp">
+          {isDark ? "light_mode" : "dark_mode"}
+        </span>
       </button>
       <button className={styles.Button}>
         <span className="material-symbols-sharp">account_circle</span>

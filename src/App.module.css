@@ -1,5 +1,36 @@
 /* THEMES */
-:root {
+.App.Light {
+  --theme-text-primary: #000;
+  --theme-text-secondary: hsl(225, 15%, 25%);
+  --theme-text-tertiary: hsl(225, 15%, 45%);
+
+  --theme-bg-primary: hsl(225, 15%, 90%);
+  --theme-bg-secondary: hsl(225, 25%, 95%);
+  --theme-bg-tertiary: hsl(225, 25%, 75%);
+  --theme-bg-fade-transparent: hsla(0, 0%, 100%, 50%);
+
+  --theme-accent-hue: 235;
+  --theme-accent-sat: 20%;
+  --theme-accent-lit: 80%;
+
+  --theme-accent-primary: hsl(
+    var(--theme-accent-hue),
+    var(--theme-accent-sat),
+    var(--theme-accent-lit)
+  );
+  --theme-accent-secondary: hsl(
+    var(--theme-accent-hue),
+    var(--theme-accent-sat),
+    60%
+  );
+  --theme-accent-tertiary: hsl(
+    var(--theme-accent-hue),
+    var(--theme-accent-sat),
+    40%
+  );
+}
+
+.App.Dark {
   --theme-text-primary: #fff;
   --theme-text-secondary: hsl(225, 15%, 65%);
   --theme-text-tertiary: hsl(225, 15%, 35%);

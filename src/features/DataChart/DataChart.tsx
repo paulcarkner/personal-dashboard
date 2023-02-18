@@ -59,6 +59,13 @@ ChartJS.register(
   Legend
 );
 
+function getCssValue(param: string) {
+  const AppEl = document.getElementById("App");
+  return getComputedStyle(
+    AppEl || document.createElement("div")
+  ).getPropertyValue(param);
+}
+
 export const LineChart = ({
   url,
   labelsProcessor,
@@ -72,11 +79,9 @@ export const LineChart = ({
   )[0];
   const dispatch = useAppDispatch();
   const colorArray = [
-    getComputedStyle(document.body).getPropertyValue("--theme-accent-primary"),
-    getComputedStyle(document.body).getPropertyValue(
-      "--theme-accent-secondary"
-    ),
-    getComputedStyle(document.body).getPropertyValue("--theme-accent-tertiary"),
+    getCssValue("--theme-accent-primary"),
+    getCssValue("--theme-accent-secondary"),
+    getCssValue("--theme-accent-tertiary"),
   ];
 
   useEffect(() => {
@@ -93,16 +98,12 @@ export const LineChart = ({
             scales: {
               x: {
                 grid: {
-                  color: getComputedStyle(document.body).getPropertyValue(
-                    "--theme-text-tertiary"
-                  ),
+                  color: getCssValue("--theme-text-tertiary"),
                 },
               },
               y: {
                 grid: {
-                  color: getComputedStyle(document.body).getPropertyValue(
-                    "--theme-text-tertiary"
-                  ),
+                  color: getCssValue("--theme-text-tertiary"),
                 },
                 suggestedMin: 0,
               },
@@ -160,11 +161,9 @@ export const GoalChart = ({
   )[0];
   const dispatch = useAppDispatch();
   const colorArray = [
-    getComputedStyle(document.body).getPropertyValue("--theme-accent-primary"),
-    getComputedStyle(document.body).getPropertyValue(
-      "--theme-accent-secondary"
-    ),
-    getComputedStyle(document.body).getPropertyValue("--theme-accent-tertiary"),
+    getCssValue("--theme-accent-primary"),
+    getCssValue("--theme-accent-secondary"),
+    getCssValue("--theme-accent-tertiary"),
   ];
 
   useEffect(() => {
@@ -246,16 +245,14 @@ export const MapChart = ({
   )[0];
   const dispatch = useAppDispatch();
   const colorArray = [
-    getComputedStyle(document.body).getPropertyValue("--theme-accent-primary"),
-    getComputedStyle(document.body).getPropertyValue(
-      "--theme-accent-secondary"
-    ),
-    getComputedStyle(document.body).getPropertyValue("--theme-accent-tertiary"),
+    getCssValue("--theme-accent-primary"),
+    getCssValue("--theme-accent-secondary"),
+    getCssValue("--theme-accent-tertiary"),
   ];
   const colorAccentComp = {
-    hue: getComputedStyle(document.body).getPropertyValue("--theme-accent-hue"),
-    sat: getComputedStyle(document.body).getPropertyValue("--theme-accent-sat"),
-    lit: getComputedStyle(document.body).getPropertyValue("--theme-accent-lit"),
+    hue: getCssValue("--theme-accent-hue"),
+    sat: getCssValue("--theme-accent-sat"),
+    lit: getCssValue("--theme-accent-lit"),
   };
 
   useEffect(() => {
