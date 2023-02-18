@@ -17,6 +17,8 @@ import { Panel } from "./../layout/Panel";
 // import { RssFeed } from "./../features/RssFeed/RssFeed";
 // import { CurrentWeather } from "./../features/Weather/Weather";
 // import { Notes } from "./../features/Notes/Notes";
+import { DateCountDown } from "./../features/DateCountDown/DateCountDown";
+import GoogleMap from "./../features/GoogleMap/GoogleMap";
 // import {
 //   LineChart,
 //   GoalChart,
@@ -26,16 +28,17 @@ import { Panel } from "./../layout/Panel";
 //Type Declarations
 
 export class PersonalDashboard extends React.Component {
-  constructor(props: any) {
-    super(props);
-  }
-
   render() {
     return (
       <section className={boardStyles.Board}>
         <div className={boardStyles.MiniPanelsContainer}>
-          <Panel title="Test" info=""></Panel>
+          <Panel title="Days Until Trip" info="Date Count Down">
+            <DateCountDown dueDate={new Date("2023-08-15")} />
+          </Panel>
         </div>
+        <Panel title="Destination" info="Google Map">
+          <GoogleMap lng={-69.9818994} lat={18.4801205} />
+        </Panel>
       </section>
     );
   }

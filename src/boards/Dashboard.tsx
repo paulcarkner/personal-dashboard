@@ -26,10 +26,6 @@ import {
 //Type Declarations
 
 export class Dashboard extends React.Component {
-  constructor(props: any) {
-    super(props);
-  }
-
   render() {
     return (
       <section className={boardStyles.Board}>

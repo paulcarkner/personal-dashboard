@@ -1,0 +1,16 @@
+.CountContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Count {
+  font-size: 3em;
+  font-weight: 600;
+}
+
+.Unit {
+  color: var(--theme-text-secondary);
+}
