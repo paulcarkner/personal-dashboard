@@ -7,7 +7,7 @@ export interface DarkModeStateType {
 }
 
 const initialState: DarkModeStateType = {
-  isDark: false,
+  isDark: true,
 };
 
 //Actions
