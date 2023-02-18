@@ -18,6 +18,7 @@ type Props = {
   info: string;
   children?: JSX.Element;
   colSpan?: number;
+  rowSpan?: number;
 };
 
 export const Panel = ({
@@ -25,12 +26,16 @@ export const Panel = ({
   info,
   children,
   colSpan = 1,
+  rowSpan = 1,
 }: Props): JSX.Element => {
   return (
     <section
       className={styles.Panel}
       style={
-        { gridColumn: "span " + colSpan.toString() } as React.CSSProperties
+        {
+          gridColumn: "span " + colSpan.toString(),
+          gridRow: "span " + rowSpan.toString(),
+        } as React.CSSProperties
       }
     >
       <div className={styles.PanelHeader}>

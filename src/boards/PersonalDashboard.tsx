@@ -36,8 +36,8 @@ export class PersonalDashboard extends React.Component {
             <DateCountDown dueDate={new Date("2023-08-15")} />
           </Panel>
         </div>
-        <Panel title="Destination" info="Google Map">
-          <GoogleMap lng={-69.9818994} lat={18.4801205} />
+        <Panel title="Destination" info="Google Map" rowSpan={2}>
+          <GoogleMap lng={-69.9316065} lat={18.486021} zoom={10} />
         </Panel>
       </section>
     );
