@@ -1,0 +1,6 @@
+.ListContainer {
+  margin-top: 1em;
+  flex: 1;
+  overflow-y: auto;
+  border-top: 1px solid var(--theme-bg-secondary);
+}

@@ -19,6 +19,11 @@ import { Panel } from "./../layout/Panel";
 // import { Notes } from "./../features/Notes/Notes";
 import { DateCountDown } from "./../features/DateCountDown/DateCountDown";
 import GoogleMap from "./../features/GoogleMap/GoogleMap";
+import { DataList } from "./../features/DataList/DataList";
+import {
+  TransactionTemplate,
+  Props as TransactionTemplateProps,
+} from "./../features/DataList/Templates/TransactionTemplate";
 // import {
 //   LineChart,
 //   GoalChart,
@@ -38,6 +43,21 @@ export class PersonalDashboard extends React.Component {
         </div>
         <Panel title="Destination" info="Google Map" rowSpan={2}>
           <GoogleMap lng={-69.9316065} lat={18.486021} zoom={10} />
+        </Panel>
+        <Panel title="Recent Transactions" info="JSON List Template">
+          <DataList
+            url="/sample_data/sample1.json"
+            template={TransactionTemplate}
+            dataProcessor={(data: any) => {
+              return data.recent_transactions.map((t: any) => {
+                return {
+                  name: t.id,
+                  date: t.payment_date,
+                  amount: t.total,
+                };
+              });
+            }}
+          />
         </Panel>
       </section>
     );
