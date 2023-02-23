@@ -22,24 +22,27 @@ function MyComponent({ lat, lng, zoom }: Props) {
     googleMapsApiKey: "AIzaSyC7r91IbCUuDCqHJJLngX1QkC_7D7ybeD4",
   });
 
-  const [map, setMap] = React.useState(null);
+  //const [map, setMap] = React.useState(null);
 
-  const onLoad = React.useCallback(function callback(map: any) {
-    map.setZoom(zoom);
-    setMap(map);
-  }, []);
+  // const onLoad = React.useCallback(
+  //   function callback(map: any) {
+  //     //map.setZoom(zoom);
+  //     //setMap(map);
+  //   },
+  //   []
+  // );
 
-  const onUnmount = React.useCallback(function callback(map: any) {
-    setMap(null);
-  }, []);
+  // const onUnmount = React.useCallback(function callback(map: any) {
+  //   //setMap(null);
+  // }, []);
 
   return isLoaded ? (
     <GoogleMap
       mapContainerStyle={containerStyle}
       center={center}
       zoom={zoom}
-      onLoad={onLoad}
-      onUnmount={onUnmount}
+      // onLoad={onLoad}
+      // onUnmount={onUnmount}
     >
       {/* Child components, such as markers, info windows, etc. */}
       <></>
