@@ -23,7 +23,6 @@ import { Line, Doughnut } from "react-chartjs-2";
 
 //Redux Imports
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
-import type { AppDispatch } from "../../app/store";
 
 import {
   //types
@@ -244,11 +243,11 @@ export const MapChart = ({
     (source) => source.url === url
   )[0];
   const dispatch = useAppDispatch();
-  const colorArray = [
-    getCssValue("--theme-accent-primary"),
-    getCssValue("--theme-accent-secondary"),
-    getCssValue("--theme-accent-tertiary"),
-  ];
+  // const colorArray = [
+  //   getCssValue("--theme-accent-primary"),
+  //   getCssValue("--theme-accent-secondary"),
+  //   getCssValue("--theme-accent-tertiary"),
+  // ];
   const colorAccentComp = {
     hue: getCssValue("--theme-accent-hue"),
     sat: getCssValue("--theme-accent-sat"),
@@ -287,7 +286,13 @@ export const MapChart = ({
           );
       });
     }
-  }, [dataChart]);
+  }, [
+    dataChart,
+    colorAccentComp.hue,
+    colorAccentComp.sat,
+    colorAccentComp.lit,
+    dataProcessor,
+  ]);
 
   return (
     <div className={styles.MapContainer}>

@@ -11,7 +11,6 @@ import React, { useEffect, useState } from "react";
 
 //Redux Imports
 import { useAppSelector, useAppDispatch } from "./../app/hooks";
-import type { AppDispatch } from "./../app/store";
 
 import {
   isDarkSelector,

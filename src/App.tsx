@@ -7,7 +7,7 @@ import { SideBar } from "./layout/SideBar";
 import { BrowserRouter as Router } from "react-router-dom";
 
 //Redux Imports
-import { useAppSelector, useAppDispatch } from "./app/hooks";
+import { useAppSelector } from "./app/hooks";
 import { isDarkSelector } from "./features/DarkMode/DarkModeSlice";
 
 //Styles

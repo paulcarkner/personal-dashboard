@@ -3,7 +3,6 @@ import styles from "./DataList.module.css";
 
 //Redux Imports
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
-import type { AppDispatch } from "../../app/store";
 
 import {
   //types
@@ -15,8 +14,6 @@ import {
   //selectors
   DataChartStateSelector,
 } from "./../DataChart/DataChartSlice";
-
-type t = {};
 
 //Type Declarations
 type Props = {

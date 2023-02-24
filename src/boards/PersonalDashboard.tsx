@@ -20,10 +20,7 @@ import { Panel } from "./../layout/Panel";
 import { DateCountDown } from "./../features/DateCountDown/DateCountDown";
 import GoogleMap from "./../features/GoogleMap/GoogleMap";
 import { DataList } from "./../features/DataList/DataList";
-import {
-  TransactionTemplate,
-  Props as TransactionTemplateProps,
-} from "./../features/DataList/Templates/TransactionTemplate";
+import { TransactionTemplate } from "./../features/DataList/Templates/TransactionTemplate";
 import { ImageLink } from "./../features/ImageLink/ImageLink";
 // import {
 //   LineChart,
