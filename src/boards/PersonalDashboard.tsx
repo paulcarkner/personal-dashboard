@@ -24,6 +24,7 @@ import {
   TransactionTemplate,
   Props as TransactionTemplateProps,
 } from "./../features/DataList/Templates/TransactionTemplate";
+import { ImageLink } from "./../features/ImageLink/ImageLink";
 // import {
 //   LineChart,
 //   GoalChart,
@@ -39,6 +40,12 @@ export class PersonalDashboard extends React.Component {
         <div className={boardStyles.MiniPanelsContainer}>
           <Panel title="Days Until Trip" info="Date Count Down">
             <DateCountDown dueDate={new Date("2023-08-15")} />
+          </Panel>
+          <Panel title="Hotel Website" info="Image Link">
+            <ImageLink
+              imgUrl="/assets/hotel_logo.jpg"
+              linkUrl="https://www.hilton.com/en/hotels/lrmdohh-hilton-la-romana-an-all-inclusive-adult-only-resort/"
+            />
           </Panel>
         </div>
         <Panel title="Destination" info="Google Map" rowSpan={2}>

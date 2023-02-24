@@ -1,0 +1,19 @@
+.Container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1em;
+  overflow: hidden;
+  flex-direction: column;
+}
+
+.Container a {
+  flex: 1;
+  overflow: hidden;
+}
+
+.Container a img {
+  max-height: 100%;
+  max-width: 100%;
+}
