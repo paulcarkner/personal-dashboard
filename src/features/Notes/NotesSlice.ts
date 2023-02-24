@@ -1,9 +1,15 @@
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { RootState, AppThunk } from "../../app/store";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { RootState } from "../../app/store";
 
 //Declared Types
 export type NotesStateType = {
   notes: Array<NoteType>;
+};
+
+export type ContentType = {
+  id: string;
+  checked: boolean;
+  value: string;
 };
 
 export type NoteType = {
@@ -11,7 +17,7 @@ export type NoteType = {
   name: string;
   type: "text" | "todo";
   category: string;
-  content: Array<{ checked: boolean; value: string }>;
+  content: Array<ContentType>;
 };
 
 //if this is a first run add some sample data into localStorage for notes
@@ -24,7 +30,13 @@ if (localStorage.getItem("notes") === null) {
         name: "this is a test",
         type: "text",
         category: "business",
-        content: [{ checked: false, value: "this is a test note" }],
+        content: [
+          {
+            id: "85f29c89-6f94-4cbc-9c30-f268fd22b61a",
+            checked: false,
+            value: "this is a test note",
+          },
+        ],
       },
       {
         id: "02a6296b-6f78-4693-90ba-521c72c2e3c8",
@@ -32,12 +44,36 @@ if (localStorage.getItem("notes") === null) {
         type: "todo",
         category: "business",
         content: [
-          { checked: true, value: "1" },
-          { checked: true, value: "5" },
-          { checked: true, value: "6" },
-          { checked: true, value: "8" },
-          { checked: false, value: "9" },
-          { checked: true, value: "note 1" },
+          {
+            id: "9e56016d-0479-4ca1-be87-0ad3cf2fccbf",
+            checked: true,
+            value: "1",
+          },
+          {
+            id: "6317e609-1f5b-4da3-9cd1-8bd5cc101a9d",
+            checked: true,
+            value: "5",
+          },
+          {
+            id: "120f1582-810c-4502-9035-86d3e99cc801",
+            checked: true,
+            value: "6",
+          },
+          {
+            id: "15f06755-cb51-4853-afc1-275cdd4a0845",
+            checked: true,
+            value: "8",
+          },
+          {
+            id: "d80799d1-d299-4db2-b391-1731d9d59704",
+            checked: false,
+            value: "9",
+          },
+          {
+            id: "a8fc0c5c-46bd-4a57-9426-68c77625457a",
+            checked: true,
+            value: "note 1",
+          },
         ],
       },
     ])
@@ -75,7 +111,7 @@ export const NotesSlice = createSlice({
       state: NotesStateType,
       action: PayloadAction<{
         id: string;
-        contentIndex: number;
+        contentId: string;
         checked: boolean;
         value: string;
       }>
@@ -83,7 +119,7 @@ export const NotesSlice = createSlice({
       state.notes.forEach((note) => {
         if (note.id === action.payload.id) {
           note.content.forEach((content, index) => {
-            if (index === action.payload.contentIndex) {
+            if (content.id === action.payload.contentId) {
               content.value = action.payload.value;
               content.checked = action.payload.checked;
             }
@@ -94,20 +130,27 @@ export const NotesSlice = createSlice({
     },
     AddNoteItem: (
       state: NotesStateType,
-      action: PayloadAction<{ id: string }>
+      action: PayloadAction<{ id: string; contentId: string }>
     ) => {
       state.notes.forEach((note) => {
         if (note.id === action.payload.id)
-          note.content.push({ checked: false, value: "" });
+          note.content.push({
+            id: action.payload.contentId,
+            checked: false,
+            value: "",
+          });
       });
     },
     DeleteNoteContent: (
       state: NotesStateType,
-      action: PayloadAction<{ id: string; contentIndex: number }>
+      action: PayloadAction<{ id: string; contentId: string }>
     ) => {
       state.notes.forEach((note) => {
         if (note.id === action.payload.id)
-          note.content.splice(action.payload.contentIndex, 1);
+          note.content.forEach((content, index) => {
+            if (content.id === action.payload.contentId)
+              note.content.splice(index, 1);
+          });
       });
       updateStorage(state);
     },

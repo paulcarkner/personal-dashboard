@@ -13,6 +13,7 @@ import type { AppDispatch } from "../../app/store";
 import {
   //types
   NoteType,
+  ContentType,
   NotesStateType,
 
   //actions
@@ -54,7 +55,7 @@ export const Notes: React.FC<Props> = ({ category }: Props): JSX.Element => {
     name: "",
     type: "text",
     category: "",
-    content: [{ checked: false, value: "" }],
+    content: [{ id: "", checked: false, value: "" }],
   });
 
   const handleEditClick = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -64,13 +65,12 @@ export const Notes: React.FC<Props> = ({ category }: Props): JSX.Element => {
   };
 
   function handleAddNoteClick() {
-    const newId = crypto.randomUUID();
     const newNote: NoteType = {
-      id: newId,
+      id: crypto.randomUUID(),
       name: "",
       type: "text",
       category: category,
-      content: [{ checked: false, value: "" }],
+      content: [{ id: crypto.randomUUID(), checked: false, value: "" }],
     };
     dispatch(CreateNote(newNote));
     setDialogState(newNote);
@@ -78,13 +78,12 @@ export const Notes: React.FC<Props> = ({ category }: Props): JSX.Element => {
   }
 
   function handleAddToDoClick() {
-    const newId = crypto.randomUUID();
     const newNote: NoteType = {
-      id: newId,
+      id: crypto.randomUUID(),
       name: "",
       type: "todo",
       category: category,
-      content: [{ checked: false, value: "" }],
+      content: [{ id: crypto.randomUUID(), checked: false, value: "" }],
     };
     dispatch(CreateNote(newNote));
     setDialogState(newNote);
@@ -102,7 +101,7 @@ export const Notes: React.FC<Props> = ({ category }: Props): JSX.Element => {
           switch (note.type) {
             case "text":
               return (
-                <div className={styles.Note} key={index}>
+                <div className={styles.Note} key={note.id}>
                   <div className={styles.NoteTitle}>
                     {note.name.length > 0 ? note.name : <i>[Untitled]</i>}
                   </div>
@@ -121,27 +120,29 @@ export const Notes: React.FC<Props> = ({ category }: Props): JSX.Element => {
 
             case "todo":
               return (
-                <div className={styles.Note} key={index}>
+                <div className={styles.Note} key={note.id}>
                   <div className={styles.NoteTitle}>
                     {note.name.length > 0 ? note.name : <i>[Untitled]</i>}
                   </div>
                   <div className={`${styles.NoteContent}`}>
-                    {note.content.map((c, index) => {
+                    {note.content.map((content) => {
                       if (index === 5 && note.content.length > 6)
                         return (
-                          <div className={styles.MoreItems} key={index}>
+                          <div className={styles.MoreItems} key={content.id}>
                             {note.content.length - 5} More Items...
                           </div>
                         );
                       if (index > 5) return null;
                       return (
-                        <div className={styles.ListItem} key={index}>
+                        <div className={styles.ListItem} key={content.id}>
                           <span className="material-symbols-sharp">
-                            {c.checked
+                            {content.checked
                               ? "check_box"
                               : "check_box_outline_blank"}
                           </span>
-                          <div className={styles.ListItemText}>{c.value}</div>
+                          <div className={styles.ListItemText}>
+                            {content.value}
+                          </div>
                         </div>
                       );
                     })}
@@ -204,56 +205,71 @@ const NoteDialog = forwardRef<HTMLDialogElement, DialogProps>((props, ref) => {
   const handleContentChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    let index = parseInt("0" + e.target.getAttribute("data-index"), 10);
-    let value: Array<{ checked: boolean; value: string }> =
-      inputState.content.map((c, i) =>
-        i === index ? { checked: c.checked, value: e.target.value } : c
-      );
+    let id = e.target.getAttribute("data-id") || "";
+    let editedContent = Object.assign(
+      {},
+      inputState.content.find((content) => content.id === id),
+      { value: e.target.value }
+    );
+    let value: Array<ContentType> = inputState.content.map((content) =>
+      content.id === id ? editedContent : content
+    );
     setInputState(Object.assign({}, inputState, { content: value }));
     props.dispatch(
       UpdateNoteContent({
         id: inputState.id,
-        contentIndex: index,
-        checked: inputState.content[index].checked,
-        value: value[index].value,
+        contentId: id,
+        checked: editedContent.checked,
+        value: editedContent.value,
       })
     );
   };
 
   const handleCheckClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    let index = parseInt("0" + e.currentTarget.getAttribute("data-index"), 10);
-    let value = inputState.content.map((c, i) =>
-      i === index ? { checked: !c.checked, value: c.value } : c
+    let id = e.currentTarget.getAttribute("data-id") || "";
+    let editedContent = Object.assign(
+      {},
+      inputState.content.find((content) => content.id === id),
+      {
+        checked: !inputState.content.find((content) => content.id === id)
+          ?.checked,
+      }
+    );
+    let value = inputState.content.map((content) =>
+      id === content.id ? editedContent : content
     );
     setInputState(Object.assign({}, inputState, { content: value }));
     props.dispatch(
       UpdateNoteContent({
         id: inputState.id,
-        contentIndex: index,
-        checked: value[index].checked,
-        value: value[index].value,
+        contentId: id,
+        checked: editedContent.checked,
+        value: editedContent.value,
       })
     );
   };
 
   const handleAddItemClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    let newId = crypto.randomUUID();
     setInputState(
       Object.assign({}, inputState, {
-        content: [...inputState.content, { checked: false, value: "" }],
+        content: [
+          ...inputState.content,
+          { id: newId, checked: false, value: "" },
+        ],
       })
     );
-    props.dispatch(AddNoteItem({ id: inputState.id }));
+    props.dispatch(AddNoteItem({ id: inputState.id, contentId: newId }));
   };
 
   const handleRemoveClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    let index = parseInt("0" + e.currentTarget.getAttribute("data-index"), 10);
-    let value = [...inputState.content];
-    value.splice(index, 1);
+    let id = e.currentTarget.getAttribute("data-id") || "";
+    let value = inputState.content.filter((content) => content.id !== id);
     setInputState(Object.assign({}, inputState, { content: value }));
     props.dispatch(
       DeleteNoteContent({
         id: inputState.id,
-        contentIndex: index,
+        contentId: id,
       })
     );
   };
@@ -289,28 +305,30 @@ const NoteDialog = forwardRef<HTMLDialogElement, DialogProps>((props, ref) => {
           ></textarea>
         ) : (
           <div className={styles.List}>
-            {inputState.content.map((c, index) => {
+            {inputState.content.map((content) => {
               return (
-                <div className={styles.ListItem} key={index}>
+                <div className={styles.ListItem} key={content.id}>
                   <button
                     className={styles.CheckBtn}
-                    data-index={index}
+                    data-id={content.id}
                     onClick={handleCheckClick}
                   >
                     <span className="material-symbols-sharp">
-                      {c.checked ? "check_box" : "check_box_outline_blank"}
+                      {content.checked
+                        ? "check_box"
+                        : "check_box_outline_blank"}
                     </span>
                   </button>
                   <input
                     className={styles.ListInput}
                     name="content"
-                    data-index={index}
-                    value={c.value}
+                    data-id={content.id}
+                    value={content.value}
                     onChange={handleContentChange}
                   />
                   <button
                     className={styles.RemoveBtn}
-                    data-index={index}
+                    data-id={content.id}
                     onClick={handleRemoveClick}
                   >
                     <span className="material-symbols-sharp">cancel</span>
