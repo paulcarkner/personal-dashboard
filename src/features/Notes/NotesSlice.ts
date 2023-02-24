@@ -14,6 +14,36 @@ export type NoteType = {
   content: Array<{ checked: boolean; value: string }>;
 };
 
+//if this is a first run add some sample data into localStorage for notes
+if (localStorage.getItem("notes") === null) {
+  localStorage.setItem(
+    "notes",
+    JSON.stringify([
+      {
+        id: "0234b0e0-73d5-47b7-b95a-8ae17a67614d",
+        name: "this is a test",
+        type: "text",
+        category: "business",
+        content: [{ checked: false, value: "this is a test note" }],
+      },
+      {
+        id: "02a6296b-6f78-4693-90ba-521c72c2e3c8",
+        name: "second note",
+        type: "todo",
+        category: "business",
+        content: [
+          { checked: true, value: "1" },
+          { checked: true, value: "5" },
+          { checked: true, value: "6" },
+          { checked: true, value: "8" },
+          { checked: false, value: "9" },
+          { checked: true, value: "note 1" },
+        ],
+      },
+    ])
+  );
+}
+
 //State Interface
 const initialState: NotesStateType = {
   notes: JSON.parse(localStorage.getItem("notes") ?? "[]"),
