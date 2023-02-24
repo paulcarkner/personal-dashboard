@@ -38,6 +38,9 @@ export class PersonalDashboard extends React.Component {
           <Panel title="Days Until Trip" info="Date Count Down">
             <DateCountDown dueDate={new Date("2023-08-15")} />
           </Panel>
+          <Panel title="Days Until Retirement" info="Date Count Down">
+            <DateCountDown dueDate={new Date("2043-06-30")} />
+          </Panel>
           <Panel title="Hotel Website" info="Image Link">
             <ImageLink
               imgUrl="/assets/hotel_logo.jpg"

@@ -14,6 +14,9 @@ import { Routes, Route } from "react-router-dom";
 import { Settings } from "./Settings";
 import { Dashboard } from "./../boards/Dashboard";
 import { PersonalDashboard } from "./../boards/PersonalDashboard";
+import { WebsiteDashboard } from "./../boards/WebsiteDashboard";
+import { VacationDashboard } from "./../boards/VacationDashboard";
+import { FinancesDashboard } from "./../boards/FinancesDashboard";
 
 //Styles
 import styles from "./Main.module.css";
@@ -25,6 +28,9 @@ export function Main(): JSX.Element {
       <Routes>
         <Route path="/" element={<Dashboard />} />
         <Route path="/personal" element={<PersonalDashboard />} />
+        <Route path="/website" element={<WebsiteDashboard />} />
+        <Route path="/vacation" element={<VacationDashboard />} />
+        <Route path="/finances" element={<FinancesDashboard />} />
       </Routes>
     </main>
   );
