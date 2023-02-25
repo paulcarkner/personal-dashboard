@@ -1,20 +1,37 @@
 .Board {
   padding: 1em;
   overflow: hidden;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 1em;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: auto repeat(3, 1fr);
-  flex: 1;
+
+  container-type: inline-size;
+}
+
+@container (max-width: calc(41em - 1px)) {
+  .Board > * > * {
+    grid-column: auto !important;
+  }
 }
 
 .MiniPanelsContainer {
-  grid-column: 1 / -1;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  grid-template-rows: 10em;
   gap: 1em;
 }
 
-.MiniPanelsContainer > * {
+/* .MiniPanelsContainer > * {
   height: 10em;
+} */
+
+.PanelsContainer {
+  display: grid;
+  gap: 1em;
+  grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
+  grid-template-rows: repeat(auto-fit, 30em);
+}
+
+.PanelsContainer > * {
+  min-height: 30em;
 }

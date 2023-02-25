@@ -28,7 +28,7 @@ import {
 export class Dashboard extends React.Component {
   render() {
     return (
-      <section className={boardStyles.Board}>
+      <div className={boardStyles.Board}>
         <div className={boardStyles.MiniPanelsContainer}>
           <Panel title="Monthly Sales Goal" info="Visualization of JSON Data">
             <GoalChart
@@ -45,67 +45,69 @@ export class Dashboard extends React.Component {
             />
           </Panel>
         </div>
-        <Panel title="Latest Movie Trailers" info="RSS Feed">
-          <RssFeed url="https://trailers.apple.com/trailers/home/rss/newtrailers.rss" />
-        </Panel>
-        <Panel title="Current Weather (Toronto)" info="API JSON">
-          <CurrentWeather
-            lat={43.6534817}
-            lon={-79.3839347}
-            location="Toronto, ON"
-          />
-        </Panel>
-        <Panel title="Current Weather (Dominican Republic)" info="API JSON">
-          <CurrentWeather
-            lat={18.5001}
-            lon={-69.9886}
-            location="Santo Domingo"
-          />
-        </Panel>
-        <Panel title="Business Notes" info="localStorage Data">
-          <Notes category="business" />
-        </Panel>
-        <Panel title="Personal Notes" info="localStorage Data">
-          <Notes category="personal" />
-        </Panel>
-        <Panel
-          title="Monthly Website Visitors"
-          info="Visualization of JSON Data"
-        >
-          <LineChart
-            url="/sample_data/sample1.json"
-            labelsProcessor={(data: any) =>
-              data.monthly_visits?.["2021"]?.map(
-                (x: any, i: number) =>
-                  [
-                    "January",
-                    "February",
-                    "March",
-                    "April",
-                    "May",
-                    "June",
-                    "July",
-                    "August",
-                    "September",
-                    "October",
-                    "November",
-                    "December",
-                  ][i]
-              )
-            }
-            dataProcessor={(data: any) =>
-              Object.entries(data.monthly_visits || {})
-            }
-          />
-        </Panel>
-        <Panel title="Visitor Locations" info="API JSON" colSpan={2}>
-          <MapChart
-            url="/sample_data/sample1.json"
-            labelsProcessor={() => null}
-            dataProcessor={(data: any) => data.monthly_locations}
-          />
-        </Panel>
-      </section>
+        <div className={boardStyles.PanelsContainer}>
+          <Panel title="Latest Movie Trailers" info="RSS Feed">
+            <RssFeed url="https://trailers.apple.com/trailers/home/rss/newtrailers.rss" />
+          </Panel>
+          <Panel title="Current Weather (Toronto)" info="API JSON">
+            <CurrentWeather
+              lat={43.6534817}
+              lon={-79.3839347}
+              location="Toronto, ON"
+            />
+          </Panel>
+          <Panel title="Current Weather (Dominican Republic)" info="API JSON">
+            <CurrentWeather
+              lat={18.5001}
+              lon={-69.9886}
+              location="Santo Domingo"
+            />
+          </Panel>
+          <Panel title="Business Notes" info="localStorage Data">
+            <Notes category="business" />
+          </Panel>
+          <Panel title="Personal Notes" info="localStorage Data">
+            <Notes category="personal" />
+          </Panel>
+          <Panel
+            title="Monthly Website Visitors"
+            info="Visualization of JSON Data"
+          >
+            <LineChart
+              url="/sample_data/sample1.json"
+              labelsProcessor={(data: any) =>
+                data.monthly_visits?.["2021"]?.map(
+                  (x: any, i: number) =>
+                    [
+                      "January",
+                      "February",
+                      "March",
+                      "April",
+                      "May",
+                      "June",
+                      "July",
+                      "August",
+                      "September",
+                      "October",
+                      "November",
+                      "December",
+                    ][i]
+                )
+              }
+              dataProcessor={(data: any) =>
+                Object.entries(data.monthly_visits || {})
+              }
+            />
+          </Panel>
+          <Panel title="Visitor Locations" info="API JSON" colSpan={2}>
+            <MapChart
+              url="/sample_data/sample1.json"
+              labelsProcessor={() => null}
+              dataProcessor={(data: any) => data.monthly_locations}
+            />
+          </Panel>
+        </div>
+      </div>
     );
   }
 }

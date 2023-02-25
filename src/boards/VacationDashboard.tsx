@@ -13,7 +13,7 @@ import { Notes } from "./../features/Notes/Notes";
 export class VacationDashboard extends React.Component {
   render() {
     return (
-      <section className={boardStyles.Board}>
+      <div className={boardStyles.Board}>
         <div className={boardStyles.MiniPanelsContainer}>
           <Panel title="Days Until Trip" info="Date Count Down">
             <DateCountDown dueDate={new Date("2023-08-15")} />
@@ -40,13 +40,15 @@ export class VacationDashboard extends React.Component {
             />
           </Panel>
         </div>
-        <Panel title="Vacation To Do" info="localStorage Data">
-          <Notes category="vacation" />
-        </Panel>
-        <Panel title="Destination" info="Google Map">
-          <GoogleMap lng={-69.9316065} lat={18.486021} zoom={10} />
-        </Panel>
-      </section>
+        <div className={boardStyles.PanelsContainer}>
+          <Panel title="Vacation To Do" info="localStorage Data">
+            <Notes category="vacation" />
+          </Panel>
+          <Panel title="Destination" info="Google Map">
+            <GoogleMap lng={-69.9316065} lat={18.486021} zoom={10} />
+          </Panel>
+        </div>
+      </div>
     );
   }
 }
