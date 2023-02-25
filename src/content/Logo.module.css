@@ -15,3 +15,17 @@
   font-family: "MuseoModerno", sans-serif;
   font-size: 2.5rem;
 }
+
+@media (max-width: 40em) {
+  .Logo {
+    margin-block: 1em;
+  }
+
+  .LogoIcon {
+    width: 2em;
+  }
+
+  .LogoName {
+    display: none;
+  }
+}
