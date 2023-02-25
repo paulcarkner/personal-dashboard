@@ -1,10 +1,4 @@
-import React, {
-  useRef,
-  forwardRef,
-  useState,
-  useEffect,
-  MutableRefObject,
-} from "react";
+import React, { useRef, forwardRef, useState, useEffect } from "react";
 
 //Redux Imports
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
