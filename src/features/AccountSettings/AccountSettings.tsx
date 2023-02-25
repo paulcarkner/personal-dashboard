@@ -20,7 +20,7 @@ export const AccountSettings = forwardRef<HTMLDialogElement, DialogProps>(
           <img
             className={styles.Image}
             src="/assets/profile_image.jpg"
-            alt="Profile Image"
+            alt="Profile Avatar"
           />
           <div>
             <div>Paul</div>
