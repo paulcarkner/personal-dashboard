@@ -108,11 +108,12 @@ sup {
 }
 
 :global(.customScroll::-webkit-scrollbar-track) {
-  background: var(--theme-bg-tertiary);
+  background: var(--theme-bg-secondary);
 }
 
 :global(.customScroll::-webkit-scrollbar-thumb) {
-  background: var(--theme-bg-secondary);
+  background: var(--theme-bg-primary);
+  border: 2px solid var(--theme-bg-secondary);
 }
 
 :global(.customScroll::-webkit-scrollbar-thumb:hover) {
