@@ -27,7 +27,8 @@ export const Settings: React.FC = (): JSX.Element => {
   const isDark: boolean = useAppSelector(isDarkSelector);
   const dispatch = useAppDispatch();
 
-  const dialogRef = useRef<HTMLDialogElement>(null);
+  const accountDialogRef = useRef<HTMLDialogElement>(null);
+  const settingsDialogRef = useRef<HTMLDialogElement>(null);
   const [t, setTime] = useState(new Date()); //create clock state
 
   //update clock every second
@@ -44,12 +45,12 @@ export const Settings: React.FC = (): JSX.Element => {
     dispatch(toggleDarkMode());
   };
 
-  const accountSettingsHandler = () => {
-    dialogRef.current?.showModal();
+  const accountDialogHandler = () => {
+    accountDialogRef.current?.showModal();
   };
 
-  const handleCloseDialog = () => {
-    dialogRef.current?.close();
+  const handleCloseAccountDialog = () => {
+    accountDialogRef.current?.close();
   };
 
   return (
@@ -62,7 +63,7 @@ export const Settings: React.FC = (): JSX.Element => {
           {isDark ? "light_mode" : "dark_mode"}
         </span>
       </button>
-      <button className={styles.Button} onClick={accountSettingsHandler}>
+      <button className={styles.Button} onClick={accountDialogHandler}>
         <span className="material-symbols-sharp">account_circle</span>
       </button>
       <button className={styles.Button}>
@@ -75,7 +76,10 @@ export const Settings: React.FC = (): JSX.Element => {
         {("0" + t.getMinutes()).substr(-2)}
         {/* make minutes two digits */} {t.getHours() > 11 ? "PM" : "AM"}
       </div>
-      <AccountSettings ref={dialogRef} closeDialog={handleCloseDialog} />
+      <AccountSettings
+        ref={accountDialogRef}
+        closeDialog={handleCloseAccountDialog}
+      />
     </div>
   );
 };
