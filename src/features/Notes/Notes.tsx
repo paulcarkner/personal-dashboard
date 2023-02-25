@@ -300,6 +300,7 @@ const NoteDialog = forwardRef<HTMLDialogElement, DialogProps>((props, ref) => {
           <textarea
             name="content"
             key={0}
+            data-id={inputState.content[0].id}
             value={inputState.content[0].value}
             onChange={handleContentChange}
           ></textarea>
