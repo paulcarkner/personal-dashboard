@@ -7,7 +7,8 @@ Output: JSX.Element
 
 *****************/
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
+import { AccountSettings } from "./../features/AccountSettings/AccountSettings";
 
 //Redux Imports
 import { useAppSelector, useAppDispatch } from "./../app/hooks";
@@ -26,6 +27,7 @@ export const Settings: React.FC = (): JSX.Element => {
   const isDark: boolean = useAppSelector(isDarkSelector);
   const dispatch = useAppDispatch();
 
+  const dialogRef = useRef<HTMLDialogElement>(null);
   const [t, setTime] = useState(new Date()); //create clock state
 
   //update clock every second
@@ -42,6 +44,14 @@ export const Settings: React.FC = (): JSX.Element => {
     dispatch(toggleDarkMode());
   };
 
+  const accountSettingsHandler = () => {
+    dialogRef.current?.showModal();
+  };
+
+  const handleCloseDialog = () => {
+    dialogRef.current?.close();
+  };
+
   return (
     <div className={styles.Settings}>
       <button className={styles.Button}>
@@ -52,7 +62,7 @@ export const Settings: React.FC = (): JSX.Element => {
           {isDark ? "light_mode" : "dark_mode"}
         </span>
       </button>
-      <button className={styles.Button}>
+      <button className={styles.Button} onClick={accountSettingsHandler}>
         <span className="material-symbols-sharp">account_circle</span>
       </button>
       <button className={styles.Button}>
@@ -65,6 +75,7 @@ export const Settings: React.FC = (): JSX.Element => {
         {("0" + t.getMinutes()).substr(-2)}
         {/* make minutes two digits */} {t.getHours() > 11 ? "PM" : "AM"}
       </div>
+      <AccountSettings ref={dialogRef} closeDialog={handleCloseDialog} />
     </div>
   );
 };
