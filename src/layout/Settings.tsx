@@ -9,6 +9,7 @@ Output: JSX.Element
 
 import React, { useEffect, useState, useRef } from "react";
 import { AccountSettings } from "./../features/AccountSettings/AccountSettings";
+import { DashboardSettings } from "./../features/DashboardSettings/DashboardSettings";
 
 //Redux Imports
 import { useAppSelector, useAppDispatch } from "./../app/hooks";
@@ -53,6 +54,14 @@ export const Settings: React.FC = (): JSX.Element => {
     accountDialogRef.current?.close();
   };
 
+  const settingsDialogHandler = () => {
+    settingsDialogRef.current?.showModal();
+  };
+
+  const handleCloseSettingsDialog = () => {
+    settingsDialogRef.current?.close();
+  };
+
   return (
     <div className={styles.Settings}>
       <button className={styles.Button}>
@@ -66,7 +75,7 @@ export const Settings: React.FC = (): JSX.Element => {
       <button className={styles.Button} onClick={accountDialogHandler}>
         <span className="material-symbols-sharp">account_circle</span>
       </button>
-      <button className={styles.Button}>
+      <button className={styles.Button} onClick={settingsDialogHandler}>
         <span className="material-symbols-sharp">settings</span>
       </button>
       <div className={styles.Clock}>
@@ -79,6 +88,10 @@ export const Settings: React.FC = (): JSX.Element => {
       <AccountSettings
         ref={accountDialogRef}
         closeDialog={handleCloseAccountDialog}
+      />
+      <DashboardSettings
+        ref={settingsDialogRef}
+        closeDialog={handleCloseSettingsDialog}
       />
     </div>
   );
