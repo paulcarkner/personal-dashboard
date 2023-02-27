@@ -31,7 +31,7 @@ export const DashboardSettings = forwardRef<HTMLDialogElement, DialogProps>(
               onChangeHandler={toggleDarkModeHandler}
             />
           </div>
-          <hr />
+          <hr className={styles.Divider} />
           <div className={styles.Title}>Email Settings</div>
           <div className={styles.Setting}>
             <div>Notifications</div>
