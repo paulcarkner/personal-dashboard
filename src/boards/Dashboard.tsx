@@ -69,43 +69,6 @@ export class Dashboard extends React.Component {
           <Panel title="Personal Notes" info="localStorage Data">
             <Notes category="personal" />
           </Panel>
-          <Panel
-            title="Monthly Website Visitors"
-            info="Visualization of JSON Data"
-          >
-            <LineChart
-              url="/sample_data/sample1.json"
-              labelsProcessor={(data: any) =>
-                data.monthly_visits?.["2021"]?.map(
-                  (x: any, i: number) =>
-                    [
-                      "January",
-                      "February",
-                      "March",
-                      "April",
-                      "May",
-                      "June",
-                      "July",
-                      "August",
-                      "September",
-                      "October",
-                      "November",
-                      "December",
-                    ][i]
-                )
-              }
-              dataProcessor={(data: any) =>
-                Object.entries(data.monthly_visits || {})
-              }
-            />
-          </Panel>
-          <Panel title="Visitor Locations" info="API JSON" colSpan={2}>
-            <MapChart
-              url="/sample_data/sample1.json"
-              labelsProcessor={() => null}
-              dataProcessor={(data: any) => data.monthly_locations}
-            />
-          </Panel>
         </div>
       </div>
     );
