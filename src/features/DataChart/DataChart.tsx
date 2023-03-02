@@ -176,7 +176,8 @@ export const GoalChart = ({
           {dataProcessor(dataChart.data).valueText}
         </div>
         <div className={styles.GoalTarget}>
-          Goal: {dataProcessor(dataChart.data).goalText}
+          {dataProcessor(dataChart.data).goalLabel ?? "Goal"}:{" "}
+          {dataProcessor(dataChart.data).goalText}
         </div>
       </div>
       <div className={styles.GoalChartContainer}>

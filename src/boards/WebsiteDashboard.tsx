@@ -47,6 +47,66 @@ export class WebsiteDashboard extends React.Component {
               }}
             />
           </Panel>
+          <Panel title="Bandwidth Limit" info="Visualization of JSON Data">
+            <GoalChart
+              url="/sample_data/sample_website_stats_api.json"
+              labelsProcessor={(data: any) => "Bandwidth Limit"}
+              dataProcessor={(data: any) => {
+                return {
+                  value: data.bandwidth_usage,
+                  valueText: data.bandwidth_usage.toFixed(2) + "GB",
+                  goal: data.bandwidth_limit,
+                  goalText: data.bandwidth_limit.toFixed(2) + "GB",
+                  goalLabel: "Limit",
+                };
+              }}
+            />
+          </Panel>
+          <Panel title="Avg. Server Response" info="Visualization of JSON Data">
+            <GoalChart
+              url="/sample_data/sample_website_stats_api.json"
+              labelsProcessor={(data: any) => "Server Response"}
+              dataProcessor={(data: any) => {
+                return {
+                  value: data.server_response,
+                  valueText: data.server_response.toString() + "ms",
+                  goal: 75,
+                  goalText: "75ms",
+                  goalLabel: "Threshold",
+                };
+              }}
+            />
+          </Panel>
+          <Panel title="Database Size" info="Visualization of JSON Data">
+            <GoalChart
+              url="/sample_data/sample_website_stats_api.json"
+              labelsProcessor={(data: any) => "Database Size"}
+              dataProcessor={(data: any) => {
+                return {
+                  value: data.database_total,
+                  valueText: data.database_total.toString() + "MB",
+                  goal: 1024,
+                  goalText: "1,024MB",
+                  goalLabel: "Limit",
+                };
+              }}
+            />
+          </Panel>
+          <Panel title="Storage Size" info="Visualization of JSON Data">
+            <GoalChart
+              url="/sample_data/sample_website_stats_api.json"
+              labelsProcessor={(data: any) => "Storage Size"}
+              dataProcessor={(data: any) => {
+                return {
+                  value: data.storage_total,
+                  valueText: data.storage_total.toString() + "MB",
+                  goal: 256,
+                  goalText: "256MB",
+                  goalLabel: "Limit",
+                };
+              }}
+            />
+          </Panel>
         </div>
         <div className={boardStyles.PanelsContainer}>
           <Panel title="Website Tasks" info="localStorage Data" rowSpan={2}>
