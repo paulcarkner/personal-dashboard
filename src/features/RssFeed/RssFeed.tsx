@@ -34,7 +34,7 @@ export const RssFeed: React.FC<Props> = ({ url }: Props): JSX.Element => {
 
   useEffect(() => {
     dispatch(RssFeedFetchUrl(url));
-  }, [url]);
+  }, [dispatch, url]);
 
   return (
     <div
@@ -58,6 +58,7 @@ export const RssFeed: React.FC<Props> = ({ url }: Props): JSX.Element => {
                 ),
                 (m) => m[1]
               ).pop()}
+              alt="Movie Poster"
             />
           </div>
           <div className={styles.FeedText}>

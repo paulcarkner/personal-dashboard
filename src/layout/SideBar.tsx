@@ -8,7 +8,7 @@ Output: JSX.Element
 *****************/
 
 import React from "react";
-import { BrowserRouter as Router, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 //Styles
 import styles from "./SideBar.module.css";

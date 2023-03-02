@@ -17,11 +17,7 @@ import { Panel } from "./../layout/Panel";
 import { RssFeed } from "./../features/RssFeed/RssFeed";
 import { CurrentWeather } from "./../features/Weather/Weather";
 import { Notes } from "./../features/Notes/Notes";
-import {
-  LineChart,
-  GoalChart,
-  MapChart,
-} from "./../features/DataChart/DataChart";
+import { GoalChart } from "./../features/DataChart/DataChart";
 
 //Type Declarations
 

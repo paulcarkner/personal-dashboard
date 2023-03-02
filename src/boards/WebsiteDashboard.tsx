@@ -4,15 +4,14 @@ import boardStyles from "./BoardStyles.module.css";
 
 //Components
 import { Panel } from "./../layout/Panel";
-import { DateCountDown } from "./../features/DateCountDown/DateCountDown";
-import GoogleMap from "./../features/GoogleMap/GoogleMap";
-import { ImageLink } from "./../features/ImageLink/ImageLink";
 import { Notes } from "./../features/Notes/Notes";
 import {
   LineChart,
   GoalChart,
   MapChart,
 } from "./../features/DataChart/DataChart";
+import { DataList } from "./../features/DataList/DataList";
+import { TransactionTemplate } from "./../features/DataList/Templates/TransactionTemplate";
 
 export class WebsiteDashboard extends React.Component {
   render() {
@@ -141,6 +140,21 @@ export class WebsiteDashboard extends React.Component {
               dataProcessor={(data: any) =>
                 Object.entries(data.monthly_visits || {})
               }
+            />
+          </Panel>
+          <Panel title="Recent Transactions" info="JSON List Template">
+            <DataList
+              url="/sample_data/sample_website_stats_api.json"
+              template={TransactionTemplate}
+              dataProcessor={(data: any) => {
+                return data.recent_transactions.map((t: any) => {
+                  return {
+                    name: t.id,
+                    date: t.payment_date,
+                    amount: t.total,
+                  };
+                });
+              }}
             />
           </Panel>
           <Panel title="Visitor Locations" info="API JSON" colSpan={2}>

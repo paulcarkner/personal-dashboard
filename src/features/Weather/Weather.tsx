@@ -41,7 +41,7 @@ export const CurrentWeather: React.FC<Props> = ({
   const exclude = "minutely,alerts";
   useEffect(() => {
     dispatch(FetchWeather({ location, lat, lon, exclude }));
-  }, []);
+  }, [dispatch, location, lat, lon, exclude]);
 
   return (
     <div
