@@ -21,7 +21,7 @@ export class WebsiteDashboard extends React.Component {
         <div className={boardStyles.MiniPanelsContainer}>
           <Panel title="Monthly Sales Goal" info="Visualization of JSON Data">
             <GoalChart
-              url="/sample_data/sample1.json"
+              url="/sample_data/sample_website_stats_api.json"
               labelsProcessor={(data: any) => "Monthly Sales"}
               dataProcessor={(data: any) => {
                 return {
@@ -41,7 +41,7 @@ export class WebsiteDashboard extends React.Component {
             colSpan={2}
           >
             <LineChart
-              url="/sample_data/sample1.json"
+              url="/sample_data/sample_website_stats_api.json"
               labelsProcessor={(data: any) =>
                 data.monthly_visits?.["2021"]?.map(
                   (x: any, i: number) =>
@@ -68,7 +68,7 @@ export class WebsiteDashboard extends React.Component {
           </Panel>
           <Panel title="Visitor Locations" info="API JSON" colSpan={2}>
             <MapChart
-              url="/sample_data/sample1.json"
+              url="/sample_data/sample_website_stats_api.json"
               labelsProcessor={() => null}
               dataProcessor={(data: any) => data.monthly_locations}
             />

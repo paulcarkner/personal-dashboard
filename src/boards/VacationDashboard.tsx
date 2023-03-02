@@ -20,7 +20,7 @@ export class VacationDashboard extends React.Component {
           </Panel>
           <Panel title="Vacation Savings" info="JSON Data Chart">
             <GoalChart
-              url="/sample_data/sample2.json"
+              url="/sample_data/sample_bank_api.json"
               labelsProcessor={(data: any) => "Vacation Savings"}
               dataProcessor={(data: any) => {
                 return {

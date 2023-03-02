@@ -32,7 +32,7 @@ export class Dashboard extends React.Component {
         <div className={boardStyles.MiniPanelsContainer}>
           <Panel title="Monthly Sales Goal" info="Visualization of JSON Data">
             <GoalChart
-              url="/sample_data/sample1.json"
+              url="/sample_data/sample_website_stats_api.json"
               labelsProcessor={(data: any) => "Monthly Sales"}
               dataProcessor={(data: any) => {
                 return {

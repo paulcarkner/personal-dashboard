@@ -54,7 +54,7 @@ export class PersonalDashboard extends React.Component {
           </Panel>
           <Panel title="Recent Transactions" info="JSON List Template">
             <DataList
-              url="/sample_data/sample1.json"
+              url="/sample_data/sample_website_stats_api.json"
               template={TransactionTemplate}
               dataProcessor={(data: any) => {
                 return data.recent_transactions.map((t: any) => {
