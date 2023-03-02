@@ -33,8 +33,25 @@ export class WebsiteDashboard extends React.Component {
               }}
             />
           </Panel>
+          <Panel title="New Accounts" info="Visualization of JSON Data">
+            <GoalChart
+              url="/sample_data/sample_website_stats_api.json"
+              labelsProcessor={(data: any) => "Monthly New Accounts"}
+              dataProcessor={(data: any) => {
+                return {
+                  value: data.monthly_new_accounts["2023"].slice(-1)[0],
+                  valueText: data.monthly_new_accounts["2023"].slice(-1)[0],
+                  goal: 75,
+                  goalText: "75",
+                };
+              }}
+            />
+          </Panel>
         </div>
         <div className={boardStyles.PanelsContainer}>
+          <Panel title="Website Tasks" info="localStorage Data" rowSpan={2}>
+            <Notes category="website" />
+          </Panel>
           <Panel
             title="Monthly Website Visitors"
             info="Visualization of JSON Data"

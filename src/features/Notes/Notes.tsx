@@ -119,7 +119,7 @@ export const Notes: React.FC<Props> = ({ category }: Props): JSX.Element => {
                     {note.name.length > 0 ? note.name : <i>[Untitled]</i>}
                   </div>
                   <div className={`${styles.NoteContent}`}>
-                    {note.content.map((content) => {
+                    {note.content.map((content, index) => {
                       if (index === 5 && note.content.length > 6)
                         return (
                           <div className={styles.MoreItems} key={content.id}>

@@ -26,53 +26,109 @@ if (localStorage.getItem("notes") === null) {
     "notes",
     JSON.stringify([
       {
-        id: "0234b0e0-73d5-47b7-b95a-8ae17a67614d",
-        name: "this is a test",
+        id: "f6c71500-4b3b-4190-bf61-c790c486aef1",
+        name: "hello world",
+        type: "text",
+        category: "business",
+        content: [{ checked: false, value: "" }],
+      },
+      {
+        id: "1e0bcefb-0b4f-40ab-9b7d-798ba4f72fd3",
+        name: "another note",
+        type: "text",
+        category: "business",
+        content: [{ checked: false, value: "here is a bunch of content" }],
+      },
+      {
+        id: "cdf3259d-3186-432c-80a5-4e2efcf4a1fd",
+        name: "alaksdgjf;lasjdfl;aksjdfl;asdjflasdjf;ljadsf;lkjasdf;lkjdsfl;kjdsafl;kjadsf",
+        type: "text",
+        category: "business",
+        content: [{ checked: false, value: "" }],
+      },
+      {
+        id: "a26eafd7-cb60-4ff5-a369-b0042c1a128f",
+        name: "more notes",
         type: "text",
         category: "business",
         content: [
           {
-            id: "85f29c89-6f94-4cbc-9c30-f268fd22b61a",
             checked: false,
-            value: "this is a test note",
+            value:
+              "line 1\nline 2\nline 3\nline 4\nline 5\nline 6\nline 7\nline 8",
           },
         ],
       },
       {
-        id: "02a6296b-6f78-4693-90ba-521c72c2e3c8",
-        name: "second note",
+        id: "dd42d817-891c-4d21-a009-d6ce53727320",
+        name: "somthing new",
+        type: "text",
+        category: "personal",
+        content: [{ checked: false, value: "with content" }],
+      },
+      {
+        id: "8353bd2c-25be-48fa-af2d-ce8fc9b586ca",
+        name: "To Fix",
         type: "todo",
-        category: "business",
+        category: "website",
         content: [
           {
-            id: "9e56016d-0479-4ca1-be87-0ad3cf2fccbf",
-            checked: true,
-            value: "1",
-          },
-          {
-            id: "6317e609-1f5b-4da3-9cd1-8bd5cc101a9d",
-            checked: true,
-            value: "5",
-          },
-          {
-            id: "120f1582-810c-4502-9035-86d3e99cc801",
-            checked: true,
-            value: "6",
-          },
-          {
-            id: "15f06755-cb51-4853-afc1-275cdd4a0845",
-            checked: true,
-            value: "8",
-          },
-          {
-            id: "d80799d1-d299-4db2-b391-1731d9d59704",
+            id: "ae3e1144-0b82-440f-81c0-807d1a7d3253",
             checked: false,
-            value: "9",
+            value: 'Update "about me" page',
           },
           {
-            id: "a8fc0c5c-46bd-4a57-9426-68c77625457a",
-            checked: true,
-            value: "note 1",
+            id: "e9229ea5-0f7e-4a08-b231-d8e0b9272e67",
+            checked: false,
+            value: "Colour scheme in footer",
+          },
+          {
+            id: "9abb2af0-322b-4459-a4d3-18c8e0684712",
+            checked: false,
+            value: "Menu spacing on mobile",
+          },
+          {
+            id: "93693c00-34bb-4d3e-9397-fb8a8e51dc58",
+            checked: false,
+            value: "Favicon",
+          },
+          {
+            id: "c9d5375b-2f16-46b7-bd21-409c53992ae6",
+            checked: false,
+            value: "Meta tags links",
+          },
+          {
+            id: "a8c2ebc9-cda0-4a4d-858f-801317b1f42c",
+            checked: false,
+            value: "CDN caching parameters",
+          },
+          {
+            id: "70c7bf9a-3773-45b9-8f93-56c2fa6d1d85",
+            checked: false,
+            value: "Font loading",
+          },
+        ],
+      },
+      {
+        id: "da2a7971-6758-4376-ac28-a70bd6b11438",
+        name: "New Features",
+        type: "todo",
+        category: "website",
+        content: [
+          {
+            id: "dda4014b-c1f1-4dfc-a9bb-6ed4cc3bc6fb",
+            checked: false,
+            value: "Two-factor Authentication",
+          },
+          {
+            id: "0b9ae1ad-7585-4def-bf3a-95b3ed30a5f2",
+            checked: false,
+            value: "Theme customization",
+          },
+          {
+            id: "c3a1f507-3d5e-4b38-8de4-029110908d18",
+            checked: false,
+            value: "Page sharing",
           },
         ],
       },
