@@ -33,8 +33,8 @@ export const Panel = ({
       className={styles.Panel}
       style={
         {
-          gridColumn: "span " + colSpan.toString(),
-          gridRow: "span " + rowSpan.toString(),
+          gridColumn: colSpan !== 1 ? "span " + colSpan.toString() : null,
+          gridRow: rowSpan !== 1 ? "span " + rowSpan.toString() : null,
         } as React.CSSProperties
       }
     >

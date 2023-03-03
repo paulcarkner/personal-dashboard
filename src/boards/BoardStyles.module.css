@@ -28,7 +28,7 @@
   display: grid;
   gap: 1em;
   grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
-  grid-template-rows: repeat(auto-fit, 30em);
+  grid-auto-rows: 30em;
 }
 
 .PanelsContainer > * {
