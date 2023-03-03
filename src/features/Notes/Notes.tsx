@@ -297,10 +297,11 @@ const NoteDialog = forwardRef<HTMLDialogElement, DialogProps>((props, ref) => {
             data-id={inputState.content[0].id}
             value={inputState.content[0].value}
             onChange={handleContentChange}
+            autoFocus={true}
           ></textarea>
         ) : (
           <div className={styles.List}>
-            {inputState.content.map((content) => {
+            {inputState.content.map((content, index) => {
               return (
                 <div className={styles.ListItem} key={content.id}>
                   <button
@@ -320,6 +321,7 @@ const NoteDialog = forwardRef<HTMLDialogElement, DialogProps>((props, ref) => {
                     data-id={content.id}
                     value={content.value}
                     onChange={handleContentChange}
+                    autoFocus={index === inputState.content.length - 1}
                   />
                   <button
                     className={styles.RemoveBtn}
