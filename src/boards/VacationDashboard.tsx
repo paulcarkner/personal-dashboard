@@ -9,6 +9,7 @@ import GoogleMap from "./../features/GoogleMap/GoogleMap";
 import { ImageLink } from "./../features/ImageLink/ImageLink";
 import { GoalChart } from "./../features/DataChart/DataChart";
 import { Notes } from "./../features/Notes/Notes";
+import { CurrentWeather } from "./../features/Weather/Weather";
 
 export class VacationDashboard extends React.Component {
   render() {
@@ -41,11 +42,18 @@ export class VacationDashboard extends React.Component {
           </Panel>
         </div>
         <div className={boardStyles.PanelsContainer}>
-          <Panel title="Vacation To Do" info="localStorage Data">
+          <Panel title="Vacation Notes" info="localStorage Data">
             <Notes category="vacation" />
           </Panel>
           <Panel title="Destination" info="Google Map">
             <GoogleMap lng={-69.9316065} lat={18.486021} zoom={10} />
+          </Panel>
+          <Panel title="Current Weather (Dominican Republic)" info="API JSON">
+            <CurrentWeather
+              lat={18.5001}
+              lon={-69.9886}
+              location="Santo Domingo"
+            />
           </Panel>
         </div>
       </div>
