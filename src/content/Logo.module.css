@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   gap: 1em;
-  margin-block: 3em;
+  margin-block: 3em 2em;
   color: var(--theme-text-primary);
 }
 
