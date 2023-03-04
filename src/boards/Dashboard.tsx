@@ -25,22 +25,7 @@ export class Dashboard extends React.Component {
   render() {
     return (
       <div className={boardStyles.Board}>
-        <div className={boardStyles.MiniPanelsContainer}>
-          <Panel title="Monthly Sales Goal" info="Visualization of JSON Data">
-            <GoalChart
-              url="/sample_data/sample_website_stats_api.json"
-              labelsProcessor={(data: any) => "Monthly Sales"}
-              dataProcessor={(data: any) => {
-                return {
-                  value: data.monthly_sales["2023"].slice(-1)[0],
-                  valueText: "$" + data.monthly_sales["2023"].slice(-1)[0],
-                  goal: data.monthly_sales_goal,
-                  goalText: "$" + data.monthly_sales_goal,
-                };
-              }}
-            />
-          </Panel>
-        </div>
+        <div className={boardStyles.MiniPanelsContainer}></div>
         <div className={boardStyles.PanelsContainer}>
           <Panel title="Latest Movie Trailers" info="RSS Feed">
             <RssFeed url="https://trailers.apple.com/trailers/home/rss/newtrailers.rss" />

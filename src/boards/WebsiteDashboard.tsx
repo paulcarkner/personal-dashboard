@@ -25,9 +25,18 @@ export class WebsiteDashboard extends React.Component {
               dataProcessor={(data: any) => {
                 return {
                   value: data.monthly_sales["2023"].slice(-1)[0],
-                  valueText: "$" + data.monthly_sales["2023"].slice(-1)[0],
+                  valueText:
+                    "$" +
+                    data.monthly_sales["2023"]
+                      .slice(-1)[0]
+                      .toString()
+                      .replace(/(\d)(?=(\d{3})+$)/g, `$1,`),
                   goal: data.monthly_sales_goal,
-                  goalText: "$" + data.monthly_sales_goal,
+                  goalText:
+                    "$" +
+                    data.monthly_sales_goal
+                      .toString()
+                      .replace(/(\d)(?=(\d{3})+$)/g, `$1,`),
                 };
               }}
             />

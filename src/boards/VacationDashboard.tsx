@@ -27,9 +27,12 @@ export class VacationDashboard extends React.Component {
                 return {
                   value: data.accounts["0048394_482904757"].funds,
                   valueText:
-                    "$" + data.accounts["0048394_482904757"].funds.toFixed(2),
+                    "$" +
+                    data.accounts["0048394_482904757"].funds
+                      .toFixed(2)
+                      .replace(/(\d)(?=(\d{3})+\.\d{2}$)/g, `$1,`),
                   goal: 5000,
-                  goalText: "$5000",
+                  goalText: "$5,000",
                 };
               }}
             />
