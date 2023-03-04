@@ -16,7 +16,7 @@
 .MiniPanelsContainer {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
-  grid-template-rows: 10em;
+  grid-auto-rows: 10em;
   gap: 1em;
 }
 
