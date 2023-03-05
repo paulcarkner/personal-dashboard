@@ -21,7 +21,9 @@
 .From {
 }
 
-.From::after {
+.Email {
+  color: var(--theme-text-secondary);
+  margin-left: 0.5em;
 }
 
 .Subject {
@@ -45,6 +47,7 @@
   white-space: pre-line;
   grid-column: span 2;
   line-height: 1.2em;
+  height: 2.4em;
 }
 
 .Attachment {

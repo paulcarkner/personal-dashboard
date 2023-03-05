@@ -21,7 +21,11 @@ import { DateCountDown } from "./../features/DateCountDown/DateCountDown";
 import GoogleMap from "./../features/GoogleMap/GoogleMap";
 import { DataList } from "./../features/DataList/DataList";
 import { TransactionTemplate } from "./../features/DataList/Templates/TransactionTemplate";
-import { EmailTemplate } from "./../features/DataList/Templates/EmailTemplate";
+import {
+  EmailTemplate,
+  profileType,
+  emailType,
+} from "./../features/DataList/Templates/EmailTemplate";
 import { ImageLink } from "./../features/ImageLink/ImageLink";
 // import {
 //   LineChart,
@@ -73,27 +77,27 @@ export class PersonalDashboard extends React.Component {
               url="/sample_data/sample_email_api.json"
               template={EmailTemplate}
               dataProcessor={(data: any) => {
-                return data.emails.map(
-                  (e: {
-                    profile: number;
-                    subject: string;
-                    received: Date;
-                    preview: string;
-                    attachment: Boolean;
-                  }) => {
+                return [...data.emails]
+                  .sort((a: emailType, b: emailType) => {
+                    return (
+                      new Date(b.received).getTime() -
+                      new Date(a.received).getTime()
+                    );
+                  })
+                  .map((e: emailType) => {
+                    let profile = data.profiles.find(
+                      (p: profileType) => p.id === e.profile
+                    );
                     return {
                       profile: e.profile,
-                      from: data.profiles.find(
-                        (p: { id: number; name: string; email: string }) =>
-                          p.id === e.profile
-                      ).name,
+                      from: profile.name,
+                      email: profile.email,
                       subject: e.subject,
                       received: e.received,
                       preview: e.preview,
                       attachment: e.attachment,
                     };
-                  }
-                );
+                  });
               }}
             />
           </Panel>
