@@ -1,0 +1,22 @@
+{
+  "profiles": [
+    { "id": 1, "name": "Laureen Mariel", "email": "lmariel89@gmail.com" },
+    { "id": 2, "name": "Shelby Jools", "email": "" },
+    { "id": 3, "name": "Alvin Chu", "email": "" },
+    { "id": 4, "name": "Devyn Dwerryhouse", "email": "" },
+    { "id": 5, "name": "Brock Sharman", "email": "" },
+    { "id": 6, "name": "Mary McKenzie", "email": "" },
+    { "id": 7, "name": "Jewell Haley", "email": "" },
+    { "id": 8, "name": "Sharlene Elfrieda", "email": "" },
+    { "id": 9, "name": "Serrena Page", "email": "" }
+  ],
+  "emails": [
+    {
+      "profile": 1,
+      "subject": "Coffee Meeting",
+      "received": "2023-03-08T06:33:00.000Z",
+      "preview": "Hey, Just checking to see if you are still available to meeting next Friday. Let me know if anything has come up. Laureen",
+      "attachment": true
+    }
+  ]
+}

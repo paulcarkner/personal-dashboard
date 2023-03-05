@@ -21,6 +21,7 @@ import { DateCountDown } from "./../features/DateCountDown/DateCountDown";
 import GoogleMap from "./../features/GoogleMap/GoogleMap";
 import { DataList } from "./../features/DataList/DataList";
 import { TransactionTemplate } from "./../features/DataList/Templates/TransactionTemplate";
+import { EmailTemplate } from "./../features/DataList/Templates/EmailTemplate";
 import { ImageLink } from "./../features/ImageLink/ImageLink";
 // import {
 //   LineChart,
@@ -64,6 +65,35 @@ export class PersonalDashboard extends React.Component {
                     amount: t.total,
                   };
                 });
+              }}
+            />
+          </Panel>
+          <Panel title="Unread Emails" info="JSON List Template" colSpan={2}>
+            <DataList
+              url="/sample_data/sample_email_api.json"
+              template={EmailTemplate}
+              dataProcessor={(data: any) => {
+                return data.emails.map(
+                  (e: {
+                    profile: number;
+                    subject: string;
+                    received: Date;
+                    preview: string;
+                    attachment: Boolean;
+                  }) => {
+                    return {
+                      profile: e.profile,
+                      from: data.profiles.find(
+                        (p: { id: number; name: string; email: string }) =>
+                          p.id === e.profile
+                      ).name,
+                      subject: e.subject,
+                      received: e.received,
+                      preview: e.preview,
+                      attachment: e.attachment,
+                    };
+                  }
+                );
               }}
             />
           </Panel>
