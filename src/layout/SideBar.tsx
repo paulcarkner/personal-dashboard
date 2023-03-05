@@ -22,6 +22,9 @@ export function SideBar(): JSX.Element {
       <div className={styles.Logo}>
         <Logo />
       </div>
+      <div className={styles.Avatar}>
+        <img alt="Avatar" src="assets/profile_image.jpg" />
+      </div>
       <nav className={styles.LinkList}>
         <NavLink
           to="/"
