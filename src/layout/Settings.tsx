@@ -64,6 +64,12 @@ export const Settings: React.FC = (): JSX.Element => {
 
   return (
     <div className={styles.Settings}>
+      <div className={styles.Note}>
+        Note: Interface demonstration for portfolio.{" "}
+        <a href="https://paulcarkner.dev" target="_blank" rel="noreferrer">
+          https://paulcarkner.dev
+        </a>
+      </div>
       <button className={styles.Button}>
         <span className="material-symbols-sharp">search</span>
       </button>
