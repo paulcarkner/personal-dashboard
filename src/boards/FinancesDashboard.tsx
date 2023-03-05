@@ -5,6 +5,7 @@ import boardStyles from "./BoardStyles.module.css";
 //Components
 import { Panel } from "./../layout/Panel";
 import { GoalChart } from "./../features/DataChart/DataChart";
+import { DateCountDown } from "./../features/DateCountDown/DateCountDown";
 
 export class FinancesDashboard extends React.Component {
   render() {
@@ -28,6 +29,9 @@ export class FinancesDashboard extends React.Component {
                 };
               }}
             />
+          </Panel>
+          <Panel title="Days Until Retirement" info="Date Count Down">
+            <DateCountDown dueDate={new Date("2043-06-30")} />
           </Panel>
         </div>
       </div>
