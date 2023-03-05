@@ -37,18 +37,8 @@ export class Dashboard extends React.Component {
               location="Toronto, ON"
             />
           </Panel>
-          <Panel title="Current Weather (Dominican Republic)" info="API JSON">
-            <CurrentWeather
-              lat={18.5001}
-              lon={-69.9886}
-              location="Santo Domingo"
-            />
-          </Panel>
           <Panel title="Business Notes" info="localStorage Data">
             <Notes category="business" />
-          </Panel>
-          <Panel title="Personal Notes" info="localStorage Data">
-            <Notes category="personal" />
           </Panel>
         </div>
       </div>

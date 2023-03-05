@@ -16,7 +16,7 @@ import boardStyles from "./BoardStyles.module.css";
 import { Panel } from "./../layout/Panel";
 // import { RssFeed } from "./../features/RssFeed/RssFeed";
 // import { CurrentWeather } from "./../features/Weather/Weather";
-// import { Notes } from "./../features/Notes/Notes";
+import { Notes } from "./../features/Notes/Notes";
 import { DateCountDown } from "./../features/DateCountDown/DateCountDown";
 import GoogleMap from "./../features/GoogleMap/GoogleMap";
 import { DataList } from "./../features/DataList/DataList";
@@ -39,36 +39,9 @@ export class PersonalDashboard extends React.Component {
   render() {
     return (
       <div className={boardStyles.Board}>
-        <div className={boardStyles.MiniPanelsContainer}>
-          <Panel title="Days Until Trip" info="Date Count Down">
-            <DateCountDown dueDate={new Date("2023-08-15")} />
-          </Panel>
-          <Panel title="Hotel Website" info="Image Link">
-            <ImageLink
-              imgUrl="/assets/hotel_logo.jpg"
-              linkUrl="https://www.hilton.com/en/hotels/lrmdohh-hilton-la-romana-an-all-inclusive-adult-only-resort/"
-            />
-          </Panel>
-        </div>
+        {/* <div className={boardStyles.MiniPanelsContainer}>
+        </div> */}
         <div className={boardStyles.PanelsContainer}>
-          <Panel title="Destination" info="Google Map" rowSpan={2}>
-            <GoogleMap lng={-69.9316065} lat={18.486021} zoom={10} />
-          </Panel>
-          <Panel title="Recent Transactions" info="JSON List Template">
-            <DataList
-              url="/sample_data/sample_website_stats_api.json"
-              template={TransactionTemplate}
-              dataProcessor={(data: any) => {
-                return data.recent_transactions.map((t: any) => {
-                  return {
-                    name: t.id,
-                    date: t.payment_date,
-                    amount: t.total,
-                  };
-                });
-              }}
-            />
-          </Panel>
           <Panel title="Unread Emails" info="JSON List Template" colSpan={2}>
             <DataList
               url="/sample_data/sample_email_api.json"
@@ -97,6 +70,9 @@ export class PersonalDashboard extends React.Component {
                   });
               }}
             />
+          </Panel>
+          <Panel title="Personal Notes" info="localStorage Data" rowSpan={2}>
+            <Notes category="personal" />
           </Panel>
         </div>
       </div>
