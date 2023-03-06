@@ -8,7 +8,7 @@ export type Props = {
   subject: string;
   received: Date;
   preview: string;
-  attachment: Boolean;
+  attachment: boolean;
 };
 
 export type profileType = { id: number; name: string; email: string };
@@ -17,7 +17,7 @@ export type emailType = {
   subject: string;
   received: Date;
   preview: string;
-  attachment: Boolean;
+  attachment: boolean;
 };
 
 export const EmailTemplate = ({
