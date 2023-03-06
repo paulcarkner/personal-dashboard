@@ -18,79 +18,93 @@
     {
       "profile": 1,
       "subject": "RE: Coffee Meeting",
-      "received": "2023-03-12T20:04:15.142Z",
+      "received": "2023-03-12T20:04:15.142-05:00",
       "preview": "Hey, Just checking to see if you are still available to meet next Friday. Let me know if anything has come up. Laureen",
       "attachment": true
     },
     {
       "profile": 2,
       "subject": "Scanned document",
-      "received": "2023-03-11T03:52:17.015Z",
+      "received": "2023-03-11T03:52:17.015-05:00",
       "preview": "See attached.",
       "attachment": true
     },
     {
       "profile": 3,
       "subject": "Concert tickets",
-      "received": "2023-03-09T14:46:16.331Z",
+      "received": "2023-03-09T14:46:16.331-05:00",
       "preview": "Tickets have been purchased... $82 each. Let's all meet at the pub across the street for dinner first. See everyone there! Alvin",
       "attachment": false
     },
     {
       "profile": 4,
       "subject": "Floor hockey???",
-      "received": "2023-03-08T06:06:29.271Z",
+      "received": "2023-03-08T06:06:29.271-05:00",
       "preview": "Who's up for floor hockey next week? Gym is open from 7pm until midnight.",
       "attachment": false
     },
     {
       "profile": 5,
       "subject": "Job Opportunity",
-      "received": "2023-03-11T07:25:30.930Z",
+      "received": "2023-03-11T07:25:30.930-05:00",
       "preview": "Hey, Saw this and thought you might be interested. Check it out...",
       "attachment": true
     },
     {
       "profile": 7,
       "subject": "Teacher Meetings",
-      "received": "2023-03-06T14:26:45.109Z",
+      "received": "2023-03-06T14:26:45.109-05:00",
       "preview": "Hello parents, We will be hosting parent/teacher meetings after school next week. Please go to the link below to sign up for a time slot. We look forward to discussing your child's progress this year with you. Ms. Haley",
       "attachment": false
     },
     {
       "profile": 6,
       "subject": "Family Photos Ready for Download",
-      "received": "2023-03-09T23:56:45.611Z",
+      "received": "2023-03-09T23:56:45.611-05:00",
       "preview": "Hi, It was wonderful meeting you and your beautiful family last weekend. Below is the download link where you can find all the edited photos. Let me know if you need anything further. All the best, Mary",
       "attachment": false
     },
     {
       "profile": 8,
       "subject": "Receipt attached",
-      "received": "2023-03-06T15:23:55.928Z",
+      "received": "2023-03-06T15:23:55.928-05:00",
       "preview": "Please find attached a copy of your receipt. Thank you for your business.",
       "attachment": true
     },
     {
       "profile": 9,
       "subject": "New Schedule Posted",
-      "received": "2023-03-10T22:41:19.673Z",
+      "received": "2023-03-10T22:41:19.673-05:00",
       "preview": "Hello, Next week's schedule has been posted. Please let me know if you have any questions or timing conflicts. Serrena",
       "attachment": false
     },
     {
       "profile": 1,
       "subject": "Marketing Material",
-      "received": "2023-03-08T08:51:38.089Z",
+      "received": "2023-03-08T08:51:38.089-05:00",
       "preview": "Hi, Attached is a copy of all of our marketing material. Please have a look over it and let me know if you have any questions. Look forward to chatting futher! Laureen",
       "attachment": false
     },
     {
       "profile": 7,
       "subject": "Raise the Dough",
-      "received": "2023-03-10T07:58:31.193Z",
+      "received": "2023-03-10T07:58:31.193-05:00",
       "preview": "Hello families, Please see attached information from School Council about Raise the Dough Day.  This fundraiser is in partnership with Domino’s and will take place on March 26th.  We appreciate your support.",
       "attachment": true
+    }
+  ],
+  "schedule": [
+    {
+      "name": "Dentist",
+      "location": "Jones' Dentistry",
+      "startTime": "2023-03-05T15:00:00.000-05:00",
+      "duration": 45
+    },
+    {
+      "name": "Floor Hockey",
+      "location": "Gym",
+      "startTime": "2023-03-05T20:00:00.000-05:00",
+      "duration": 120
     }
   ]
 }

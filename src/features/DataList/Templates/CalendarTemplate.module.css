@@ -1,0 +1,24 @@
+.Container {
+  padding: 0.5em;
+}
+
+.isFirst::before {
+  content: attr(data-date);
+  display: block;
+  color: var(--theme-text-secondary);
+  font-size: 0.75em;
+  border-bottom: 1px solid var(--theme-text-secondary);
+  padding-bottom: 0.3em;
+  margin-bottom: 1rem;
+}
+
+.Times {
+  display: inline;
+  color: var(--theme-text-secondary);
+}
+
+.Location {
+  display: inline;
+  color: var(--theme-text-secondary);
+  font-size: 0.75em;
+}

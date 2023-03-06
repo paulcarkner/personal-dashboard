@@ -26,6 +26,10 @@ import {
   profileType,
   emailType,
 } from "./../features/DataList/Templates/EmailTemplate";
+import {
+  CalendarTemplate,
+  Props as calendarType,
+} from "./../features/DataList/Templates/CalendarTemplate";
 import { ImageLink } from "./../features/ImageLink/ImageLink";
 // import {
 //   LineChart,
@@ -66,6 +70,36 @@ export class PersonalDashboard extends React.Component {
                       received: e.received,
                       preview: e.preview,
                       attachment: e.attachment,
+                    };
+                  });
+              }}
+            />
+          </Panel>
+          <Panel title="Agenda" info="JSON List Template" rowSpan={2}>
+            <DataList
+              url="/sample_data/sample_email_api.json"
+              template={CalendarTemplate}
+              dataProcessor={(data: any) => {
+                let lastDate = 0;
+                return [...data.schedule]
+                  .sort((a: calendarType, b: calendarType) => {
+                    return (
+                      new Date(a.startTime).getTime() -
+                      new Date(b.startTime).getTime()
+                    );
+                  })
+                  .map((e: calendarType) => {
+                    let isFirst = false;
+                    if (lastDate !== new Date(e.startTime).getDate()) {
+                      lastDate = new Date(e.startTime).getDate();
+                      isFirst = true;
+                    }
+                    return {
+                      isFirst: isFirst,
+                      name: e.name,
+                      location: e.location,
+                      startTime: e.startTime,
+                      duration: e.duration,
                     };
                   });
               }}
