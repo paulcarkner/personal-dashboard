@@ -27,9 +27,6 @@ export class Dashboard extends React.Component {
       <div className={boardStyles.Board}>
         <div className={boardStyles.MiniPanelsContainer}></div>
         <div className={boardStyles.PanelsContainer}>
-          <Panel title="Latest Movie Trailers" info="RSS Feed">
-            <RssFeed url="https://trailers.apple.com/trailers/home/rss/newtrailers.rss" />
-          </Panel>
           <Panel title="Current Weather (Toronto)" info="API JSON">
             <CurrentWeather
               lat={43.6534817}

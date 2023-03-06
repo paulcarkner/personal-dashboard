@@ -14,7 +14,7 @@ import boardStyles from "./BoardStyles.module.css";
 
 //Components
 import { Panel } from "./../layout/Panel";
-// import { RssFeed } from "./../features/RssFeed/RssFeed";
+import { RssFeed } from "./../features/RssFeed/RssFeed";
 // import { CurrentWeather } from "./../features/Weather/Weather";
 import { Notes } from "./../features/Notes/Notes";
 import { DateCountDown } from "./../features/DateCountDown/DateCountDown";
@@ -107,6 +107,9 @@ export class PersonalDashboard extends React.Component {
           </Panel>
           <Panel title="Personal Notes" info="localStorage Data" rowSpan={2}>
             <Notes category="personal" />
+          </Panel>
+          <Panel title="Latest Movie Trailers" info="RSS Feed" colSpan={2}>
+            <RssFeed url="https://trailers.apple.com/trailers/home/rss/newtrailers.rss" />
           </Panel>
         </div>
       </div>
