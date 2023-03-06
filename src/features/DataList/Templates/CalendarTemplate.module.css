@@ -12,6 +12,11 @@
   margin-bottom: 1rem;
 }
 
+.Item {
+  display: grid;
+  grid-template-columns: 6.5em 1fr;
+}
+
 .Times {
   display: inline;
   color: var(--theme-text-secondary);

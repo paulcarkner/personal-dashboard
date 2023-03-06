@@ -75,7 +75,7 @@ export class PersonalDashboard extends React.Component {
               }}
             />
           </Panel>
-          <Panel title="Agenda" info="JSON List Template" rowSpan={2}>
+          <Panel title="7-Day Agenda" info="JSON List Template" rowSpan={2}>
             <DataList
               url="/sample_data/sample_email_api.json"
               template={CalendarTemplate}

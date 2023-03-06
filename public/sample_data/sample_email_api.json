@@ -97,14 +97,46 @@
     {
       "name": "Dentist",
       "location": "Jones' Dentistry",
-      "startTime": "2023-03-05T15:00:00.000-05:00",
+      "startTime": "2023-03-06T15:00:00.000-05:00",
       "duration": 45
     },
     {
       "name": "Floor Hockey",
       "location": "Gym",
-      "startTime": "2023-03-05T20:00:00.000-05:00",
+      "startTime": "2023-03-06T20:00:00.000-05:00",
       "duration": 120
+    },
+    {
+      "name": "Parent/Teacher Meeting",
+      "startTime": "2023-03-07T15:15:00.000-05:00",
+      "duration": 20
+    },
+    {
+      "name": "Drop car off for service",
+      "location": "Car Dealership",
+      "startTime": "2023-03-08T08:00:00.000-05:00",
+      "duration": 5
+    },
+    {
+      "name": "Pick-up car",
+      "location": "Car Dealership",
+      "startTime": "2023-03-08T04:30:00.000-05:00",
+      "duration": 5
+    },
+    {
+      "name": "Client Meeting",
+      "startTime": "2023-03-10T11:15:00.000-05:00",
+      "duration": 60
+    },
+    {
+      "name": "Date Night",
+      "startTime": "2023-03-10T18:30:00.000-05:00",
+      "duration": 240
+    },
+    {
+      "name": "Mom & Dad coming to visit",
+      "startTime": "2023-03-11T09:30:00.000-05:00",
+      "duration": 360
     }
   ]
 }
