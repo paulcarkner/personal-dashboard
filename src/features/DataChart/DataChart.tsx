@@ -43,7 +43,6 @@ import styles from "./DataChart.module.css";
 //Type Declarations
 type Props = {
   url: string;
-  labelsProcessor: Function;
   dataProcessor: Function;
 };
 
@@ -65,11 +64,7 @@ function getCssValue(param: string) {
   ).getPropertyValue(param);
 }
 
-export const LineChart = ({
-  url,
-  labelsProcessor,
-  dataProcessor,
-}: Props): JSX.Element => {
+export const LineChart = ({ url, dataProcessor }: Props): JSX.Element => {
   const dataChartState: DataChartStateType = useAppSelector(
     DataChartStateSelector
   );
@@ -121,21 +116,26 @@ export const LineChart = ({
             },
           }}
           data={{
-            labels: labelsProcessor(dataChart.data),
-            datasets: dataProcessor(dataChart.data).map((d: any, i: number) => {
-              return {
-                label: " " + d[0],
-                data: d[1],
-                pointRadius: 5,
-                pointBorderColor: colorArray[i % 3],
-                pointBorderWidth: 2,
-                pointBackgroundColor: colorArray[i % 3].replace(")", ", 75%)"), //make slightly transparent
-                borderColor: colorArray[i % 3],
-                borderWidth: 1.5,
-                backgroundColor: "transparent",
-                tension: 0.5,
-              };
-            }),
+            labels: dataProcessor(dataChart.data).labels,
+            datasets: dataProcessor(dataChart.data).values.map(
+              (d: any, i: number) => {
+                return {
+                  label: " " + d[0],
+                  data: d[1],
+                  pointRadius: 5,
+                  pointBorderColor: colorArray[i % 3],
+                  pointBorderWidth: 2,
+                  pointBackgroundColor: colorArray[i % 3].replace(
+                    ")",
+                    ", 75%)"
+                  ), //make slightly transparent
+                  borderColor: colorArray[i % 3],
+                  borderWidth: 1.5,
+                  backgroundColor: "transparent",
+                  tension: 0.5,
+                };
+              }
+            ),
           }}
           updateMode="default"
           redraw={true}
@@ -147,11 +147,7 @@ export const LineChart = ({
   );
 };
 
-export const DisplayValue = ({
-  url,
-  labelsProcessor,
-  dataProcessor,
-}: Props): JSX.Element => {
+export const DisplayValue = ({ url, dataProcessor }: Props): JSX.Element => {
   const dataChartState: DataChartStateType = useAppSelector(
     DataChartStateSelector
   );
@@ -177,11 +173,80 @@ export const DisplayValue = ({
   );
 };
 
-export const GoalChart = ({
-  url,
-  labelsProcessor,
-  dataProcessor,
-}: Props): JSX.Element => {
+export const DoughnutChart = ({ url, dataProcessor }: Props): JSX.Element => {
+  const dataChartState: DataChartStateType = useAppSelector(
+    DataChartStateSelector
+  );
+  const dataChart = dataChartState.dataSources?.filter(
+    (source) => source.url === url
+  )[0];
+  const dispatch = useAppDispatch();
+  const primaryColor = getCssValue("--theme-accent-primary");
+  const colorHue = parseInt(
+    primaryColor?.substring(
+      primaryColor.indexOf("(") + 1,
+      primaryColor.indexOf(",")
+    )
+  );
+  console.log(primaryColor);
+  console.log(colorHue);
+  const colorSat = parseInt(
+    primaryColor
+      .split(",")[1]
+      .substring(0, primaryColor.split(",")[1].indexOf("%"))
+  );
+  console.log(colorSat);
+
+  useEffect(() => {
+    if (dataChart?.url !== url) dispatch(FetchDataSource({ url }));
+  });
+
+  return dataChart?.data !== undefined ? (
+    <div className={styles.ChartContainer}>
+      <Doughnut
+        options={{
+          responsive: true,
+          maintainAspectRatio: false,
+          // plugins: {
+          //   legend: {
+          //     display: false,
+          //   },
+          // },
+          cutout: "65%",
+        }}
+        data={{
+          labels: dataProcessor(dataChart.data).labels,
+          datasets: [
+            {
+              data: dataProcessor(dataChart.data).values,
+              backgroundColor: dataProcessor(dataChart.data).values.map(
+                (x: any, index: number) =>
+                  "hsl(" +
+                  colorHue +
+                  "deg, " +
+                  colorSat +
+                  "%, " +
+                  (
+                    (100 / (dataProcessor(dataChart.data).values.length + 1)) *
+                    (index + 1)
+                  ).toString() +
+                  "%)"
+              ),
+              //borderColor: [colorArray[2], "transparent"],
+              //borderWidth: ,
+            },
+          ],
+        }}
+        updateMode="default"
+        redraw={true}
+      />
+    </div>
+  ) : (
+    <div>Loading...</div>
+  );
+};
+
+export const GoalChart = ({ url, dataProcessor }: Props): JSX.Element => {
   const dataChartState: DataChartStateType = useAppSelector(
     DataChartStateSelector
   );
@@ -231,7 +296,6 @@ export const GoalChart = ({
             cutout: "65%",
           }}
           data={{
-            labels: [labelsProcessor(dataChart.data), "Goal"],
             datasets: [
               {
                 data: [
@@ -261,11 +325,7 @@ export const GoalChart = ({
   );
 };
 
-export const MapChart = ({
-  url,
-  labelsProcessor,
-  dataProcessor,
-}: Props): JSX.Element => {
+export const MapChart = ({ url, dataProcessor }: Props): JSX.Element => {
   const svgRef = useRef<SVGSVGElement>(null);
   const dataChartState: DataChartStateType = useAppSelector(
     DataChartStateSelector

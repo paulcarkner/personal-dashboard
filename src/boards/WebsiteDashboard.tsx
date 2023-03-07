@@ -21,7 +21,6 @@ export class WebsiteDashboard extends React.Component {
           <Panel title="Monthly Sales Goal" info="Visualization of JSON Data">
             <GoalChart
               url="/sample_data/sample_website_stats_api.json"
-              labelsProcessor={(data: any) => "Monthly Sales"}
               dataProcessor={(data: any) => {
                 return {
                   value: data.monthly_sales["2023"].slice(-1)[0],
@@ -44,7 +43,6 @@ export class WebsiteDashboard extends React.Component {
           <Panel title="New Accounts" info="Visualization of JSON Data">
             <GoalChart
               url="/sample_data/sample_website_stats_api.json"
-              labelsProcessor={(data: any) => "Monthly New Accounts"}
               dataProcessor={(data: any) => {
                 return {
                   value: data.monthly_new_accounts["2023"].slice(-1)[0],
@@ -58,7 +56,6 @@ export class WebsiteDashboard extends React.Component {
           <Panel title="Bandwidth Limit" info="Visualization of JSON Data">
             <GoalChart
               url="/sample_data/sample_website_stats_api.json"
-              labelsProcessor={(data: any) => "Bandwidth Limit"}
               dataProcessor={(data: any) => {
                 return {
                   value: data.bandwidth_usage,
@@ -73,7 +70,6 @@ export class WebsiteDashboard extends React.Component {
           <Panel title="Avg. Server Response" info="Visualization of JSON Data">
             <GoalChart
               url="/sample_data/sample_website_stats_api.json"
-              labelsProcessor={(data: any) => "Server Response"}
               dataProcessor={(data: any) => {
                 return {
                   value: data.server_response,
@@ -88,7 +84,6 @@ export class WebsiteDashboard extends React.Component {
           <Panel title="Database Size" info="Visualization of JSON Data">
             <GoalChart
               url="/sample_data/sample_website_stats_api.json"
-              labelsProcessor={(data: any) => "Database Size"}
               dataProcessor={(data: any) => {
                 return {
                   value: data.database_total,
@@ -103,7 +98,6 @@ export class WebsiteDashboard extends React.Component {
           <Panel title="Storage Size" info="Visualization of JSON Data">
             <GoalChart
               url="/sample_data/sample_website_stats_api.json"
-              labelsProcessor={(data: any) => "Storage Size"}
               dataProcessor={(data: any) => {
                 return {
                   value: data.storage_total,
@@ -127,28 +121,28 @@ export class WebsiteDashboard extends React.Component {
           >
             <LineChart
               url="/sample_data/sample_website_stats_api.json"
-              labelsProcessor={(data: any) =>
-                data.monthly_visits?.["2021"]?.map(
-                  (x: any, i: number) =>
-                    [
-                      "January",
-                      "February",
-                      "March",
-                      "April",
-                      "May",
-                      "June",
-                      "July",
-                      "August",
-                      "September",
-                      "October",
-                      "November",
-                      "December",
-                    ][i]
-                )
-              }
-              dataProcessor={(data: any) =>
-                Object.entries(data.monthly_visits || {})
-              }
+              dataProcessor={(data: any) => {
+                return {
+                  labels: data.monthly_visits?.["2021"]?.map(
+                    (x: any, i: number) =>
+                      [
+                        "January",
+                        "February",
+                        "March",
+                        "April",
+                        "May",
+                        "June",
+                        "July",
+                        "August",
+                        "September",
+                        "October",
+                        "November",
+                        "December",
+                      ][i]
+                  ),
+                  values: Object.entries(data.monthly_visits || {}),
+                };
+              }}
             />
           </Panel>
           <Panel title="Recent Transactions" info="JSON List Template">
@@ -169,7 +163,6 @@ export class WebsiteDashboard extends React.Component {
           <Panel title="Visitor Locations" info="API JSON" colSpan={2}>
             <MapChart
               url="/sample_data/sample_website_stats_api.json"
-              labelsProcessor={() => null}
               dataProcessor={(data: any) => data.monthly_locations}
             />
           </Panel>
