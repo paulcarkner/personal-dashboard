@@ -147,6 +147,36 @@ export const LineChart = ({
   );
 };
 
+export const DisplayValue = ({
+  url,
+  labelsProcessor,
+  dataProcessor,
+}: Props): JSX.Element => {
+  const dataChartState: DataChartStateType = useAppSelector(
+    DataChartStateSelector
+  );
+  const dataChart = dataChartState.dataSources?.filter(
+    (source) => source.url === url
+  )[0];
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    if (dataChart?.url !== url) dispatch(FetchDataSource({ url }));
+  });
+
+  return dataChart?.data !== undefined ? (
+    <div className={styles.ValueContainer}>
+      <div className={styles.Value}>
+        {dataProcessor(dataChart.data).prepend}
+        {dataProcessor(dataChart.data).value}
+        {dataProcessor(dataChart.data).append}
+      </div>
+    </div>
+  ) : (
+    <div>Loading...</div>
+  );
+};
+
 export const GoalChart = ({
   url,
   labelsProcessor,

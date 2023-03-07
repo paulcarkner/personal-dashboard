@@ -4,7 +4,7 @@ import boardStyles from "./BoardStyles.module.css";
 
 //Components
 import { Panel } from "./../layout/Panel";
-import { GoalChart } from "./../features/DataChart/DataChart";
+import { GoalChart, DisplayValue } from "./../features/DataChart/DataChart";
 import { DateCountDown } from "./../features/DateCountDown/DateCountDown";
 
 export class FinancesDashboard extends React.Component {
@@ -12,6 +12,34 @@ export class FinancesDashboard extends React.Component {
     return (
       <div className={boardStyles.Board}>
         <div className={boardStyles.MiniPanelsContainer}>
+          <Panel title="Chequing Account Balance" info="JSON Data">
+            <DisplayValue
+              url="/sample_data/sample_bank_api.json"
+              labelsProcessor={(data: any) => "Chequing Account Balance"}
+              dataProcessor={(data: any) => {
+                return {
+                  prepend: "$",
+                  value: data.accounts["0048394_156842315"].funds
+                    .toFixed(2)
+                    .replace(/(\d)(?=(\d{3})+\.\d{2}$)/g, `$1,`),
+                };
+              }}
+            />
+          </Panel>
+          <Panel title="Savings Account Balance" info="JSON Data">
+            <DisplayValue
+              url="/sample_data/sample_bank_api.json"
+              labelsProcessor={(data: any) => "Savings Account Balance"}
+              dataProcessor={(data: any) => {
+                return {
+                  prepend: "$",
+                  value: data.accounts["0048394_482904757"].funds
+                    .toFixed(2)
+                    .replace(/(\d)(?=(\d{3})+\.\d{2}$)/g, `$1,`),
+                };
+              }}
+            />
+          </Panel>
           <Panel title="Retirement Savings" info="JSON Data Chart">
             <GoalChart
               url="/sample_data/sample_bank_api.json"
