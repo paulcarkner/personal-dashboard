@@ -123,23 +123,20 @@ export class WebsiteDashboard extends React.Component {
               url="/sample_data/sample_website_stats_api.json"
               dataProcessor={(data: any) => {
                 return {
-                  labels: data.monthly_visits?.["2021"]?.map(
-                    (x: any, i: number) =>
-                      [
-                        "January",
-                        "February",
-                        "March",
-                        "April",
-                        "May",
-                        "June",
-                        "July",
-                        "August",
-                        "September",
-                        "October",
-                        "November",
-                        "December",
-                      ][i]
-                  ),
+                  labels: [
+                    "January",
+                    "February",
+                    "March",
+                    "April",
+                    "May",
+                    "June",
+                    "July",
+                    "August",
+                    "September",
+                    "October",
+                    "November",
+                    "December",
+                  ],
                   values: Object.entries(data.monthly_visits || {}),
                 };
               }}
