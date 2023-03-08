@@ -18,8 +18,9 @@ import {
   Title,
   Tooltip,
   Legend,
+  BarElement,
 } from "chart.js";
-import { Line, Doughnut } from "react-chartjs-2";
+import { Line, Doughnut, Bar } from "react-chartjs-2";
 
 //Redux Imports
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
@@ -54,7 +55,8 @@ ChartJS.register(
   ArcElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  BarElement
 );
 
 function getCssValue(param: string) {
@@ -137,6 +139,69 @@ export const LineChart = ({ url, dataProcessor }: Props): JSX.Element => {
                 };
               }
             ),
+          }}
+          updateMode="default"
+          redraw={true}
+        />
+      ) : (
+        <div>Loading...</div>
+      )}
+    </div>
+  );
+};
+
+export const BarChart = ({ url, dataProcessor }: Props): JSX.Element => {
+  const dataChartState: DataChartStateType = useAppSelector(
+    DataChartStateSelector
+  );
+  const dataChart = dataChartState.dataSources?.filter(
+    (source) => source.url === url
+  )[0];
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    if (dataChart?.url !== url) dispatch(FetchDataSource({ url }));
+  });
+
+  return (
+    <div className={styles.ChartContainer}>
+      {dataChart?.data !== undefined ? (
+        <Bar
+          options={{
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              x: {
+                grid: {
+                  color: getCssValue("--theme-text-tertiary"),
+                },
+              },
+              y: {
+                grid: {
+                  color: getCssValue("--theme-text-tertiary"),
+                },
+                suggestedMin: 0,
+              },
+            },
+            plugins: {
+              legend: {
+                display: false,
+              },
+              title: {
+                display: false,
+              },
+            },
+          }}
+          data={{
+            labels: dataProcessor(dataChart.data).labels,
+            datasets: [
+              {
+                backgroundColor: getCssValue("--theme-accent-primary"),
+                borderColor: getCssValue("--theme-accent-secondary"),
+                borderWidth: 2,
+                data: dataProcessor(dataChart.data).values,
+              },
+            ],
           }}
           updateMode="default"
           redraw={true}

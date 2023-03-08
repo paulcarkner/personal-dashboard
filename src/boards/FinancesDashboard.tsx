@@ -5,6 +5,7 @@ import boardStyles from "./BoardStyles.module.css";
 //Components
 import { Panel } from "./../layout/Panel";
 import {
+  BarChart,
   DoughnutChart,
   GoalChart,
   DisplayValue,
@@ -64,6 +65,62 @@ export class FinancesDashboard extends React.Component {
           </Panel>
         </div>
         <div className={boardStyles.PanelsContainer}>
+          <Panel
+            title="Daily Account Balance"
+            info="JSON Data Visualization"
+            colSpan={2}
+          >
+            <BarChart
+              url="/sample_data/sample_bank_api.json"
+              dataProcessor={(data: any) => {
+                let transactions = [
+                  ...data.accounts["0048394_156842315"].recent_transactions,
+                ];
+                transactions.sort((a, b) =>
+                  a.transaction_date < b.transaction_date ? -1 : 1
+                );
+                let runningBalance = data.accounts["0048394_156842315"].funds;
+                let dailyBalance = [
+                  { date: new Date().getDate(), balance: runningBalance },
+                ];
+
+                for (let x = 1; x < 30; x++) {
+                  let dailyTotal = 0;
+                  let dateCode = new Date(
+                    new Date().getTime() - x * 24 * 60 * 60 * 1000
+                  );
+                  transactions.forEach(
+                    (t: {
+                      id: string;
+                      amount: number;
+                      company: string;
+                      transaction_date: Date;
+                      category: string;
+                    }) => {
+                      if (
+                        new Date(t.transaction_date).toDateString() ===
+                        dateCode.toDateString()
+                      ) {
+                        dailyTotal += t.amount;
+                      }
+                    }
+                  );
+                  runningBalance -= dailyTotal;
+                  dailyBalance.push({
+                    date: dateCode.getDate(),
+                    balance: runningBalance,
+                  });
+                }
+
+                dailyBalance.reverse();
+
+                return {
+                  labels: dailyBalance.map((d) => d.date),
+                  values: dailyBalance.map((d) => d.balance),
+                };
+              }}
+            />
+          </Panel>
           <Panel title="Expense Categories" info="JSON Data Visualization">
             <DoughnutChart
               url="/sample_data/sample_bank_api.json"
@@ -96,7 +153,7 @@ export class FinancesDashboard extends React.Component {
                 categories.sort((a, b) => (a.name < b.name ? -1 : 1));
                 return {
                   labels: categories.map((category) => category.name),
-                  values: categories.map((category) => category.total),
+                  values: categories.map((category) => category.total * -1),
                 };
               }}
             />

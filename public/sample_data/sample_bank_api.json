@@ -9,473 +9,473 @@
       "funds": 4857.23,
       "recent_transactions": [
         {
-          "id": "2965331c-346d-4b3a-a955-78be11299aa4",
-          "amount": 8.72,
-          "company": "QIAO",
-          "transaction_date": "Thu Feb 23 2023 19:25:17 GMT-0500 (Eastern Standard Time)",
+          "id": "6fdc6c2c-ac46-4c97-87e5-62fd7f13053f",
+          "amount": -70.23,
+          "company": "IMPERIUM",
+          "transaction_date": "Sun Mar 12 2023 03:03:06 GMT-0400 (Eastern Daylight Time)",
+          "category": "Other"
+        },
+        {
+          "id": "955c27ad-5ef9-4aef-9252-cce992ef1df3",
+          "amount": 24.5,
+          "company": "MOLTONIC",
+          "transaction_date": "Sun Mar 19 2023 01:14:09 GMT-0400 (Eastern Daylight Time)",
+          "category": "Deposit"
+        },
+        {
+          "id": "6a450819-fb91-464a-9be5-128af1cbf515",
+          "amount": -103.15,
+          "company": "ANOCHA",
+          "transaction_date": "Thu Mar 30 2023 06:31:19 GMT-0400 (Eastern Daylight Time)",
+          "category": "Bills"
+        },
+        {
+          "id": "89e82980-4f9c-4329-9603-01cc4f44c786",
+          "amount": -79.23,
+          "company": "QUONK",
+          "transaction_date": "Wed Mar 22 2023 13:06:20 GMT-0400 (Eastern Daylight Time)",
+          "category": "Bills"
+        },
+        {
+          "id": "3c800cd6-88e2-4d39-b164-347f2072ce07",
+          "amount": -92.99,
+          "company": "PROXSOFT",
+          "transaction_date": "Sun Mar 19 2023 13:40:41 GMT-0400 (Eastern Daylight Time)",
           "category": "Eat-out"
         },
         {
-          "id": "54c9c8d0-9012-47a2-a15b-fed11ce1706e",
-          "amount": 81.82,
-          "company": "OCEANICA",
-          "transaction_date": "Sun Mar 05 2023 20:12:42 GMT-0500 (Eastern Standard Time)",
-          "category": "Bills"
-        },
-        {
-          "id": "71b86010-43d0-47eb-b4d0-a9f119c9f088",
-          "amount": 3.35,
-          "company": "SUNCLIPSE",
-          "transaction_date": "Fri Mar 17 2023 21:45:46 GMT-0400 (Eastern Daylight Time)",
-          "category": "Home"
-        },
-        {
-          "id": "09a9b4d0-dfaa-4220-9f85-4eefcffcf988",
-          "amount": 4.19,
-          "company": "ISOSPHERE",
-          "transaction_date": "Thu Mar 02 2023 00:39:13 GMT-0500 (Eastern Standard Time)",
-          "category": "Other"
-        },
-        {
-          "id": "9fba7424-48cc-4901-9b24-ed3ab33892e7",
-          "amount": 14.79,
-          "company": "KIGGLE",
-          "transaction_date": "Mon Feb 27 2023 18:46:07 GMT-0500 (Eastern Standard Time)",
-          "category": "Bills"
-        },
-        {
-          "id": "c479cdb6-09ee-4b70-b32e-457c5437c2de",
-          "amount": 19.96,
-          "company": "MYOPIUM",
-          "transaction_date": "Thu Feb 09 2023 03:38:04 GMT-0500 (Eastern Standard Time)",
-          "category": "Other"
-        },
-        {
-          "id": "45b448ab-09be-45ab-9ce8-e9fb71951854",
-          "amount": 175.44,
-          "company": "AQUOAVO",
-          "transaction_date": "Mon Feb 13 2023 22:27:06 GMT-0500 (Eastern Standard Time)",
-          "category": "Car"
-        },
-        {
-          "id": "257ceabd-2322-44df-ae94-5100666fa58e",
-          "amount": 28.43,
-          "company": "PAPRIKUT",
-          "transaction_date": "Mon Mar 27 2023 01:59:24 GMT-0400 (Eastern Daylight Time)",
-          "category": "Groceries"
-        },
-        {
-          "id": "7a062589-f45d-45fa-8674-db4a4a609629",
-          "amount": 129.25,
-          "company": "HONOTRON",
-          "transaction_date": "Sat Feb 11 2023 06:36:36 GMT-0500 (Eastern Standard Time)",
-          "category": "Other"
-        },
-        {
-          "id": "8171f1be-e6a8-4ef3-8694-9ec5faeb18ee",
-          "amount": 93.02,
-          "company": "BLUEGRAIN",
-          "transaction_date": "Sun Mar 12 2023 17:34:42 GMT-0400 (Eastern Daylight Time)",
-          "category": "Other"
-        },
-        {
-          "id": "e40c9b38-8048-441e-803a-888ddd3ac570",
-          "amount": 1.94,
-          "company": "ORBIFLEX",
-          "transaction_date": "Tue Feb 28 2023 01:08:28 GMT-0500 (Eastern Standard Time)",
-          "category": "Bills"
-        },
-        {
-          "id": "7366d515-5e6c-4d90-ae6c-e0adbd95999b",
-          "amount": 101,
-          "company": "ROUGHIES",
-          "transaction_date": "Tue Mar 07 2023 19:20:25 GMT-0500 (Eastern Standard Time)",
-          "category": "Bills"
-        },
-        {
-          "id": "d188ac6b-d5da-4ec7-a79b-5b6ec353f425",
-          "amount": 7.22,
-          "company": "SENMAO",
-          "transaction_date": "Sat Mar 25 2023 12:04:52 GMT-0400 (Eastern Daylight Time)",
-          "category": "Groceries"
-        },
-        {
-          "id": "f4cfd404-574d-45b9-8343-3e9bf7314e3a",
-          "amount": 95.35,
-          "company": "PYRAMIS",
-          "transaction_date": "Sat Feb 18 2023 00:44:30 GMT-0500 (Eastern Standard Time)",
-          "category": "Home"
-        },
-        {
-          "id": "ea3dd89b-1cb4-4349-acfe-c26147bbd22a",
-          "amount": 153.4,
-          "company": "PHUEL",
-          "transaction_date": "Fri Mar 31 2023 21:01:37 GMT-0400 (Eastern Daylight Time)",
-          "category": "Other"
-        },
-        {
-          "id": "bea12831-156d-4e46-95e5-0ac008a0830e",
-          "amount": 1.07,
-          "company": "MEDESIGN",
-          "transaction_date": "Mon Mar 20 2023 08:56:05 GMT-0400 (Eastern Daylight Time)",
-          "category": "Eat-out"
-        },
-        {
-          "id": "5078ecfe-94c0-42e4-a8dd-bd7a0dae713d",
-          "amount": 66.04,
-          "company": "OVERPLEX",
-          "transaction_date": "Wed Mar 08 2023 03:12:29 GMT-0500 (Eastern Standard Time)",
-          "category": "Entertainment"
-        },
-        {
-          "id": "edeca7be-7885-4299-9092-34d1d6da4a9b",
-          "amount": 63.68,
-          "company": "CHORIZON",
-          "transaction_date": "Sun Mar 26 2023 01:25:15 GMT-0400 (Eastern Daylight Time)",
-          "category": "Home"
-        },
-        {
-          "id": "8d847ba7-1058-4a1e-bc91-2d2dc4922fc1",
-          "amount": 21.32,
-          "company": "ACCIDENCY",
-          "transaction_date": "Sat Mar 04 2023 11:13:10 GMT-0500 (Eastern Standard Time)",
-          "category": "Other"
-        },
-        {
-          "id": "376f9876-dc70-4d2d-aef7-98b87f8d12b7",
-          "amount": 123.17,
-          "company": "BARKARAMA",
-          "transaction_date": "Sun Feb 26 2023 14:11:25 GMT-0500 (Eastern Standard Time)",
-          "category": "Other"
-        },
-        {
-          "id": "6591155f-ca97-4374-ba1a-c921197642cb",
-          "amount": 160.08,
-          "company": "HOTCAKES",
-          "transaction_date": "Wed Mar 08 2023 18:22:48 GMT-0500 (Eastern Standard Time)",
-          "category": "Home"
-        },
-        {
-          "id": "a301bde5-f255-43cd-af5f-2fb1f51d5014",
-          "amount": 120.54,
-          "company": "QUINEX",
-          "transaction_date": "Mon Feb 20 2023 05:09:28 GMT-0500 (Eastern Standard Time)",
-          "category": "Groceries"
-        },
-        {
-          "id": "904cafee-3ee9-48b5-b0d5-5e1d4a304dc9",
-          "amount": 135.32,
-          "company": "SENMEI",
-          "transaction_date": "Wed Feb 08 2023 14:59:30 GMT-0500 (Eastern Standard Time)",
-          "category": "Other"
-        },
-        {
-          "id": "e33a1506-3cd3-4c4c-af2e-9c82fe9959ff",
-          "amount": 1.24,
-          "company": "QOT",
-          "transaction_date": "Fri Feb 17 2023 05:54:07 GMT-0500 (Eastern Standard Time)",
-          "category": "Eat-out"
-        },
-        {
-          "id": "65ed0396-1757-462f-9fd6-124bf49d78df",
-          "amount": 174.66,
-          "company": "ZENTRY",
-          "transaction_date": "Mon Feb 27 2023 21:35:58 GMT-0500 (Eastern Standard Time)",
-          "category": "Car"
-        },
-        {
-          "id": "c326b86e-d3e3-4d67-8016-8c2758455b48",
-          "amount": 2.05,
-          "company": "DAIDO",
-          "transaction_date": "Sun Mar 12 2023 04:21:19 GMT-0400 (Eastern Daylight Time)",
-          "category": "Car"
-        },
-        {
-          "id": "c1a88da3-fd37-49f9-8746-86c37ab068d1",
-          "amount": 120.19,
-          "company": "ZILODYNE",
-          "transaction_date": "Wed Mar 29 2023 11:42:56 GMT-0400 (Eastern Daylight Time)",
-          "category": "Other"
-        },
-        {
-          "id": "06f01f3d-4c92-40c0-903a-5f530d0001a8",
-          "amount": 16.43,
-          "company": "EXOSIS",
-          "transaction_date": "Wed Feb 15 2023 21:08:52 GMT-0500 (Eastern Standard Time)",
-          "category": "Car"
-        },
-        {
-          "id": "60d47b14-e40b-41c3-81c8-ca7944476416",
-          "amount": 189.07,
-          "company": "SENSATE",
-          "transaction_date": "Sat Feb 04 2023 08:21:32 GMT-0500 (Eastern Standard Time)",
-          "category": "Bills"
-        },
-        {
-          "id": "7607c73a-c3a2-49c2-af06-d520c9eb2411",
-          "amount": 77.55,
-          "company": "ORBAXTER",
-          "transaction_date": "Sat Mar 04 2023 13:31:13 GMT-0500 (Eastern Standard Time)",
-          "category": "Bills"
-        },
-        {
-          "id": "2a3a2e24-5aee-4e4b-968a-119c59702210",
-          "amount": 121.75,
-          "company": "OTHERSIDE",
-          "transaction_date": "Sat Mar 04 2023 13:29:44 GMT-0500 (Eastern Standard Time)",
-          "category": "Entertainment"
-        },
-        {
-          "id": "6330faf7-9a3a-4090-b283-e79758a4acc2",
-          "amount": 8.26,
-          "company": "ELEMANTRA",
-          "transaction_date": "Wed Mar 01 2023 20:53:36 GMT-0500 (Eastern Standard Time)",
-          "category": "Entertainment"
-        },
-        {
-          "id": "f506a435-3c7e-4900-9feb-c8b5c29ed7cc",
-          "amount": 13.58,
-          "company": "MANGLO",
-          "transaction_date": "Fri Mar 31 2023 05:49:30 GMT-0400 (Eastern Daylight Time)",
-          "category": "Car"
-        },
-        {
-          "id": "94e9e093-cb56-4909-bd77-ea020c58feb1",
-          "amount": 11.59,
-          "company": "VERTON",
-          "transaction_date": "Thu Feb 23 2023 06:13:38 GMT-0500 (Eastern Standard Time)",
-          "category": "Groceries"
-        },
-        {
-          "id": "03265a6e-edae-46e8-ba47-60d69605ea0d",
-          "amount": 1.56,
-          "company": "MUSIX",
-          "transaction_date": "Tue Feb 14 2023 21:00:43 GMT-0500 (Eastern Standard Time)",
-          "category": "Entertainment"
-        },
-        {
-          "id": "b471942f-3260-442b-8d50-25557c5a697b",
-          "amount": 109.32,
-          "company": "QABOOS",
-          "transaction_date": "Sun Feb 05 2023 01:22:46 GMT-0500 (Eastern Standard Time)",
-          "category": "Eat-out"
-        },
-        {
-          "id": "6d810e09-0690-48f1-bd7e-6e04de4ef4a7",
-          "amount": 191.55,
-          "company": "GEOSTELE",
-          "transaction_date": "Sun Mar 19 2023 21:15:43 GMT-0400 (Eastern Daylight Time)",
-          "category": "Groceries"
-        },
-        {
-          "id": "0ff89bc7-8d8c-4479-8f84-ffa66f4e0792",
-          "amount": 157.89,
-          "company": "FISHLAND",
-          "transaction_date": "Thu Mar 30 2023 10:59:35 GMT-0400 (Eastern Daylight Time)",
-          "category": "Bills"
-        },
-        {
-          "id": "f8dabb37-acd7-42cd-b848-7a61e92f3f55",
-          "amount": 2.69,
-          "company": "FIBRODYNE",
-          "transaction_date": "Thu Mar 30 2023 05:42:18 GMT-0400 (Eastern Daylight Time)",
-          "category": "Eat-out"
-        },
-        {
-          "id": "0d3804b7-e4f4-4f8b-a6c3-89722dfc2a12",
-          "amount": 8.25,
-          "company": "INTRADISK",
-          "transaction_date": "Tue Feb 14 2023 12:15:00 GMT-0500 (Eastern Standard Time)",
-          "category": "Eat-out"
-        },
-        {
-          "id": "0c3fcb6b-1e1a-4602-93ff-5f1d74fea621",
-          "amount": 63.17,
+          "id": "10db6b99-49ff-4de7-9d31-9c2905597357",
+          "amount": 1219.3,
           "company": "OPTICALL",
-          "transaction_date": "Thu Mar 30 2023 07:23:22 GMT-0400 (Eastern Daylight Time)",
-          "category": "Home"
+          "transaction_date": "Thu Feb 02 2023 10:39:35 GMT-0500 (Eastern Standard Time)",
+          "category": "Deposit"
         },
         {
-          "id": "71d0fb2e-ab8e-48e0-b12d-c517c5630f46",
-          "amount": 47.82,
-          "company": "BEZAL",
-          "transaction_date": "Mon Feb 20 2023 05:40:39 GMT-0500 (Eastern Standard Time)",
+          "id": "44dacf8a-884a-431f-9e41-16ad5cc0f054",
+          "amount": -190.89,
+          "company": "VIASIA",
+          "transaction_date": "Wed Feb 01 2023 09:11:39 GMT-0500 (Eastern Standard Time)",
           "category": "Eat-out"
         },
         {
-          "id": "4bfede8a-cf39-47d7-aee8-dbe19a5b6d2b",
-          "amount": 2.85,
-          "company": "ORONOKO",
-          "transaction_date": "Sat Feb 18 2023 01:00:46 GMT-0500 (Eastern Standard Time)",
-          "category": "Eat-out"
-        },
-        {
-          "id": "37519740-b246-4f2b-9478-934593d2cd69",
-          "amount": 8.3,
-          "company": "QUONATA",
-          "transaction_date": "Sun Mar 05 2023 05:45:56 GMT-0500 (Eastern Standard Time)",
-          "category": "Eat-out"
-        },
-        {
-          "id": "86df3798-3882-45c6-93df-d6bf527b46e2",
-          "amount": 4.82,
-          "company": "VENOFLEX",
-          "transaction_date": "Mon Mar 13 2023 04:39:07 GMT-0400 (Eastern Daylight Time)",
-          "category": "Groceries"
-        },
-        {
-          "id": "2dbd2fb8-6a8d-4997-bd12-a095946fb2e8",
-          "amount": 110.62,
-          "company": "TALKALOT",
-          "transaction_date": "Sat Feb 11 2023 09:49:44 GMT-0500 (Eastern Standard Time)",
-          "category": "Home"
-        },
-        {
-          "id": "84c25670-f034-415e-8a4d-e66e86313965",
-          "amount": 107.73,
-          "company": "QUALITEX",
-          "transaction_date": "Thu Feb 02 2023 07:00:05 GMT-0500 (Eastern Standard Time)",
-          "category": "Eat-out"
-        },
-        {
-          "id": "352f9a34-7bf6-4627-8533-014f787640f9",
-          "amount": 134.17,
-          "company": "MINGA",
-          "transaction_date": "Wed Feb 15 2023 09:51:09 GMT-0500 (Eastern Standard Time)",
-          "category": "Car"
-        },
-        {
-          "id": "34d46466-d1e6-42a8-8512-c4d1aa8409e3",
-          "amount": 9.07,
-          "company": "DELPHIDE",
-          "transaction_date": "Fri Feb 03 2023 06:19:08 GMT-0500 (Eastern Standard Time)",
-          "category": "Groceries"
-        },
-        {
-          "id": "1431bd47-9efc-4a30-b1b9-75e2c2f332d0",
-          "amount": 15.06,
-          "company": "COLAIRE",
-          "transaction_date": "Fri Feb 03 2023 11:12:17 GMT-0500 (Eastern Standard Time)",
-          "category": "Bills"
-        },
-        {
-          "id": "bee8187e-891a-4a89-8031-c4129c43b9a7",
-          "amount": 185.7,
-          "company": "CAPSCREEN",
-          "transaction_date": "Sat Feb 18 2023 14:51:51 GMT-0500 (Eastern Standard Time)",
-          "category": "Car"
-        },
-        {
-          "id": "00a30245-07b1-4158-8aa5-4745089899c5",
-          "amount": 44.06,
-          "company": "QUOTEZART",
-          "transaction_date": "Thu Mar 16 2023 18:15:41 GMT-0400 (Eastern Daylight Time)",
+          "id": "adbc30ec-65a0-42b1-b839-e9feb0772775",
+          "amount": -79.76,
+          "company": "ILLUMITY",
+          "transaction_date": "Sat Feb 11 2023 22:41:53 GMT-0500 (Eastern Standard Time)",
           "category": "Entertainment"
         },
         {
-          "id": "f6c5ab10-0049-408c-9b6c-6394723e6e90",
-          "amount": 16.82,
-          "company": "ISOTRONIC",
-          "transaction_date": "Sat Feb 11 2023 04:50:36 GMT-0500 (Eastern Standard Time)",
-          "category": "Home"
-        },
-        {
-          "id": "6987e506-008d-4cce-aa8d-a7bc3bd86514",
-          "amount": 30.89,
-          "company": "WARETEL",
-          "transaction_date": "Fri Feb 03 2023 11:36:13 GMT-0500 (Eastern Standard Time)",
+          "id": "3bd75681-67fb-4151-b540-d1f749b054e2",
+          "amount": -2.09,
+          "company": "LINGOAGE",
+          "transaction_date": "Sun Mar 12 2023 11:38:48 GMT-0400 (Eastern Daylight Time)",
           "category": "Eat-out"
         },
         {
-          "id": "3651e988-87ca-47e1-978d-9748ec59b681",
-          "amount": 95.27,
-          "company": "TURNLING",
-          "transaction_date": "Fri Mar 31 2023 23:10:51 GMT-0400 (Eastern Daylight Time)",
-          "category": "Car"
-        },
-        {
-          "id": "f2466bca-2c0b-4f86-adc6-9fdc4b7c6f99",
-          "amount": 42.8,
-          "company": "BIOTICA",
-          "transaction_date": "Fri Feb 24 2023 00:15:12 GMT-0500 (Eastern Standard Time)",
-          "category": "Home"
-        },
-        {
-          "id": "dbc87915-5482-4021-a982-7d802726d81f",
-          "amount": 37.07,
-          "company": "MEDALERT",
-          "transaction_date": "Mon Mar 20 2023 21:11:00 GMT-0400 (Eastern Daylight Time)",
-          "category": "Entertainment"
-        },
-        {
-          "id": "7653b9fe-524b-4b04-bc97-8be27bd23fe1",
-          "amount": 5.07,
-          "company": "MAGNINA",
-          "transaction_date": "Mon Mar 06 2023 10:44:47 GMT-0500 (Eastern Standard Time)",
+          "id": "495adf0d-849c-4274-91af-c22b6cb60937",
+          "amount": -148.88,
+          "company": "TERSANKI",
+          "transaction_date": "Wed Feb 08 2023 11:59:06 GMT-0500 (Eastern Standard Time)",
           "category": "Bills"
         },
         {
-          "id": "7d82af4d-b747-443d-bad9-a77a9728ceb0",
-          "amount": 186.2,
-          "company": "GALLAXIA",
-          "transaction_date": "Tue Feb 14 2023 00:14:52 GMT-0500 (Eastern Standard Time)",
+          "id": "28706db1-ceae-421a-b5eb-71cfc8dc7e92",
+          "amount": -56.68,
+          "company": "BOILCAT",
+          "transaction_date": "Wed Mar 08 2023 13:16:24 GMT-0500 (Eastern Standard Time)",
           "category": "Eat-out"
         },
         {
-          "id": "2d6d7c08-0665-4240-af17-acb624576e72",
-          "amount": 33.9,
-          "company": "RUBADUB",
-          "transaction_date": "Wed Mar 08 2023 04:50:39 GMT-0500 (Eastern Standard Time)",
-          "category": "Car"
+          "id": "15a8a81b-ffbd-4cd3-a85a-6b01a34e01ca",
+          "amount": -31.05,
+          "company": "MUSAPHICS",
+          "transaction_date": "Tue Feb 28 2023 15:59:13 GMT-0500 (Eastern Standard Time)",
+          "category": "Eat-out"
         },
         {
-          "id": "89ea50fd-d440-40cf-b97d-2d8158ac8677",
-          "amount": 93.28,
-          "company": "REMOLD",
-          "transaction_date": "Tue Mar 07 2023 11:13:13 GMT-0500 (Eastern Standard Time)",
+          "id": "bc4fb361-d413-4ee4-bf12-f9f9c468a8a7",
+          "amount": 220.2,
+          "company": "DOGSPA",
+          "transaction_date": "Sun Mar 19 2023 21:35:55 GMT-0400 (Eastern Daylight Time)",
+          "category": "Deposit"
+        },
+        {
+          "id": "0161069d-9f50-4513-b082-bb068d099699",
+          "amount": 1720.4,
+          "company": "ATOMICA",
+          "transaction_date": "Sun Mar 05 2023 12:37:11 GMT-0500 (Eastern Standard Time)",
+          "category": "Deposit"
+        },
+        {
+          "id": "5bb57aa0-041c-438e-abfe-5fe3a89ab29c",
+          "amount": -17.81,
+          "company": "GEEKOLA",
+          "transaction_date": "Sat Feb 25 2023 19:18:43 GMT-0500 (Eastern Standard Time)",
           "category": "Other"
         },
         {
-          "id": "277ed0da-1c8d-4e65-98b8-277fdc3c0f44",
-          "amount": 74.03,
-          "company": "APEXTRI",
-          "transaction_date": "Thu Mar 09 2023 17:01:51 GMT-0500 (Eastern Standard Time)",
-          "category": "Other"
-        },
-        {
-          "id": "6253190e-3891-4469-be4a-1744c543c5a7",
-          "amount": 8.76,
-          "company": "TECHTRIX",
-          "transaction_date": "Wed Feb 15 2023 02:05:38 GMT-0500 (Eastern Standard Time)",
+          "id": "3d9155c5-8384-45c3-9556-80c191643bdb",
+          "amount": -192.9,
+          "company": "ZOLAR",
+          "transaction_date": "Thu Mar 09 2023 02:09:30 GMT-0500 (Eastern Standard Time)",
           "category": "Home"
         },
         {
-          "id": "337e0018-4acd-445c-960e-e42b8b4b3139",
-          "amount": 23.18,
-          "company": "ZILLADYNE",
-          "transaction_date": "Mon Mar 13 2023 20:04:53 GMT-0400 (Eastern Daylight Time)",
+          "id": "8c682a77-1719-4b39-bbf3-ad139441c9a9",
+          "amount": -6.63,
+          "company": "INSURESYS",
+          "transaction_date": "Thu Feb 23 2023 04:48:07 GMT-0500 (Eastern Standard Time)",
+          "category": "Entertainment"
+        },
+        {
+          "id": "44ada5c4-7768-4777-afbc-13b6e42a3fce",
+          "amount": -16.68,
+          "company": "KIDSTOCK",
+          "transaction_date": "Wed Feb 08 2023 06:22:53 GMT-0500 (Eastern Standard Time)",
+          "category": "Entertainment"
+        },
+        {
+          "id": "e9f56add-e574-4b74-9792-e374a251f018",
+          "amount": -2.36,
+          "company": "BLURRYBUS",
+          "transaction_date": "Thu Mar 16 2023 15:24:32 GMT-0400 (Eastern Daylight Time)",
+          "category": "Eat-out"
+        },
+        {
+          "id": "0eca45e1-554f-493d-a09e-19af5663f806",
+          "amount": 962.9,
+          "company": "EXTRO",
+          "transaction_date": "Sun Feb 12 2023 21:53:20 GMT-0500 (Eastern Standard Time)",
+          "category": "Deposit"
+        },
+        {
+          "id": "e855677a-e53f-4ae9-9be8-9217a28c368f",
+          "amount": -49.55,
+          "company": "NIXELT",
+          "transaction_date": "Tue Feb 21 2023 10:04:21 GMT-0500 (Eastern Standard Time)",
+          "category": "Home"
+        },
+        {
+          "id": "2e0d9dba-6161-4dce-919d-ee32f865f502",
+          "amount": -3.54,
+          "company": "BLEEKO",
+          "transaction_date": "Mon Feb 20 2023 01:37:22 GMT-0500 (Eastern Standard Time)",
+          "category": "Eat-out"
+        },
+        {
+          "id": "deb3ac19-e41f-4c5c-8270-dac331f83a77",
+          "amount": -200.59,
+          "company": "ISOLOGIX",
+          "transaction_date": "Sun Mar 26 2023 09:30:59 GMT-0400 (Eastern Daylight Time)",
+          "category": "Eat-out"
+        },
+        {
+          "id": "af36a115-d510-4ce9-ae14-08124b06ab40",
+          "amount": -58.94,
+          "company": "GREEKER",
+          "transaction_date": "Thu Mar 23 2023 17:35:57 GMT-0400 (Eastern Daylight Time)",
           "category": "Other"
         },
         {
-          "id": "5d32fc56-50ee-4a73-a9fd-931aec04772c",
-          "amount": 172.09,
-          "company": "TOURMANIA",
-          "transaction_date": "Mon Feb 20 2023 08:12:01 GMT-0500 (Eastern Standard Time)",
+          "id": "10436c2b-8dbc-403d-bb23-5bdaf8071b1e",
+          "amount": -64.68,
+          "company": "ACUSAGE",
+          "transaction_date": "Wed Feb 22 2023 11:43:20 GMT-0500 (Eastern Standard Time)",
+          "category": "Eat-out"
+        },
+        {
+          "id": "cc2c718c-b98f-4129-bcd5-05f1c9c124cb",
+          "amount": -9.64,
+          "company": "SNOWPOKE",
+          "transaction_date": "Fri Feb 10 2023 17:10:50 GMT-0500 (Eastern Standard Time)",
+          "category": "Home"
+        },
+        {
+          "id": "15bab1a4-aa23-4271-8f24-d668c094c14f",
+          "amount": -34.95,
+          "company": "PROSURE",
+          "transaction_date": "Thu Mar 16 2023 08:58:12 GMT-0400 (Eastern Daylight Time)",
+          "category": "Car"
+        },
+        {
+          "id": "4998d73f-4b27-47ca-8863-2ba16497511b",
+          "amount": -41.9,
+          "company": "MAROPTIC",
+          "transaction_date": "Wed Mar 01 2023 16:46:05 GMT-0500 (Eastern Standard Time)",
+          "category": "Other"
+        },
+        {
+          "id": "20d484e5-e0d7-49a9-9c73-51545ab0789a",
+          "amount": -28.89,
+          "company": "ACCUPHARM",
+          "transaction_date": "Thu Mar 09 2023 10:09:01 GMT-0500 (Eastern Standard Time)",
           "category": "Groceries"
         },
         {
-          "id": "6b657f03-9571-4b6e-a85b-a6dee254b803",
-          "amount": 136.54,
-          "company": "KEENGEN",
-          "transaction_date": "Mon Mar 06 2023 16:56:00 GMT-0500 (Eastern Standard Time)",
+          "id": "262a19c1-ce2f-4172-bebb-cfcf6c1fe5de",
+          "amount": -15.86,
+          "company": "PYRAMI",
+          "transaction_date": "Thu Feb 09 2023 17:34:51 GMT-0500 (Eastern Standard Time)",
+          "category": "Groceries"
+        },
+        {
+          "id": "da7d2df4-1fa4-44d4-b83b-a42c8a8bc45d",
+          "amount": -99.56,
+          "company": "ENTOGROK",
+          "transaction_date": "Fri Mar 17 2023 01:18:26 GMT-0400 (Eastern Daylight Time)",
+          "category": "Groceries"
+        },
+        {
+          "id": "e0cff032-29c1-4b9f-bf9c-c2b5e23cac3d",
+          "amount": -88.02,
+          "company": "INSECTUS",
+          "transaction_date": "Sat Feb 18 2023 11:08:30 GMT-0500 (Eastern Standard Time)",
+          "category": "Groceries"
+        },
+        {
+          "id": "f83dce8a-fa84-4e18-ac22-0e1226f02459",
+          "amount": -120.19,
+          "company": "GENMEX",
+          "transaction_date": "Wed Feb 22 2023 21:14:48 GMT-0500 (Eastern Standard Time)",
+          "category": "Groceries"
+        },
+        {
+          "id": "f95b6745-6199-46d3-9dce-e553e80a2ed5",
+          "amount": -10.04,
+          "company": "VERTIDE",
+          "transaction_date": "Wed Feb 01 2023 03:35:35 GMT-0500 (Eastern Standard Time)",
           "category": "Car"
         },
         {
-          "id": "bf51f7b8-c650-415a-a331-520302c75132",
-          "amount": 103.82,
-          "company": "DIGIGENE",
-          "transaction_date": "Fri Feb 24 2023 13:42:26 GMT-0500 (Eastern Standard Time)",
+          "id": "2d904875-af08-4e32-8ed3-8dccb67508fe",
+          "amount": -15.43,
+          "company": "PRISMATIC",
+          "transaction_date": "Wed Feb 08 2023 13:17:26 GMT-0500 (Eastern Standard Time)",
+          "category": "Bills"
+        },
+        {
+          "id": "0b69c77d-2496-4481-bae5-c63c42f1c284",
+          "amount": -1.43,
+          "company": "SPHERIX",
+          "transaction_date": "Thu Mar 02 2023 12:24:06 GMT-0500 (Eastern Standard Time)",
+          "category": "Bills"
+        },
+        {
+          "id": "e7c130b1-2f0b-4006-91c4-3c87f5584f95",
+          "amount": -3.13,
+          "company": "KYAGORO",
+          "transaction_date": "Mon Feb 13 2023 11:00:55 GMT-0500 (Eastern Standard Time)",
           "category": "Car"
+        },
+        {
+          "id": "a193b44b-f2cb-4166-981e-e0969819de1a",
+          "amount": -3.61,
+          "company": "OPTICOM",
+          "transaction_date": "Sat Mar 11 2023 03:41:56 GMT-0500 (Eastern Standard Time)",
+          "category": "Entertainment"
+        },
+        {
+          "id": "8843abe7-24c0-4650-84e5-848f9c541237",
+          "amount": -21.98,
+          "company": "ZILCH",
+          "transaction_date": "Mon Mar 27 2023 10:27:20 GMT-0400 (Eastern Daylight Time)",
+          "category": "Other"
+        },
+        {
+          "id": "71500c66-46ee-402b-9f2a-3e19a742af73",
+          "amount": -58.53,
+          "company": "KINDALOO",
+          "transaction_date": "Wed Mar 08 2023 19:54:10 GMT-0500 (Eastern Standard Time)",
+          "category": "Groceries"
+        },
+        {
+          "id": "498427f3-0e0b-437b-ab50-87c4a4a98dde",
+          "amount": -74.65,
+          "company": "OVERFORK",
+          "transaction_date": "Mon Mar 27 2023 16:59:21 GMT-0400 (Eastern Daylight Time)",
+          "category": "Groceries"
+        },
+        {
+          "id": "ca7833c9-ff55-48ac-9049-63cdcba4dd65",
+          "amount": -139.51,
+          "company": "VALREDA",
+          "transaction_date": "Thu Feb 23 2023 08:17:01 GMT-0500 (Eastern Standard Time)",
+          "category": "Bills"
+        },
+        {
+          "id": "72c0b8eb-20f9-4abd-abc1-c0bc8a3307d4",
+          "amount": -18.44,
+          "company": "ZOUNDS",
+          "transaction_date": "Sat Mar 25 2023 01:33:07 GMT-0400 (Eastern Daylight Time)",
+          "category": "Eat-out"
+        },
+        {
+          "id": "705748e2-2ef9-496e-b116-a5f6f221d45b",
+          "amount": -2.56,
+          "company": "ULTRIMAX",
+          "transaction_date": "Tue Mar 14 2023 18:48:21 GMT-0400 (Eastern Daylight Time)",
+          "category": "Entertainment"
+        },
+        {
+          "id": "ee5b9823-7b43-4b9c-9429-801de6cb2de8",
+          "amount": -14.18,
+          "company": "ONTALITY",
+          "transaction_date": "Sat Feb 25 2023 12:03:43 GMT-0500 (Eastern Standard Time)",
+          "category": "Car"
+        },
+        {
+          "id": "add2fda2-1e00-4f94-90e5-6e0048448610",
+          "amount": -9.66,
+          "company": "KONGLE",
+          "transaction_date": "Thu Mar 23 2023 15:51:48 GMT-0400 (Eastern Daylight Time)",
+          "category": "Other"
+        },
+        {
+          "id": "ea5296bd-82ea-4a92-baf7-0b2c118cfb25",
+          "amount": -137.12,
+          "company": "DAIDO",
+          "transaction_date": "Sun Mar 19 2023 21:36:57 GMT-0400 (Eastern Daylight Time)",
+          "category": "Eat-out"
+        },
+        {
+          "id": "faf703f5-e927-41a3-a186-e9559c77e166",
+          "amount": -139.84,
+          "company": "WEBIOTIC",
+          "transaction_date": "Sun Feb 05 2023 07:43:11 GMT-0500 (Eastern Standard Time)",
+          "category": "Bills"
+        },
+        {
+          "id": "288d7893-7b07-4685-8523-caab25b2393a",
+          "amount": -9.93,
+          "company": "BIOHAB",
+          "transaction_date": "Wed Feb 01 2023 08:15:29 GMT-0500 (Eastern Standard Time)",
+          "category": "Groceries"
+        },
+        {
+          "id": "db6178c7-59bd-4889-a4a7-7191c81ab5c5",
+          "amount": -5.99,
+          "company": "STROZEN",
+          "transaction_date": "Sat Mar 11 2023 20:19:46 GMT-0500 (Eastern Standard Time)",
+          "category": "Eat-out"
+        },
+        {
+          "id": "65f040fc-9011-443e-98bf-007ed31f41d3",
+          "amount": -15.97,
+          "company": "TWIIST",
+          "transaction_date": "Sun Mar 26 2023 17:50:40 GMT-0400 (Eastern Daylight Time)",
+          "category": "Entertainment"
+        },
+        {
+          "id": "fd161e10-3a5a-449a-adcc-a635ac344913",
+          "amount": -88.53,
+          "company": "ANDERSHUN",
+          "transaction_date": "Mon Feb 06 2023 11:39:30 GMT-0500 (Eastern Standard Time)",
+          "category": "Groceries"
+        },
+        {
+          "id": "e954cc8b-5296-4445-92eb-80fdbf3ceb7d",
+          "amount": 1848.5,
+          "company": "CINASTER",
+          "transaction_date": "Fri Mar 24 2023 17:00:42 GMT-0400 (Eastern Daylight Time)",
+          "category": "Deposit"
+        },
+        {
+          "id": "fddacf18-5e4c-4eb9-9775-33ca2e6ec33b",
+          "amount": -93.41,
+          "company": "SKYBOLD",
+          "transaction_date": "Sat Feb 25 2023 04:22:39 GMT-0500 (Eastern Standard Time)",
+          "category": "Other"
+        },
+        {
+          "id": "2bd465c2-5b6c-4d77-8754-86f584923817",
+          "amount": -170.3,
+          "company": "CABLAM",
+          "transaction_date": "Wed Mar 01 2023 15:09:13 GMT-0500 (Eastern Standard Time)",
+          "category": "Groceries"
+        },
+        {
+          "id": "01d40dea-917c-4a1f-b96d-5d61ad8163f1",
+          "amount": -11.54,
+          "company": "VIAGRAND",
+          "transaction_date": "Tue Mar 14 2023 02:39:45 GMT-0400 (Eastern Daylight Time)",
+          "category": "Eat-out"
+        },
+        {
+          "id": "b4fef545-506f-4140-8222-1e9befcbff2f",
+          "amount": -123.66,
+          "company": "ACCRUEX",
+          "transaction_date": "Mon Mar 27 2023 18:13:47 GMT-0400 (Eastern Daylight Time)",
+          "category": "Other"
+        },
+        {
+          "id": "6beb51ab-41b0-41b5-9627-fe0bfa2aab75",
+          "amount": -48.66,
+          "company": "LIQUIDOC",
+          "transaction_date": "Sat Mar 25 2023 09:19:44 GMT-0400 (Eastern Daylight Time)",
+          "category": "Car"
+        },
+        {
+          "id": "120e4b07-78d1-4acb-96ac-eb3b46425086",
+          "amount": -211.25,
+          "company": "ZENOLUX",
+          "transaction_date": "Wed Feb 08 2023 06:14:36 GMT-0500 (Eastern Standard Time)",
+          "category": "Groceries"
+        },
+        {
+          "id": "990404aa-5bc2-4205-9661-e927e4d33b51",
+          "amount": -31,
+          "company": "BOINK",
+          "transaction_date": "Sat Feb 11 2023 14:36:01 GMT-0500 (Eastern Standard Time)",
+          "category": "Car"
+        },
+        {
+          "id": "f27194ef-39cd-43a3-96f4-30581ed71129",
+          "amount": -184.18,
+          "company": "RENOVIZE",
+          "transaction_date": "Sun Feb 05 2023 21:00:44 GMT-0500 (Eastern Standard Time)",
+          "category": "Car"
+        },
+        {
+          "id": "711cc01b-780e-46fe-8266-bf153157a5c1",
+          "amount": -1.72,
+          "company": "SCENTRIC",
+          "transaction_date": "Mon Feb 20 2023 11:00:57 GMT-0500 (Eastern Standard Time)",
+          "category": "Groceries"
+        },
+        {
+          "id": "cc48bfaf-c1ba-4550-ae39-c347a778d284",
+          "amount": -129.55,
+          "company": "POLARIA",
+          "transaction_date": "Thu Feb 16 2023 10:58:53 GMT-0500 (Eastern Standard Time)",
+          "category": "Groceries"
+        },
+        {
+          "id": "127cb2b5-27bf-4121-9ea2-01feda6d4110",
+          "amount": -2.59,
+          "company": "AVENETRO",
+          "transaction_date": "Thu Mar 02 2023 21:37:26 GMT-0500 (Eastern Standard Time)",
+          "category": "Home"
+        },
+        {
+          "id": "8fd5eeff-4298-4bc1-92d6-fa15e1031476",
+          "amount": -16.6,
+          "company": "COWTOWN",
+          "transaction_date": "Fri Feb 17 2023 05:46:49 GMT-0500 (Eastern Standard Time)",
+          "category": "Car"
+        },
+        {
+          "id": "b9938c49-245a-40d9-8ed4-db4a0cff4675",
+          "amount": -157.76,
+          "company": "LOVEPAD",
+          "transaction_date": "Mon Feb 06 2023 21:19:09 GMT-0500 (Eastern Standard Time)",
+          "category": "Car"
+        },
+        {
+          "id": "581ae704-c4b7-4c90-8b89-99d28c6c76d9",
+          "amount": -4.1,
+          "company": "LUDAK",
+          "transaction_date": "Tue Mar 28 2023 06:30:00 GMT-0400 (Eastern Daylight Time)",
+          "category": "Groceries"
         }
       ]
     },
