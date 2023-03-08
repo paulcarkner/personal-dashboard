@@ -231,7 +231,7 @@ export const DoughnutChart = ({ url, dataProcessor }: Props): JSX.Element => {
                   "%)"
               ),
               //borderColor: [colorArray[2], "transparent"],
-              //borderWidth: ,
+              borderWidth: 1,
             },
           ],
         }}
