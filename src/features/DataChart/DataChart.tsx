@@ -108,6 +108,7 @@ export const LineChart = ({ url, dataProcessor }: Props): JSX.Element => {
                 display: true,
                 labels: {
                   usePointStyle: true,
+                  color: getCssValue("--theme-text-primary"),
                 },
               },
               title: {
@@ -204,11 +205,11 @@ export const DoughnutChart = ({ url, dataProcessor }: Props): JSX.Element => {
         options={{
           responsive: true,
           maintainAspectRatio: false,
-          // plugins: {
-          //   legend: {
-          //     display: false,
-          //   },
-          // },
+          plugins: {
+            legend: {
+              labels: { color: getCssValue("--theme-text-primary") },
+            },
+          },
           cutout: "65%",
         }}
         data={{
