@@ -181,7 +181,7 @@ export const DoughnutChart = ({ url, dataProcessor }: Props): JSX.Element => {
     (source) => source.url === url
   )[0];
   const dispatch = useAppDispatch();
-  const primaryColor = getCssValue("--theme-accent-primary");
+  const primaryColor = getCssValue("--theme-accent-primary") || "hsl(0,0%,0%)";
   const colorHue = parseInt(
     primaryColor?.substring(
       primaryColor.indexOf("(") + 1,
