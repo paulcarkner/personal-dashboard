@@ -68,17 +68,34 @@ export class FinancesDashboard extends React.Component {
             <DoughnutChart
               url="/sample_data/sample_bank_api.json"
               dataProcessor={(data: any) => {
-                //group transactions in same category
-                //alphabetize list
+                let categories: Array<{ name: string; total: number }> = [];
+                data.accounts["0048394_156842315"].recent_transactions.forEach(
+                  (
+                    transaction: {
+                      id: string;
+                      amount: number;
+                      company: string;
+                      transaction_date: Date;
+                      category: string;
+                    },
+                    index: number
+                  ) => {
+                    if (
+                      !categories.some(
+                        (category) => category.name === transaction.category
+                      )
+                    )
+                      categories.push({ name: transaction.category, total: 0 });
+                    categories.forEach((category) => {
+                      if (category.name === transaction.category)
+                        category.total += transaction.amount;
+                    });
+                  }
+                );
+                categories.sort((a, b) => (a.name < b.name ? -1 : 1));
                 return {
-                  labels: [
-                    "Bills",
-                    "Groceries",
-                    "Entertainment",
-                    "Shopping",
-                    "Other",
-                  ],
-                  values: [1900, 300, 80, 175, 328],
+                  labels: categories.map((category) => category.name),
+                  values: categories.map((category) => category.total),
                 };
               }}
             />
