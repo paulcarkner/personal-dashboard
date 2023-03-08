@@ -80,6 +80,7 @@ export class FinancesDashboard extends React.Component {
                     },
                     index: number
                   ) => {
+                    if (transaction.category === "Deposit") return;
                     if (
                       !categories.some(
                         (category) => category.name === transaction.category
