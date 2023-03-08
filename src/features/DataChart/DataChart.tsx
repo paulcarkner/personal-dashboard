@@ -188,14 +188,11 @@ export const DoughnutChart = ({ url, dataProcessor }: Props): JSX.Element => {
       primaryColor.indexOf(",")
     )
   );
-  console.log(primaryColor);
-  console.log(colorHue);
   const colorSat = parseInt(
     primaryColor
       .split(",")[1]
       .substring(0, primaryColor.split(",")[1].indexOf("%"))
   );
-  console.log(colorSat);
 
   useEffect(() => {
     if (dataChart?.url !== url) dispatch(FetchDataSource({ url }));
