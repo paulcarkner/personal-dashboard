@@ -340,7 +340,7 @@
         {
           "id": "faf703f5-e927-41a3-a186-e9559c77e166",
           "amount": -139.84,
-          "company": "WEBIOTIC",
+          "company": "WEBOTI",
           "transaction_date": "Sun Feb 05 2023 07:43:11 GMT-0500 (Eastern Standard Time)",
           "category": "Bills"
         },
@@ -424,7 +424,7 @@
         {
           "id": "990404aa-5bc2-4205-9661-e927e4d33b51",
           "amount": -31,
-          "company": "BOINK",
+          "company": "BIRK",
           "transaction_date": "Sat Feb 11 2023 14:36:01 GMT-0500 (Eastern Standard Time)",
           "category": "Car"
         },
@@ -466,7 +466,7 @@
         {
           "id": "b9938c49-245a-40d9-8ed4-db4a0cff4675",
           "amount": -157.76,
-          "company": "LOVEPAD",
+          "company": "LOTERAD",
           "transaction_date": "Mon Feb 06 2023 21:19:09 GMT-0500 (Eastern Standard Time)",
           "category": "Car"
         },
