@@ -20,7 +20,10 @@ export const TransactionTemplate: React.FC<Props> = ({
           styles[amount < 0 ? "Negative" : "Positive"]
         }`}
       >
-        ${amount.toFixed(2)}
+        {amount < 0 ? "-" : ""}$
+        {Math.abs(amount)
+          .toFixed(2)
+          .replace(/(\d)(?=(\d{3})+\.\d{2}$)/g, `$1,`)}
       </div>
       <div className={styles.Date}>{date.toString().substring(0, 10)}</div>
     </div>
