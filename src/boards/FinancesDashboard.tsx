@@ -4,12 +4,11 @@ import boardStyles from "./BoardStyles.module.css";
 
 //Components
 import { Panel } from "./../layout/Panel";
-import {
-  BarChart,
-  DoughnutChart,
-  GoalChart,
-  DisplayValue,
-} from "./../features/DataChart/DataChart";
+
+import { BarChart } from "./../features/DataChart/DataChartBar";
+import { DisplayValue } from "./../features/DataChart/DataChartValue";
+import { DoughnutChart } from "./../features/DataChart/DataChartDoughnut";
+import { GoalChart } from "./../features/DataChart/DataChartGoal";
 import { DateCountDown } from "./../features/DateCountDown/DateCountDown";
 import { DataList } from "./../features/DataList/DataList";
 import { TransactionTemplate } from "./../features/DataList/Templates/TransactionTemplate";

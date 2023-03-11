@@ -5,11 +5,9 @@ import boardStyles from "./BoardStyles.module.css";
 //Components
 import { Panel } from "./../layout/Panel";
 import { Notes } from "./../features/Notes/Notes";
-import {
-  LineChart,
-  GoalChart,
-  MapChart,
-} from "./../features/DataChart/DataChart";
+import { LineChart } from "./../features/DataChart/DataChartLine";
+import { GoalChart } from "./../features/DataChart/DataChartGoal";
+import { MapChart } from "./../features/DataChart/DataChartMap";
 import { DataList } from "./../features/DataList/DataList";
 import { TransactionTemplate } from "./../features/DataList/Templates/TransactionTemplate";
 

@@ -7,7 +7,7 @@ import { Panel } from "./../layout/Panel";
 import { DateCountDown } from "./../features/DateCountDown/DateCountDown";
 import GoogleMap from "./../features/GoogleMap/GoogleMap";
 import { ImageLink } from "./../features/ImageLink/ImageLink";
-import { GoalChart } from "./../features/DataChart/DataChart";
+import { GoalChart } from "./../features/DataChart/DataChartGoal";
 import { Notes } from "./../features/Notes/Notes";
 import { CurrentWeather } from "./../features/Weather/Weather";
 
