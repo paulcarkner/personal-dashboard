@@ -15,7 +15,13 @@ export const TransactionTemplate: React.FC<Props> = ({
   return (
     <div className={styles.Container}>
       <div className={styles.Name}>{name}</div>
-      <div className={styles.Amount}>${amount.toFixed(2)}</div>
+      <div
+        className={`${styles.Amount} ${
+          styles[amount < 0 ? "Negative" : "Positive"]
+        }`}
+      >
+        ${amount.toFixed(2)}
+      </div>
       <div className={styles.Date}>{date.toString().substring(0, 10)}</div>
     </div>
   );

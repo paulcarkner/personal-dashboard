@@ -11,6 +11,8 @@ import {
   DisplayValue,
 } from "./../features/DataChart/DataChart";
 import { DateCountDown } from "./../features/DateCountDown/DateCountDown";
+import { DataList } from "./../features/DataList/DataList";
+import { TransactionTemplate } from "./../features/DataList/Templates/TransactionTemplate";
 
 export class FinancesDashboard extends React.Component {
   render() {
@@ -73,12 +75,6 @@ export class FinancesDashboard extends React.Component {
             <BarChart
               url="/sample_data/sample_bank_api.json"
               dataProcessor={(data: any) => {
-                let transactions = [
-                  ...data.accounts["0048394_156842315"].recent_transactions,
-                ];
-                transactions.sort((a, b) =>
-                  a.transaction_date < b.transaction_date ? -1 : 1
-                );
                 let runningBalance = data.accounts["0048394_156842315"].funds;
                 let dailyBalance = [
                   { date: new Date().getDate(), balance: runningBalance },
@@ -89,7 +85,9 @@ export class FinancesDashboard extends React.Component {
                   let dateCode = new Date(
                     new Date().getTime() - x * 24 * 60 * 60 * 1000
                   );
-                  transactions.forEach(
+                  data.accounts[
+                    "0048394_156842315"
+                  ].recent_transactions.forEach(
                     (t: {
                       id: string;
                       amount: number;
@@ -155,6 +153,30 @@ export class FinancesDashboard extends React.Component {
                   labels: categories.map((category) => category.name),
                   values: categories.map((category) => category.total * -1),
                 };
+              }}
+            />
+          </Panel>
+          <Panel title="Recent Transactions" info="JSON List Template">
+            <DataList
+              url="/sample_data/sample_bank_api.json"
+              template={TransactionTemplate}
+              dataProcessor={(data: any) => {
+                return [
+                  ...data.accounts["0048394_156842315"].recent_transactions,
+                ]
+                  .filter((t) => new Date(t.transaction_date) < new Date())
+                  .sort((a, b) =>
+                    new Date(a.transaction_date) > new Date(b.transaction_date)
+                      ? -1
+                      : 1
+                  )
+                  .map((t: any) => {
+                    return {
+                      name: t.company,
+                      date: new Date(t.transaction_date).toISOString(),
+                      amount: t.amount,
+                    };
+                  });
               }}
             />
           </Panel>
