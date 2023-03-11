@@ -17,10 +17,10 @@ import { Panel } from "./../layout/Panel";
 import { RssFeed } from "./../features/RssFeed/RssFeed";
 // import { CurrentWeather } from "./../features/Weather/Weather";
 import { Notes } from "./../features/Notes/Notes";
-import { DateCountDown } from "./../features/DateCountDown/DateCountDown";
-import GoogleMap from "./../features/GoogleMap/GoogleMap";
+// import { DateCountDown } from "./../features/DateCountDown/DateCountDown";
+// import GoogleMap from "./../features/GoogleMap/GoogleMap";
 import { DataList } from "./../features/DataList/DataList";
-import { TransactionTemplate } from "./../features/DataList/Templates/TransactionTemplate";
+// import { TransactionTemplate } from "./../features/DataList/Templates/TransactionTemplate";
 import {
   EmailTemplate,
   profileType,
@@ -30,7 +30,7 @@ import {
   CalendarTemplate,
   Props as calendarType,
 } from "./../features/DataList/Templates/CalendarTemplate";
-import { ImageLink } from "./../features/ImageLink/ImageLink";
+// import { ImageLink } from "./../features/ImageLink/ImageLink";
 // import {
 //   LineChart,
 //   GoalChart,
