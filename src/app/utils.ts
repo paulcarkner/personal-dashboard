@@ -10,6 +10,9 @@ export function fetchJson(url: string) {
       })
       .then((data) => {
         resolve({ data: data });
+      })
+      .catch((error) => {
+        resolve({ data: null });
       });
   });
 }

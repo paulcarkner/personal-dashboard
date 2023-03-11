@@ -8,6 +8,7 @@ Output: JSX.Element
 *****************/
 
 import React from "react";
+import ErrorBoundary from "./ErrorBoundary";
 
 //Styles
 import styles from "./Panel.module.css";
@@ -47,7 +48,7 @@ export const Panel = ({
           info
         </span>
       </div>
-      {children}
+      <ErrorBoundary>{children}</ErrorBoundary>
     </section>
   );
 };
