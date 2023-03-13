@@ -88,7 +88,13 @@ export const MapChart = ({ url, dataProcessor }: Props): JSX.Element => {
   ]);
 
   return (
-    <div className={styles.MapContainer}>
+    <div
+      className={`${styles.MapContainer} ${
+        dataChart?.status === "idle" || dataChart?.status === "pending"
+          ? "loading"
+          : ""
+      }`}
+    >
       <svg
         className={styles.Map}
         baseProfile="tiny"

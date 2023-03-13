@@ -39,7 +39,13 @@ export const DisplayValue = ({ url, dataProcessor }: Props): JSX.Element => {
   });
 
   return dataChart?.data !== undefined ? (
-    <div className={styles.ValueContainer}>
+    <div
+      className={`${styles.ValueContainer} ${
+        dataChart?.status === "idle" || dataChart?.status === "pending"
+          ? "loading"
+          : ""
+      }`}
+    >
       <div className={styles.Value}>
         {dataProcessor(dataChart.data).prepend}
         {dataProcessor(dataChart.data).value}
@@ -47,6 +53,14 @@ export const DisplayValue = ({ url, dataProcessor }: Props): JSX.Element => {
       </div>
     </div>
   ) : (
-    <div>Loading...</div>
+    <div
+      className={
+        dataChart?.status === "idle" || dataChart?.status === "pending"
+          ? "loading"
+          : ""
+      }
+    >
+      Loading...
+    </div>
   );
 };

@@ -55,7 +55,13 @@ export const GoalChart = ({ url, dataProcessor }: Props): JSX.Element => {
   });
 
   return dataChart?.data !== undefined ? (
-    <div className={styles.GoalGrid}>
+    <div
+      className={`${styles.GoalGrid} ${
+        dataChart?.status === "idle" || dataChart?.status === "pending"
+          ? "loading"
+          : ""
+      }`}
+    >
       <div className={styles.GoalText}>
         <div className={styles.GoalValue}>
           {dataProcessor(dataChart.data).valueText}
@@ -111,6 +117,14 @@ export const GoalChart = ({ url, dataProcessor }: Props): JSX.Element => {
       </div>
     </div>
   ) : (
-    <div>Loading...</div>
+    <div
+      className={
+        dataChart?.status === "idle" || dataChart?.status === "pending"
+          ? "loading"
+          : ""
+      }
+    >
+      Loading...
+    </div>
   );
 };

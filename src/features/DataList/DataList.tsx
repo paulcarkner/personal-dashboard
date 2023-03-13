@@ -40,7 +40,13 @@ export const DataList: React.FC<Props> = ({
   });
 
   return (
-    <div className={`${styles.ListContainer} customScroll`}>
+    <div
+      className={`${styles.ListContainer} customScroll ${
+        dataChart?.status === "idle" || dataChart?.status === "pending"
+          ? "loading"
+          : ""
+      }`}
+    >
       {dataChart?.data ? (
         dataProcessor(dataChart.data).map((props: Object, key: number) => {
           return React.createElement(template, {

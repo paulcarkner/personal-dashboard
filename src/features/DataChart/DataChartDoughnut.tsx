@@ -62,7 +62,13 @@ export const DoughnutChart = ({ url, dataProcessor }: Props): JSX.Element => {
   });
 
   return dataChart?.data !== undefined ? (
-    <div className={styles.ChartContainer}>
+    <div
+      className={`${styles.ChartContainer} ${
+        dataChart?.status === "idle" || dataChart?.status === "pending"
+          ? "loading"
+          : ""
+      }`}
+    >
       <Doughnut
         options={{
           responsive: true,
@@ -102,6 +108,14 @@ export const DoughnutChart = ({ url, dataProcessor }: Props): JSX.Element => {
       />
     </div>
   ) : (
-    <div>Loading...</div>
+    <div
+      className={
+        dataChart?.status === "idle" || dataChart?.status === "pending"
+          ? "loading"
+          : ""
+      }
+    >
+      Loading...
+    </div>
   );
 };

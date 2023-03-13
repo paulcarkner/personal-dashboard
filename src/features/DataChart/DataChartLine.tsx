@@ -71,7 +71,13 @@ export const LineChart = ({ url, dataProcessor }: Props): JSX.Element => {
   });
 
   return (
-    <div className={styles.ChartContainer}>
+    <div
+      className={`${styles.ChartContainer} ${
+        dataChart?.status === "idle" || dataChart?.status === "pending"
+          ? "loading"
+          : ""
+      }`}
+    >
       {dataChart?.data !== undefined ? (
         <Line
           options={{
@@ -130,7 +136,15 @@ export const LineChart = ({ url, dataProcessor }: Props): JSX.Element => {
           redraw={true}
         />
       ) : (
-        <div>Loading...</div>
+        <div
+          className={
+            dataChart?.status === "idle" || dataChart?.status === "pending"
+              ? "loading"
+              : ""
+          }
+        >
+          Loading...
+        </div>
       )}
     </div>
   );
