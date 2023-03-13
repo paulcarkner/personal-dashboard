@@ -24,6 +24,15 @@ export const FetchDataSource = createAsyncThunk(
   async (props: { url: string }) => {
     const response = await fetchJson(props.url);
     return response.data;
+  },
+  {
+    condition: (props: { url: string }, { getState }) => {
+      const state: any = getState();
+      return !state.DataChartManager.dataSources.some(
+        (source: { url: string; status: string; data: any }) =>
+          source.url === props.url
+      );
+    },
   }
 );
 
