@@ -10,7 +10,7 @@ Output: JSX.Element
 import React from "react";
 
 //Styles
-import boardStyles from "./BoardStyles.module.css";
+import styles from "./BoardStyles.module.css";
 
 //Components
 import { Panel } from "./../layout/Panel";
@@ -42,10 +42,10 @@ import {
 export class PersonalDashboard extends React.Component {
   render() {
     return (
-      <div className={boardStyles.Board}>
-        {/* <div className={boardStyles.MiniPanelsContainer}>
+      <div className={styles.Board}>
+        {/* <div className={styles.MiniPanelsContainer}>
         </div> */}
-        <div className={boardStyles.PanelsContainer}>
+        <div className={styles.PanelsContainer}>
           <Panel title="Unread Emails" info="JSON List Template" colSpan={2}>
             <DataList
               url="/sample_data/sample_email_api.json"

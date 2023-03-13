@@ -1,6 +1,6 @@
 import React from "react";
 
-import boardStyles from "./BoardStyles.module.css";
+import styles from "./BoardStyles.module.css";
 
 //Components
 import { Panel } from "./../layout/Panel";
@@ -14,8 +14,8 @@ import { TransactionTemplate } from "./../features/DataList/Templates/Transactio
 export class WebsiteDashboard extends React.Component {
   render() {
     return (
-      <div className={boardStyles.Board}>
-        <div className={boardStyles.MiniPanelsContainer}>
+      <div className={styles.Board}>
+        <div className={styles.MiniPanelsContainer}>
           <Panel title="Monthly Sales Goal" info="Visualization of JSON Data">
             <GoalChart
               url="/sample_data/sample_website_stats_api.json"
@@ -108,7 +108,7 @@ export class WebsiteDashboard extends React.Component {
             />
           </Panel>
         </div>
-        <div className={boardStyles.PanelsContainer}>
+        <div className={styles.PanelsContainer}>
           <Panel title="Website Tasks" info="localStorage Data" rowSpan={2}>
             <Notes category="website" />
           </Panel>

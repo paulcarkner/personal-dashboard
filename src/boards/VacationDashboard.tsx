@@ -1,6 +1,6 @@
 import React from "react";
 
-import boardStyles from "./BoardStyles.module.css";
+import styles from "./BoardStyles.module.css";
 
 //Components
 import { Panel } from "./../layout/Panel";
@@ -14,8 +14,8 @@ import { CurrentWeather } from "./../features/Weather/Weather";
 export class VacationDashboard extends React.Component {
   render() {
     return (
-      <div className={boardStyles.Board}>
-        <div className={boardStyles.MiniPanelsContainer}>
+      <div className={styles.Board}>
+        <div className={styles.MiniPanelsContainer}>
           <Panel title="Days Until Trip" info="Date Count Down">
             <DateCountDown dueDate={new Date("2023-08-15")} />
           </Panel>
@@ -43,7 +43,7 @@ export class VacationDashboard extends React.Component {
             />
           </Panel>
         </div>
-        <div className={boardStyles.PanelsContainer}>
+        <div className={styles.PanelsContainer}>
           <Panel title="Vacation Notes" info="localStorage Data">
             <Notes category="vacation" />
           </Panel>

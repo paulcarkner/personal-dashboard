@@ -1,6 +1,6 @@
 import React from "react";
 
-import boardStyles from "./BoardStyles.module.css";
+import styles from "./BoardStyles.module.css";
 
 //Components
 import { Panel } from "./../layout/Panel";
@@ -16,8 +16,8 @@ import { TransactionTemplate } from "./../features/DataList/Templates/Transactio
 export class FinancesDashboard extends React.Component {
   render() {
     return (
-      <div className={boardStyles.Board}>
-        <div className={boardStyles.MiniPanelsContainer}>
+      <div className={styles.Board}>
+        <div className={styles.MiniPanelsContainer}>
           <Panel title="Chequing Account Balance" info="JSON Data">
             <DisplayValue
               url="/sample_data/sample_bank_api.json"
@@ -65,7 +65,7 @@ export class FinancesDashboard extends React.Component {
             <DateCountDown dueDate={new Date("2043-06-30")} />
           </Panel>
         </div>
-        <div className={boardStyles.PanelsContainer}>
+        <div className={styles.PanelsContainer}>
           <Panel
             title="Daily Account Balance"
             info="JSON Data Visualization"

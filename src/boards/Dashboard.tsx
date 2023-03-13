@@ -10,7 +10,7 @@ Output: JSX.Element
 import React from "react";
 
 //Styles
-import boardStyles from "./BoardStyles.module.css";
+import styles from "./BoardStyles.module.css";
 
 //Components
 import { Panel } from "./../layout/Panel";
@@ -24,9 +24,9 @@ import { Notes } from "./../features/Notes/Notes";
 export class Dashboard extends React.Component {
   render() {
     return (
-      <div className={boardStyles.Board}>
-        <div className={boardStyles.MiniPanelsContainer}></div>
-        <div className={boardStyles.PanelsContainer}>
+      <div className={styles.Board}>
+        <div className={styles.MiniPanelsContainer}></div>
+        <div className={styles.PanelsContainer}>
           <Panel title="Current Weather (Toronto)" info="API JSON">
             <CurrentWeather
               lat={43.6534817}
