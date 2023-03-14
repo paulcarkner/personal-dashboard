@@ -16,7 +16,7 @@
   box-shadow: -3px -3px 3px -3px #fff, 3px 3px 3px -3px #0002,
     inset 3px 3px 3px -3px #0004, inset -3px -3px 3px -3px #fff6;
   position: relative;
-  transition: background 0.3s;
+  transition: background-color 0.3s;
 }
 
 .customToggle .customToggleThumb {
@@ -35,7 +35,7 @@
 .customToggle .customToggleThumb::after {
   position: absolute;
   content: "";
-  background: #444;
+  background-color: #444;
   width: 0.4em;
   height: 0.4em;
   right: 0.75em;
@@ -48,7 +48,7 @@
 }
 
 .customToggle input:checked ~ .customToggleTrack {
-  background: var(--theme-accent-primary) !important;
+  background-color: var(--theme-accent-primary) !important;
 }
 
 .customToggle input:checked ~ .customToggleTrack .customToggleThumb {
@@ -56,6 +56,6 @@
 }
 
 .customToggle input:checked ~ .customToggleTrack .customToggleThumb::after {
-  background: var(--theme-accent-primary);
+  background-color: var(--theme-accent-primary);
   box-shadow: 0 0 3px #fff, 0 0 10px var(--theme-accent-primary);
 }
