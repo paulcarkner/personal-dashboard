@@ -20,10 +20,6 @@
   gap: 1em;
 }
 
-/* .MiniPanelsContainer > * {
-  height: 10em;
-} */
-
 .PanelsContainer {
   display: grid;
   gap: 1em;
