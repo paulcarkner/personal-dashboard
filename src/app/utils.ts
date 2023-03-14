@@ -12,7 +12,7 @@ export function fetchJson(url: string) {
         resolve({ data: data });
       })
       .catch((error) => {
-        resolve({ data: null });
+        resolve({ data: null }); //still return a response and let component handle error
       });
   });
 }
