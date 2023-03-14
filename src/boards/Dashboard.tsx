@@ -25,7 +25,7 @@ export class Dashboard extends React.Component {
   render() {
     return (
       <div className={styles.Board}>
-        <div className={styles.MiniPanelsContainer}></div>
+        {/* <div className={styles.MiniPanelsContainer}></div> */}
         <div className={styles.PanelsContainer}>
           <Panel title="Current Weather (Toronto)" info="API JSON">
             <CurrentWeather
