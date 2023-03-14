@@ -15,12 +15,8 @@ import styles from "./BoardStyles.module.css";
 //Components
 import { Panel } from "./../layout/Panel";
 import { RssFeed } from "./../features/RssFeed/RssFeed";
-// import { CurrentWeather } from "./../features/Weather/Weather";
 import { Notes } from "./../features/Notes/Notes";
-// import { DateCountDown } from "./../features/DateCountDown/DateCountDown";
-// import GoogleMap from "./../features/GoogleMap/GoogleMap";
 import { DataList } from "./../features/DataList/DataList";
-// import { TransactionTemplate } from "./../features/DataList/Templates/TransactionTemplate";
 import {
   EmailTemplate,
   profileType,
@@ -30,12 +26,6 @@ import {
   CalendarTemplate,
   Props as calendarType,
 } from "./../features/DataList/Templates/CalendarTemplate";
-// import { ImageLink } from "./../features/ImageLink/ImageLink";
-// import {
-//   LineChart,
-//   GoalChart,
-//   MapChart,
-// } from "./../features/DataChart/DataChart";
 
 //Type Declarations
 
@@ -43,8 +33,6 @@ export class PersonalDashboard extends React.Component {
   render() {
     return (
       <div className={styles.Board}>
-        {/* <div className={styles.MiniPanelsContainer}>
-        </div> */}
         <div className={styles.PanelsContainer}>
           <Panel title="Unread Emails" info="JSON List Template" colSpan={2}>
             <DataList
