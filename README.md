@@ -1,3 +1,3 @@
-# React TypeScript w/ Redux Starter
+# dash-y - A customized personal dashboard
 
-A starting template for React projects.
+A personal dashboard sample with simulated API calls to asyncronously load data.
