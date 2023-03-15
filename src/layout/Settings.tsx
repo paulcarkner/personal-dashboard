@@ -22,8 +22,6 @@ import {
 //Styles
 import styles from "./Settings.module.css";
 
-//Type Declarations
-
 export const Settings: React.FC = (): JSX.Element => {
   const isDark: boolean = useAppSelector(isDarkSelector);
   const dispatch = useAppDispatch();
