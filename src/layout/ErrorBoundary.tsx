@@ -1,4 +1,4 @@
-// https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/error_boundaries/
+//code adapted from https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/error_boundaries/
 
 import React, { Component, ErrorInfo, ReactNode } from "react";
 
