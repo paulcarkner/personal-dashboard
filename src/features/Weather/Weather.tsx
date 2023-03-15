@@ -17,7 +17,9 @@ import {
 import styles from "./Weather.module.css";
 
 //Components
-import { CelsiusTemperature, WeatherIcon, WeatherDate } from "./WeatherUtils";
+import { CelsiusTemperature } from "./WeatherTemperature";
+import { WeatherIcon } from "./WeatherIcon";
+import { WeatherDate } from "./WeatherDate";
 
 //Type Declarations
 type Props = {
