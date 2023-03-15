@@ -9,10 +9,6 @@ Output: SVG
 
 import React from "react";
 
-//Components
-
-//Styles
-
 //Type Declarations
 type Props = {
   className: string;
