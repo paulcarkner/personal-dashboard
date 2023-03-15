@@ -68,9 +68,6 @@ export const Settings: React.FC = (): JSX.Element => {
           https://paulcarkner.dev
         </a>
       </div>
-      <button className={styles.Button}>
-        <span className="material-symbols-sharp">search</span>
-      </button>
       <button className={styles.Button} onClick={toggleDarkModeHandler}>
         <span className="material-symbols-sharp">
           {isDark ? "light_mode" : "dark_mode"}
