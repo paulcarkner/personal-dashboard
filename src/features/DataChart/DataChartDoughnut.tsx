@@ -19,8 +19,6 @@ import {
 //Styles
 import styles from "./DataChart.module.css";
 
-//Components
-
 //Type Declarations
 type Props = {
   url: string;
@@ -98,7 +96,6 @@ export const DoughnutChart = ({ url, dataProcessor }: Props): JSX.Element => {
                   ).toString() +
                   "%)"
               ),
-              //borderColor: [colorArray[2], "transparent"],
               borderWidth: 1,
             },
           ],

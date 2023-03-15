@@ -17,8 +17,6 @@ import {
 //Styles
 import styles from "./DataChart.module.css";
 
-//Components
-
 //Type Declarations
 type Props = {
   url: string;
