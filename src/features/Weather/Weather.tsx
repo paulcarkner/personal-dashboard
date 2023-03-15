@@ -33,9 +33,9 @@ export const CurrentWeather: React.FC<Props> = ({
 }: Props): JSX.Element => {
   const weatherState: WeatherManagerStateType =
     useAppSelector(WeatherManagerState);
-  const weather = weatherState.locations.filter(
+  const weatherObj = weatherState.locations.filter(
     (item) => item.name === location
-  )[0]?.weather;
+  )[0];
   const dispatch = useAppDispatch();
 
   const exclude = "minutely,alerts";
@@ -46,35 +46,36 @@ export const CurrentWeather: React.FC<Props> = ({
   return (
     <div
       className={`${styles.Weather} ${
-        ""
-        // weatherState?.status === "loading" ? "loading" : ""
+        weatherObj?.status === "idle" || weatherObj?.status === "pending"
+          ? "loading"
+          : ""
       }`}
     >
       <WeatherIcon
         className={styles.WeatherIcon}
-        icon={weather?.current.weather[0].id}
-        time={weather?.current.dt}
-        timezone={weather?.timezone_offset}
+        icon={weatherObj?.weather?.current.weather[0].id}
+        time={weatherObj?.weather?.current.dt}
+        timezone={weatherObj?.weather?.timezone_offset}
       />
       <CelsiusTemperature
         className={styles.Temperature}
-        temperatureK={weather?.current?.temp}
+        temperatureK={weatherObj?.weather?.current?.temp}
       />
       <div className={styles.ForecastContainer}>
-        {weather?.daily?.map((w, index: number) => {
+        {weatherObj?.weather?.daily?.map((w, index: number) => {
           if (index > 3) return null;
           return (
             <div className={styles.ForecastDay} key={index}>
               <WeatherDate
                 className={styles.ForecastDate}
                 time={w.dt}
-                timezone={weather?.timezone_offset}
+                timezone={weatherObj?.weather?.timezone_offset}
               />
               <WeatherIcon
                 className={styles.ForecastIcon}
                 icon={w.weather[0]?.id}
                 time={w.dt}
-                timezone={weather?.timezone_offset}
+                timezone={weatherObj?.weather?.timezone_offset}
               />
               <CelsiusTemperature
                 className={styles.ForecastMaxTemperature}
