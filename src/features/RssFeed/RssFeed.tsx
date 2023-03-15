@@ -2,7 +2,7 @@
 
 Name: RssFeed
 Description: Creates a list of articles from an RSS feed
-Props: *!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!*!
+Props: url: string;
 Output: JSX.Element
 
 *****************/

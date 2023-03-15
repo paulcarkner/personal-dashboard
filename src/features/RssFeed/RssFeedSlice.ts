@@ -45,7 +45,6 @@ const initialState: RssFeedStateType = {
 };
 
 //Async Actions
-//USAGE: dispatch(RssFeedFetchUrl(url))
 export const RssFeedFetchUrl = createAsyncThunk(
   "RssFeed/fetchUrl",
   async (url: string) => {
@@ -58,20 +57,8 @@ export const RssFeedFetchUrl = createAsyncThunk(
 export const RssFeedSlice = createSlice({
   name: "RssFeed",
   initialState,
-  reducers: {
-    /*
-    //USAGE: dispatch(sampleAction1)
-    sampleAction1: (state) => {
-      state.value += 1;
-    },
-    //USAGE: dispatch(sampleAction2(var))
-    sampleAction2: (state, action: PayloadAction<number>) => {
-      state.value += action.payload;
-    },
-    */
-  },
+  reducers: {},
   extraReducers: (builder) => {
-    //handle imported actions or Thunk status
     builder
       .addCase(RssFeedFetchUrl.pending, (state) => {
         state.status = "loading";
@@ -86,25 +73,7 @@ export const RssFeedSlice = createSlice({
   },
 });
 
-/*
-//export actions
-export const { sampleAction1, sampleAction2 } = sampleSlice.actions;
-*/
-
-/*
-//USAGE: dispatch(sampleTypedThunkAction(var))
-export const sampleTypedThunkAction =
-  (amount: number): AppThunk =>
-  (dispatch, getState) => {
-    const currentValue = sampleSelector(getState());
-    if (currentValue % 2 === 1) {
-      dispatch(sampleAction2(amount));
-    }
-  };
-*/
-
 //Selectors
-//USAGE: useAppSelector(sampleSelector)
 export const FeedSelector = (state: RootState) => state.RssFeed.feed;
 export const FeedStateSelector = (state: RootState) => state.RssFeed;
 

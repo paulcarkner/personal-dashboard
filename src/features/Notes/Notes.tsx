@@ -25,8 +25,6 @@ import {
 //Styles
 import styles from "./Notes.module.css";
 
-//Components
-
 //Type Declarations
 type Props = {
   category: string;
