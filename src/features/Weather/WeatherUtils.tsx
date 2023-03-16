@@ -1,4 +1,4 @@
 //convert UNIX time code to DateTime
 export function UNIXtoDateTime(unix: number, offset: number): Date {
-  return new Date((unix + offset) * 1000);
+  return new Date((unix + offset + new Date().getTimezoneOffset() * 60) * 1000);
 }
