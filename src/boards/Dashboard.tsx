@@ -17,7 +17,9 @@ import { Panel } from "./../layout/Panel";
 import { CurrentWeather } from "./../features/Weather/Weather";
 import { GoalChart } from "./../features/DataChart/DataChartGoal";
 import { DisplayValue } from "./../features/DataChart/DataChartValue";
+import { DateCountDown } from "./../features/DateCountDown/DateCountDown";
 import { Props as calendarType } from "./../features/DataList/Templates/CalendarTemplate";
+import { BarChart } from "./../features/DataChart/DataChartBar";
 
 //Type Declarations
 
@@ -113,6 +115,9 @@ export class Dashboard extends React.Component {
               }}
             />
           </Panel>
+          <Panel title="Days Until Trip" info="Date Count Down">
+            <DateCountDown dueDate={new Date("2023-08-15")} />
+          </Panel>
         </div>
         <div className={styles.PanelsContainer}>
           <Panel title="Current Weather (Toronto)" info="API JSON">
@@ -120,6 +125,27 @@ export class Dashboard extends React.Component {
               lat={43.6534817}
               lon={-79.3839347}
               location="Toronto, ON"
+            />
+          </Panel>
+          <Panel
+            title="Last 7 Days of Steps"
+            info="JSON Data Visualization"
+            colSpan={2}
+          >
+            <BarChart
+              url="/sample_data/sample_fitness_api.json"
+              dataProcessor={(data: any) => {
+                return {
+                  labels: data.steps.map((stepCount: number, i: number) => {
+                    return i === 6
+                      ? "Today"
+                      : new Date(
+                          new Date().getTime() - (6 - i) * 24 * 60 * 60 * 1000
+                        ).getDate();
+                  }),
+                  values: data.steps,
+                };
+              }}
             />
           </Panel>
         </div>
