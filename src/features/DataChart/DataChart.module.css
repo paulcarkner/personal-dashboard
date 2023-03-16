@@ -72,3 +72,9 @@
   font-size: 2em;
   font-weight: 600;
 }
+
+.subValue {
+  font-size: 0.8em;
+  color: var(--theme-text-secondary);
+  margin-top: 0.3em;
+}

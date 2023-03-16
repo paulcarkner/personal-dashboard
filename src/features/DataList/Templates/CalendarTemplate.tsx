@@ -26,8 +26,8 @@ export const CalendarTemplate = ({
   startTime,
   duration,
 }: Props): JSX.Element => {
-  let st = new Date(startTime);
-  let et = new Date(st.getTime() + duration * 60 * 1000);
+  const st = new Date(startTime);
+  const et = new Date(st.getTime() + duration * 60 * 1000);
   return (
     <div
       className={`${styles.Container} ${isFirst ? styles.isFirst : null}`}

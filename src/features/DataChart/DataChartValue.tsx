@@ -49,6 +49,9 @@ export const DisplayValue = ({ url, dataProcessor }: Props): JSX.Element => {
         {dataProcessor(dataChart.data).value}
         {dataProcessor(dataChart.data).append}
       </div>
+      <div className={styles.subValue}>
+        {dataProcessor(dataChart.data).subValue}
+      </div>
     </div>
   ) : (
     <div
