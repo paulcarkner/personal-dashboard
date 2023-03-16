@@ -2,30 +2,30 @@ import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
 
 //State Interface
-export interface DarkModeStateType {
+export interface darkModeStateType {
   isDark: boolean;
 }
 
-const initialState: DarkModeStateType = {
+const initialState: darkModeStateType = {
   isDark: true,
 };
 
 //Actions
-export const DarkModeSlice = createSlice({
-  name: "DarkModeManager",
+export const darkModeSlice = createSlice({
+  name: "darkModeManager",
   initialState,
   reducers: {
-    toggleDarkMode: (state: DarkModeStateType) => {
+    toggleDarkMode: (state: darkModeStateType) => {
       state.isDark = !state.isDark;
     },
   },
 });
 
 //export actions
-export const { toggleDarkMode } = DarkModeSlice.actions;
+export const { toggleDarkMode } = darkModeSlice.actions;
 
 //Selectors
 export const isDarkSelector = (state: RootState) =>
-  state.DarkModeManager.isDark;
+  state.darkModeManager.isDark;
 
-export default DarkModeSlice.reducer;
+export default darkModeSlice.reducer;

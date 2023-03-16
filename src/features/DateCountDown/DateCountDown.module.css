@@ -1,4 +1,4 @@
-.CountContainer {
+.countContainer {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -6,11 +6,11 @@
   align-items: center;
 }
 
-.Count {
+.count {
   font-size: 3em;
   font-weight: 600;
 }
 
-.Unit {
+.unit {
   color: var(--theme-text-secondary);
 }

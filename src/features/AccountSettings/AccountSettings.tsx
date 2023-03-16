@@ -12,19 +12,19 @@ export const AccountSettings = forwardRef<HTMLDialogElement, DialogProps>(
     };
 
     return (
-      <dialog ref={ref} className={styles.Dialog}>
-        <div className={styles.Container}>
-          <button className={styles.Close} onClick={props.closeDialog}>
+      <dialog ref={ref} className={styles.dialog}>
+        <div className={styles.container}>
+          <button className={styles.close} onClick={props.closeDialog}>
             &times;
           </button>
           <img
-            className={styles.Image}
+            className={styles.image}
             src="/assets/profile_image.jpg"
             alt="Profile Avatar"
           />
           <div>
             <div>Paul</div>
-            <div className={styles.Email}>paul@dash-y.xyz</div>
+            <div className={styles.email}>paul@dash-y.xyz</div>
           </div>
           <div>
             <button className="btn" onClick={handleLogOutClick}>

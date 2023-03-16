@@ -5,27 +5,27 @@ import { useAppSelector, useAppDispatch } from "../../app/hooks";
 
 import {
   //types
-  DataChartStateType,
+  dataChartStateType,
 
   //actions
-  FetchDataSource,
+  fetchDataSource,
 
   //selectors
-  DataChartStateSelector,
+  dataChartStateSelector,
 } from "./DataChartSlice";
 
 //Styles
 import styles from "./DataChart.module.css";
 
 //Type Declarations
-type Props = {
+type props = {
   url: string;
   dataProcessor: Function;
 };
 
-export const DisplayValue = ({ url, dataProcessor }: Props): JSX.Element => {
-  const dataChartState: DataChartStateType = useAppSelector(
-    DataChartStateSelector
+export const DisplayValue = ({ url, dataProcessor }: props): JSX.Element => {
+  const dataChartState: dataChartStateType = useAppSelector(
+    dataChartStateSelector
   );
   const dataChart = dataChartState.dataSources?.filter(
     (source) => source.url === url
@@ -33,18 +33,18 @@ export const DisplayValue = ({ url, dataProcessor }: Props): JSX.Element => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    if (dataChart?.url !== url) dispatch(FetchDataSource({ url }));
+    if (dataChart?.url !== url) dispatch(fetchDataSource({ url }));
   });
 
   return dataChart?.data !== undefined ? (
     <div
-      className={`${styles.ValueContainer} ${
+      className={`${styles.valueContainer} ${
         dataChart?.status === "idle" || dataChart?.status === "pending"
           ? "loading"
           : ""
       }`}
     >
-      <div className={styles.Value}>
+      <div className={styles.value}>
         {dataProcessor(dataChart.data).prepend}
         {dataProcessor(dataChart.data).value}
         {dataProcessor(dataChart.data).append}

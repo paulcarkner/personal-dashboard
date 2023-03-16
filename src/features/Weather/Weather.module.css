@@ -1,4 +1,4 @@
-.Weather {
+.weather {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -6,7 +6,7 @@
   container-name: panel-size;
 }
 
-.WeatherIcon {
+.weatherIcon {
   flex: 1;
   display: flex;
   align-items: center;
@@ -16,7 +16,7 @@
   text-align: center;
 }
 
-.Temperature {
+.temperature {
   flex: 0 0 1em;
   text-align: center;
   padding-bottom: 0.5em;
@@ -25,40 +25,40 @@
 
 /* Resizes Webfont Icon to fit container */
 @container icon (min-width: 0px) {
-  .WeatherIcon:before {
+  .weatherIcon:before {
     font-size: 80cqmin;
   }
 }
 
 @container panel-size (min-width: 0px) {
-  .Temperature {
+  .temperature {
     font-size: 12cqmin;
   }
 }
 
-.ForecastContainer {
+.forecastContainer {
   flex: 0 1;
   display: grid;
   grid-auto-flow: column;
   grid-template-columns: repeat(4, 1fr);
 }
 
-.ForecastDay {
+.forecastDay {
   padding: 0.5em;
 }
 
-.ForecastDay > * {
+.forecastDay > * {
   display: block;
   text-align: center;
   padding-block: 0.3em;
 }
 
-.ForecastDate {
+.forecastDate {
   color: var(--theme-text-secondary);
   font-size: 0.75em;
 }
 
-.ForecastDay hr {
+.forecastDay hr {
   padding: 0;
   border: none;
   border-bottom: 1px solid var(--theme-bg-secondary);
@@ -66,6 +66,6 @@
   margin: 0 auto;
 }
 
-.ForecastMinTemperature {
+.forecastMinTemperature {
   color: var(--theme-text-secondary);
 }

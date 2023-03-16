@@ -7,20 +7,20 @@ import { useAppSelector, useAppDispatch } from "../../app/hooks";
 
 import {
   //types
-  DataChartStateType,
+  dataChartStateType,
 
   //actions
-  FetchDataSource,
+  fetchDataSource,
 
   //selectors
-  DataChartStateSelector,
+  dataChartStateSelector,
 } from "./DataChartSlice";
 
 //Styles
 import styles from "./DataChart.module.css";
 
 //Type Declarations
-type Props = {
+type props = {
   url: string;
   dataProcessor: Function;
 };
@@ -28,15 +28,15 @@ type Props = {
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 function getCssValue(param: string) {
-  const AppEl = document.getElementById("App");
+  const appEl = document.getElementById("App");
   return getComputedStyle(
-    AppEl || document.createElement("div")
+    appEl || document.createElement("div")
   ).getPropertyValue(param);
 }
 
-export const DoughnutChart = ({ url, dataProcessor }: Props): JSX.Element => {
-  const dataChartState: DataChartStateType = useAppSelector(
-    DataChartStateSelector
+export const DoughnutChart = ({ url, dataProcessor }: props): JSX.Element => {
+  const dataChartState: dataChartStateType = useAppSelector(
+    dataChartStateSelector
   );
   const dataChart = dataChartState.dataSources?.filter(
     (source) => source.url === url
@@ -56,12 +56,12 @@ export const DoughnutChart = ({ url, dataProcessor }: Props): JSX.Element => {
   );
 
   useEffect(() => {
-    if (dataChart?.url !== url) dispatch(FetchDataSource({ url }));
+    if (dataChart?.url !== url) dispatch(fetchDataSource({ url }));
   });
 
   return dataChart?.data !== undefined ? (
     <div
-      className={`${styles.ChartContainer} ${
+      className={`${styles.chartContainer} ${
         dataChart?.status === "idle" || dataChart?.status === "pending"
           ? "loading"
           : ""

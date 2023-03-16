@@ -14,7 +14,7 @@ import ErrorBoundary from "./ErrorBoundary";
 import styles from "./Panel.module.css";
 
 //Type Declarations
-type Props = {
+type props = {
   title: string;
   info: string;
   children?: JSX.Element;
@@ -28,10 +28,10 @@ export const Panel = ({
   children,
   colSpan = 1,
   rowSpan = 1,
-}: Props): JSX.Element => {
+}: props): JSX.Element => {
   return (
     <section
-      className={styles.Panel}
+      className={styles.panel}
       style={
         {
           gridColumn: colSpan !== 1 ? "span " + colSpan.toString() : null,
@@ -39,10 +39,10 @@ export const Panel = ({
         } as React.CSSProperties
       }
     >
-      <div className={styles.PanelHeader}>
-        <h1 className={styles.PanelTitle}>{title}</h1>
+      <div className={styles.panelHeader}>
+        <h1 className={styles.panelTitle}>{title}</h1>
         <span
-          className={`${styles.PanelInfo} material-symbols-sharp`}
+          className={`${styles.panelInfo} material-symbols-sharp`}
           title={info}
         >
           info

@@ -1,7 +1,7 @@
 import React from "react";
 
 //Temperature Component
-type TemperatureProps = {
+type temperatureProps = {
   className: string;
   temperatureC?: number;
   temperatureK?: number;
@@ -11,7 +11,7 @@ export const CelsiusTemperature = ({
   className,
   temperatureK,
   temperatureC,
-}: TemperatureProps): JSX.Element => {
+}: temperatureProps): JSX.Element => {
   if (temperatureK)
     return (
       <span className={className}>

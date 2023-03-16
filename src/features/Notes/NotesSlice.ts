@@ -2,22 +2,22 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
 
 //Declared Types
-export type NotesStateType = {
-  notes: Array<NoteType>;
+export type notesStateType = {
+  notes: Array<noteType>;
 };
 
-export type ContentType = {
+export type contentType = {
   id: string;
   checked: boolean;
   value: string;
 };
 
-export type NoteType = {
+export type noteType = {
   id: string;
   name: string;
   type: "text" | "todo";
   category: string;
-  content: Array<ContentType>;
+  content: Array<contentType>;
 };
 
 //if this is a first run add some sample data into localStorage for notes
@@ -303,34 +303,36 @@ if (localStorage.getItem("notes") === null) {
 }
 
 //State Interface
-const initialState: NotesStateType = {
+const initialState: notesStateType = {
   notes: JSON.parse(localStorage.getItem("notes") ?? "[]"),
 };
 
 //Actions
-export const NotesSlice = createSlice({
-  name: "NotesManager",
+export const notesSlice = createSlice({
+  name: "notesManager",
   initialState,
   reducers: {
-    CreateNote: (state: NotesStateType, action: PayloadAction<NoteType>) => {
+    createNote: (state: notesStateType, action: PayloadAction<noteType>) => {
       state.notes.push(action.payload);
       updateStorage(state);
     },
-    DeleteNote: (state: NotesStateType, action: PayloadAction<string>) => {
-      state.notes = state.notes.filter((item) => item.id !== action.payload);
+    deleteNote: (state: notesStateType, action: PayloadAction<string>) => {
+      state.notes = state.notes.filter(
+        (item: noteType) => item.id !== action.payload
+      );
       updateStorage(state);
     },
-    UpdateNoteName: (
-      state: NotesStateType,
+    updateNoteName: (
+      state: notesStateType,
       action: PayloadAction<{ id: string; name: string }>
     ) => {
-      state.notes.forEach((note) => {
+      state.notes.forEach((note: noteType) => {
         if (note.id === action.payload.id) note.name = action.payload.name;
       });
       updateStorage(state);
     },
-    UpdateNoteContent: (
-      state: NotesStateType,
+    updateNoteContent: (
+      state: notesStateType,
       action: PayloadAction<{
         id: string;
         contentId: string;
@@ -338,9 +340,9 @@ export const NotesSlice = createSlice({
         value: string;
       }>
     ) => {
-      state.notes.forEach((note) => {
+      state.notes.forEach((note: noteType) => {
         if (note.id === action.payload.id) {
-          note.content.forEach((content, index) => {
+          note.content.forEach((content: contentType, index: number) => {
             if (content.id === action.payload.contentId) {
               content.value = action.payload.value;
               content.checked = action.payload.checked;
@@ -350,11 +352,11 @@ export const NotesSlice = createSlice({
       });
       updateStorage(state);
     },
-    AddNoteItem: (
-      state: NotesStateType,
+    addNoteItem: (
+      state: notesStateType,
       action: PayloadAction<{ id: string; contentId: string }>
     ) => {
-      state.notes.forEach((note) => {
+      state.notes.forEach((note: noteType) => {
         if (note.id === action.payload.id)
           note.content.push({
             id: action.payload.contentId,
@@ -363,13 +365,13 @@ export const NotesSlice = createSlice({
           });
       });
     },
-    DeleteNoteContent: (
-      state: NotesStateType,
+    deleteNoteContent: (
+      state: notesStateType,
       action: PayloadAction<{ id: string; contentId: string }>
     ) => {
-      state.notes.forEach((note) => {
+      state.notes.forEach((note: noteType) => {
         if (note.id === action.payload.id)
-          note.content.forEach((content, index) => {
+          note.content.forEach((content: contentType, index: number) => {
             if (content.id === action.payload.contentId)
               note.content.splice(index, 1);
           });
@@ -379,20 +381,20 @@ export const NotesSlice = createSlice({
   },
 });
 
-const updateStorage = (state: NotesStateType) => {
+const updateStorage = (state: notesStateType) => {
   localStorage.setItem("notes", JSON.stringify(state.notes));
 };
 
 export const {
-  CreateNote,
-  DeleteNote,
-  UpdateNoteName,
-  UpdateNoteContent,
-  AddNoteItem,
-  DeleteNoteContent,
-} = NotesSlice.actions;
+  createNote,
+  deleteNote,
+  updateNoteName,
+  updateNoteContent,
+  addNoteItem,
+  deleteNoteContent,
+} = notesSlice.actions;
 
 //Selectors
-export const NotesStateSelector = (state: RootState) => state.NotesManager;
+export const notesStateSelector = (state: RootState) => state.notesManager;
 
-export default NotesSlice.reducer;
+export default notesSlice.reducer;

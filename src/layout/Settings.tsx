@@ -61,28 +61,28 @@ export const Settings: React.FC = (): JSX.Element => {
   };
 
   return (
-    <div className={styles.Settings}>
-      <div className={styles.Note}>
+    <div className={styles.settings}>
+      <div className={styles.note}>
         Note: Interface demonstration for portfolio.{" "}
         <a href="https://paulcarkner.dev" target="_blank" rel="noreferrer">
           https://paulcarkner.dev
         </a>
       </div>
-      <button className={styles.Button} onClick={toggleDarkModeHandler}>
+      <button className={styles.button} onClick={toggleDarkModeHandler}>
         <span className="material-symbols-sharp">
           {isDark ? "light_mode" : "dark_mode"}
         </span>
       </button>
-      <button className={styles.Button} onClick={accountDialogHandler}>
+      <button className={styles.button} onClick={accountDialogHandler}>
         <span className="material-symbols-sharp">account_circle</span>
       </button>
-      <button className={styles.Button} onClick={settingsDialogHandler}>
+      <button className={styles.button} onClick={settingsDialogHandler}>
         <span className="material-symbols-sharp">settings</span>
       </button>
-      <div className={styles.Clock}>
+      <div className={styles.clock}>
         {(((t.getHours() % 12) - 12) % 12) + 12}
         {/* convert from 24-hour to 12 hour */}
-        <span className={styles.ClockColon}>:</span>
+        <span className={styles.clockColon}>:</span>
         {("0" + t.getMinutes()).substr(-2)}
         {/* make minutes two digits */} {t.getHours() > 11 ? "PM" : "AM"}
       </div>

@@ -1,4 +1,4 @@
-.Container {
+.container {
   flex: 1;
   display: flex;
   align-items: center;
@@ -8,12 +8,12 @@
   flex-direction: column;
 }
 
-.Container a {
+.container a {
   flex: 1;
   overflow: hidden;
 }
 
-.Container a img {
+.container a img {
   max-height: 100%;
   max-width: 100%;
 }

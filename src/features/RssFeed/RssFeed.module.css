@@ -1,9 +1,9 @@
-.RssFeed {
+.rssFeed {
   margin-top: 1.2em;
   overflow-y: auto;
 }
 
-.FeedLink {
+.feedLink {
   display: grid;
   grid-template-columns: 5em auto;
   gap: 0.5em;
@@ -13,11 +13,11 @@
   border-top: 2px solid var(--theme-bg-secondary);
 }
 
-.FeedLink:last-child {
+.feedLink:last-child {
   border-bottom: 2px solid var(--theme-bg-secondary);
 }
 
-.FeedImageContainer {
+.feedImageContainer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,18 +25,18 @@
   padding: 0.3em;
 }
 
-.FeedImageContainer img {
+.feedImageContainer img {
   max-width: 100%;
   max-height: 100%;
 }
 
-.FeedText {
+.feedText {
   line-height: 1.2em;
   padding-right: 0.3em;
   overflow: hidden;
 }
 
-.FeedTitle {
+.feedTitle {
   font-weight: 600;
   margin-bottom: 0.3em;
   text-overflow: ellipsis;
@@ -44,7 +44,7 @@
   white-space: nowrap;
 }
 
-.FeedDescription {
+.feedDescription {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;

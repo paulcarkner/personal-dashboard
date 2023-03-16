@@ -1,4 +1,4 @@
-.Settings {
+.settings {
   padding: 0.5em;
   display: flex;
   justify-content: flex-end;
@@ -7,27 +7,27 @@
   color: var(--theme-text-primary);
 }
 
-.Note {
+.note {
   margin-right: auto;
   color: var(--theme-text-tertiary);
   font-size: 0.75em;
 }
 
-.Note a {
+.note a {
   color: inherit;
 }
 
 @media (max-width: 50em) {
-  .Settings {
+  .settings {
     flex-wrap: wrap;
   }
 
-  .Note {
+  .note {
     flex-basis: 100%;
   }
 }
 
-.Button {
+.button {
   border: none;
   background: none;
   padding: 0.5em;
@@ -35,13 +35,13 @@
   cursor: pointer;
 }
 
-.Clock {
+.clock {
   color: var(--theme-text-secondary);
   margin-inline: 0.8em;
   white-space: nowrap;
 }
 
-.ClockColon {
+.clockColon {
   animation: blink 1s linear infinite;
 }
 

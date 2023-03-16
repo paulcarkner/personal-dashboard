@@ -6,29 +6,29 @@ import { useAppSelector, useAppDispatch } from "../../app/hooks";
 
 import {
   //types
-  DataChartStateType,
+  dataChartStateType,
 
   //actions
-  FetchDataSource,
+  fetchDataSource,
 
   //selectors
-  DataChartStateSelector,
+  dataChartStateSelector,
 } from "./../DataChart/DataChartSlice";
 
 //Type Declarations
-type Props = {
+type props = {
   url: string;
   dataProcessor: Function;
   template: React.FC<any>;
 };
 
-export const DataList: React.FC<Props> = ({
+export const DataList: React.FC<props> = ({
   url,
   dataProcessor,
   template,
-}: Props): JSX.Element => {
-  const dataChartState: DataChartStateType = useAppSelector(
-    DataChartStateSelector
+}: props): JSX.Element => {
+  const dataChartState: dataChartStateType = useAppSelector(
+    dataChartStateSelector
   );
   const dataChart = dataChartState.dataSources?.filter(
     (source) => source.url === url
@@ -36,12 +36,12 @@ export const DataList: React.FC<Props> = ({
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    if (dataChart?.url !== url) dispatch(FetchDataSource({ url }));
+    if (dataChart?.url !== url) dispatch(fetchDataSource({ url }));
   });
 
   return (
     <div
-      className={`${styles.ListContainer} customScroll ${
+      className={`${styles.listContainer} customScroll ${
         dataChart?.status === "idle" || dataChart?.status === "pending"
           ? "loading"
           : ""

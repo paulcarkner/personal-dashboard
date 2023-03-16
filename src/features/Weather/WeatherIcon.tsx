@@ -1,9 +1,9 @@
 import React from "react";
-import Icons from "../../assets/DripIcons-Weather/webfont.module.css";
-import { UNIXtoDateTime } from "./WeatherUtils";
+import icons from "../../assets/DripIcons-Weather/webfont.module.css";
+import { unixToDateTime } from "./WeatherUtils";
 
 //Icon Component
-type IconProps = {
+type iconProps = {
   className: string;
   icon?: number;
   time?: number;
@@ -16,16 +16,16 @@ export const WeatherIcon = ({
   icon,
   time,
   timezone,
-}: IconProps): JSX.Element => {
+}: iconProps): JSX.Element => {
   if (!(icon && time && timezone)) return <span></span>;
   return (
     <span
-      className={`${className} ${Icons.diw} ${
+      className={`${className} ${icons.diw} ${
         //add DripIcons library class
-        Icons[
+        icons[
           "diw-" +
             iconLookup[icon as keyof typeof iconLookup][
-              Math.abs(UNIXtoDateTime(time, timezone).getUTCHours() - 14.5) < 7 //convert time to local time then determin if it is day or night
+              Math.abs(unixToDateTime(time, timezone).getUTCHours() - 14.5) < 7 //convert time to local time then determin if it is day or night
                 ? "day"
                 : "night"
             ]

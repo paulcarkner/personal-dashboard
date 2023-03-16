@@ -7,20 +7,20 @@ import { useAppSelector, useAppDispatch } from "../../app/hooks";
 
 import {
   //types
-  DataChartStateType,
+  dataChartStateType,
 
   //actions
-  FetchDataSource,
+  fetchDataSource,
 
   //selectors
-  DataChartStateSelector,
+  dataChartStateSelector,
 } from "./DataChartSlice";
 
 //Styles
 import styles from "./DataChart.module.css";
 
 //Type Declarations
-type Props = {
+type props = {
   url: string;
   dataProcessor: Function;
 };
@@ -28,15 +28,15 @@ type Props = {
 ChartJS.register(ArcElement);
 
 function getCssValue(param: string) {
-  const AppEl = document.getElementById("App");
+  const appEl = document.getElementById("App");
   return getComputedStyle(
-    AppEl || document.createElement("div")
+    appEl || document.createElement("div")
   ).getPropertyValue(param);
 }
 
-export const GoalChart = ({ url, dataProcessor }: Props): JSX.Element => {
-  const dataChartState: DataChartStateType = useAppSelector(
-    DataChartStateSelector
+export const GoalChart = ({ url, dataProcessor }: props): JSX.Element => {
+  const dataChartState: dataChartStateType = useAppSelector(
+    dataChartStateSelector
   );
   const dataChart = dataChartState.dataSources?.filter(
     (source) => source.url === url
@@ -49,28 +49,28 @@ export const GoalChart = ({ url, dataProcessor }: Props): JSX.Element => {
   ];
 
   useEffect(() => {
-    if (dataChart?.url !== url) dispatch(FetchDataSource({ url }));
+    if (dataChart?.url !== url) dispatch(fetchDataSource({ url }));
   });
 
   return dataChart?.data !== undefined ? (
     <div
-      className={`${styles.GoalGrid} ${
+      className={`${styles.goalGrid} ${
         dataChart?.status === "idle" || dataChart?.status === "pending"
           ? "loading"
           : ""
       }`}
     >
-      <div className={styles.GoalText}>
-        <div className={styles.GoalValue}>
+      <div className={styles.goalText}>
+        <div className={styles.goalValue}>
           {dataProcessor(dataChart.data).valueText}
         </div>
-        <div className={styles.GoalTarget}>
+        <div className={styles.goalTarget}>
           {dataProcessor(dataChart.data).goalLabel ?? "Goal"}:{" "}
           {dataProcessor(dataChart.data).goalText}
         </div>
       </div>
-      <div className={styles.GoalChartContainer}>
-        <div className={styles.DoughnutValue}>
+      <div className={styles.goalChartContainer}>
+        <div className={styles.doughnutValue}>
           {(
             (dataProcessor(dataChart.data).value /
               dataProcessor(dataChart.data).goal) *

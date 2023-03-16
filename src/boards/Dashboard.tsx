@@ -18,7 +18,7 @@ import { CurrentWeather } from "./../features/Weather/Weather";
 import { GoalChart } from "./../features/DataChart/DataChartGoal";
 import { DisplayValue } from "./../features/DataChart/DataChartValue";
 import { DateCountDown } from "./../features/DateCountDown/DateCountDown";
-import { Props as calendarType } from "./../features/DataList/Templates/CalendarTemplate";
+import { props as calendarType } from "./../features/DataList/Templates/CalendarTemplate";
 import { BarChart } from "./../features/DataChart/DataChartBar";
 import { DoughnutChart } from "./../features/DataChart/DataChartDoughnut";
 
@@ -27,8 +27,8 @@ import { DoughnutChart } from "./../features/DataChart/DataChartDoughnut";
 export class Dashboard extends React.Component {
   render() {
     return (
-      <div className={styles.Board}>
-        <div className={styles.MiniPanelsContainer}>
+      <div className={styles.board}>
+        <div className={styles.miniPanelsContainer}>
           <Panel title="Unread Emails" info="JSON Data Visualization">
             <DisplayValue
               url="/sample_data/sample_email_api.json"
@@ -137,7 +137,7 @@ export class Dashboard extends React.Component {
             />
           </Panel>
         </div>
-        <div className={styles.PanelsContainer}>
+        <div className={styles.panelsContainer}>
           <Panel title="Current Weather (Toronto)" info="API JSON">
             <CurrentWeather
               lat={43.6534817}

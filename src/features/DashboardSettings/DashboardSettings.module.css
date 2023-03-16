@@ -1,34 +1,34 @@
-.Dialog {
+.dialog {
   width: 400px;
   padding: 1em;
 }
 
-.Container {
+.container {
   display: flex;
   flex-direction: column;
   gap: 1em;
 }
 
-.ModalTitle {
+.modalTitle {
   font-size: 1.2em;
   font-weight: 600;
 }
 
-.Divider {
+.divider {
   width: 100%;
 }
 
-.Title {
+.title {
   font-weight: 600;
 }
 
-.Setting {
+.setting {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
 }
 
-.RightAlign {
+.rightAlign {
   text-align: right;
 }

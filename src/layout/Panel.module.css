@@ -1,4 +1,4 @@
-.Panel {
+.panel {
   color: var(--theme-text-primary);
   background-color: var(--theme-bg-primary);
   box-shadow: inset 0 0 1px 0 #fff8, 0 0 3px 0px #000;
@@ -8,7 +8,7 @@
   overflow: hidden;
 }
 
-.PanelHeader {
+.panelHeader {
   display: grid;
   grid-template-columns: 1fr auto;
   margin: 1.2em;
@@ -16,21 +16,21 @@
   color: var(--theme-text-secondary);
 }
 
-.PanelTitle {
+.panelTitle {
   font-size: 1em;
   font-weight: 600;
 }
 
-.PanelInfo {
+.panelInfo {
   font-size: 1em !important;
   cursor: pointer;
 }
 
-.PanelInfo:hover {
+.panelInfo:hover {
   color: var(--theme-text-primary);
 }
 
-.Panel:has(:global(.loading)) {
+.panel:has(:global(.loading)) {
   animation: shimmer 2s forwards linear infinite;
   background-image: linear-gradient(
     115deg,

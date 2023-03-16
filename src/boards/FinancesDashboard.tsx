@@ -16,8 +16,8 @@ import { TransactionTemplate } from "./../features/DataList/Templates/Transactio
 export class FinancesDashboard extends React.Component {
   render() {
     return (
-      <div className={styles.Board}>
-        <div className={styles.MiniPanelsContainer}>
+      <div className={styles.board}>
+        <div className={styles.miniPanelsContainer}>
           <Panel title="Chequing Account Balance" info="JSON Data">
             <DisplayValue
               url="/sample_data/sample_bank_api.json"
@@ -65,7 +65,7 @@ export class FinancesDashboard extends React.Component {
             <DateCountDown dueDate={new Date("2043-06-30")} />
           </Panel>
         </div>
-        <div className={styles.PanelsContainer}>
+        <div className={styles.panelsContainer}>
           <Panel
             title="Daily Account Balance"
             info="JSON Data Visualization"

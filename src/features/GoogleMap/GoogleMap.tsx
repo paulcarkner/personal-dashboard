@@ -9,13 +9,13 @@ const containerStyle = {
   marginTop: "1em",
 };
 
-type Props = {
+type props = {
   lat: number;
   lng: number;
   zoom: number;
 };
 
-function MyComponent({ lat, lng, zoom }: Props) {
+function MyComponent({ lat, lng, zoom }: props) {
   const center = { lat: lat, lng: lng };
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",

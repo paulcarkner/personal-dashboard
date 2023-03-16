@@ -18,28 +18,28 @@ import { Logo } from "./../content/Logo";
 
 export function SideBar(): JSX.Element {
   return (
-    <header className={styles.SideBar}>
-      <div className={styles.Logo}>
+    <header className={styles.sideBar}>
+      <div className={styles.logo}>
         <Logo />
       </div>
-      <div className={styles.Avatar}>
+      <div className={styles.avatar}>
         <img alt="Avatar" src="assets/profile_image.jpg" />
       </div>
-      <nav className={styles.LinkList}>
+      <nav className={styles.linkList}>
         <NavLink
           to="/"
           className={({ isActive }: any) =>
-            isActive ? styles.ActiveLink : styles.NavLink
+            isActive ? styles.activeLink : styles.navLink
           }
         >
           <span className="material-symbols-sharp">home</span>
           <span>Home</span>
         </NavLink>
-        <hr className={styles.NavLine} />
+        <hr className={styles.navLine} />
         <NavLink
           to="/personal"
           className={({ isActive }: any) =>
-            isActive ? styles.ActiveLink : styles.NavLink
+            isActive ? styles.activeLink : styles.navLink
           }
         >
           <span className="material-symbols-sharp">person</span>
@@ -48,7 +48,7 @@ export function SideBar(): JSX.Element {
         <NavLink
           to="/website"
           className={({ isActive }: any) =>
-            isActive ? styles.ActiveLink : styles.NavLink
+            isActive ? styles.activeLink : styles.navLink
           }
         >
           <span className="material-symbols-sharp">link</span>
@@ -57,7 +57,7 @@ export function SideBar(): JSX.Element {
         <NavLink
           to="/vacation"
           className={({ isActive }: any) =>
-            isActive ? styles.ActiveLink : styles.NavLink
+            isActive ? styles.activeLink : styles.navLink
           }
         >
           <span className="material-symbols-sharp">flight</span>
@@ -66,7 +66,7 @@ export function SideBar(): JSX.Element {
         <NavLink
           to="/finances"
           className={({ isActive }: any) =>
-            isActive ? styles.ActiveLink : styles.NavLink
+            isActive ? styles.activeLink : styles.navLink
           }
         >
           <span className="material-symbols-sharp">paid</span>

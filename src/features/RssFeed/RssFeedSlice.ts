@@ -5,7 +5,7 @@ import { RootState } from "../../app/store";
 import { fetchUrl } from "./RssFeedAPI";
 
 //Declared Types
-export type RssFeedType = {
+export type rssFeedType = {
   title: string;
   link: string;
   description: string;
@@ -15,10 +15,10 @@ export type RssFeedType = {
   lastBuildDate: string;
   generator: string;
   copyright: string;
-  items?: Array<RssFeedItemType>;
+  items?: Array<rssFeedItemType>;
 };
 
-export type RssFeedItemType = {
+export type rssFeedItemType = {
   title: string;
   link: string;
   description: string;
@@ -32,21 +32,21 @@ export type RssFeedItemType = {
 };
 
 //State Interface
-export interface RssFeedStateType {
+export interface rssFeedStateType {
   url?: string;
   status: "loading" | "idle" | "failed";
-  feed?: RssFeedType;
+  feed?: rssFeedType;
 }
 
-const initialState: RssFeedStateType = {
+const initialState: rssFeedStateType = {
   url: undefined,
   status: "idle",
   feed: undefined,
 };
 
 //Async Actions
-export const RssFeedFetchUrl = createAsyncThunk(
-  "RssFeed/fetchUrl",
+export const rssFeedFetchUrl = createAsyncThunk(
+  "rssFeed/fetchUrl",
   async (url: string) => {
     const response = await fetchUrl(url);
     return response.data;
@@ -54,27 +54,27 @@ export const RssFeedFetchUrl = createAsyncThunk(
 );
 
 //Actions
-export const RssFeedSlice = createSlice({
-  name: "RssFeed",
+export const rssFeedSlice = createSlice({
+  name: "rssFeed",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(RssFeedFetchUrl.pending, (state) => {
+      .addCase(rssFeedFetchUrl.pending, (state) => {
         state.status = "loading";
       })
-      .addCase(RssFeedFetchUrl.fulfilled, (state, action) => {
+      .addCase(rssFeedFetchUrl.fulfilled, (state, action) => {
         state.status = "idle";
         state.feed = action.payload;
       })
-      .addCase(RssFeedFetchUrl.rejected, (state) => {
+      .addCase(rssFeedFetchUrl.rejected, (state) => {
         state.status = "failed";
       });
   },
 });
 
 //Selectors
-export const FeedSelector = (state: RootState) => state.RssFeed.feed;
-export const FeedStateSelector = (state: RootState) => state.RssFeed;
+export const feedSelector = (state: RootState) => state.rssFeed.feed;
+export const feedStateSelector = (state: RootState) => state.rssFeed;
 
-export default RssFeedSlice.reducer;
+export default rssFeedSlice.reducer;

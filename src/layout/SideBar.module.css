@@ -1,21 +1,21 @@
-.SideBar {
+.sideBar {
   flex: 0 0 15em;
   color: var(--theme-text-primary);
   background-color: var(--theme-bg-primary);
   box-shadow: inset 0 0 1px 0 #fff8, 0 0 3px 0px #000;
 }
 
-.Avatar {
+.avatar {
   margin-bottom: 1.5em;
   text-align: center;
 }
 
-.Avatar img {
+.avatar img {
   border-radius: 3em;
   border: 2px solid var(--theme-accent-secondary);
 }
 
-.NavLink {
+.navLink {
   display: flex;
   align-items: center;
   gap: 1em;
@@ -26,37 +26,37 @@
   text-shadow: 1px 1px 1px var(--theme-bg-fade-transparent);
 }
 
-.NavLink:hover {
+.navLink:hover {
   color: var(--theme-accent-tertiary);
 }
 
-.ActiveLink {
-  composes: NavLink;
+.activeLink {
+  composes: navLink;
   color: var(--theme-accent-tertiary);
 }
 
-.NavLine {
+.navLine {
   border: 0;
   border-bottom: 1px solid var(--theme-accent-tertiary);
   margin-inline: 1em;
 }
 
 @media (max-width: 40em) {
-  .SideBar {
+  .sideBar {
     flex-basis: 3em;
   }
 
-  .Avatar {
+  .avatar {
     display: none;
   }
 
-  .NavLink {
+  .navLink {
     padding: 0.75em;
     text-align: center;
     display: block;
   }
 
-  .NavLink span:last-child {
+  .navLink span:last-child {
     display: none;
   }
 }

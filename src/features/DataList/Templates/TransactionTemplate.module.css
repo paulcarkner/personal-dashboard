@@ -1,4 +1,4 @@
-.Container {
+.container {
   display: grid;
   grid-template-columns: 1fr 6em;
   border-bottom: 1px solid var(--theme-bg-secondary);
@@ -6,7 +6,7 @@
   line-height: 1.3em;
 }
 
-.Name {
+.name {
   font-weight: bold;
   color: var(--theme-text-primary);
   white-space: nowrap;
@@ -14,7 +14,7 @@
   text-overflow: ellipsis;
 }
 
-.Amount {
+.amount {
   color: var(--theme-text-primary);
   grid-row: span 2;
   justify-self: end;
@@ -23,15 +23,15 @@
   border-radius: 0.3em;
 }
 
-.Positive {
+.positive {
   background-color: hsl(120, 45%, 27%);
 }
 
-.Negative {
+.negative {
   background-color: hsl(0, 45%, 27%);
 }
 
-.Date {
+.date {
   font-size: 0.8em;
   color: var(--theme-text-secondary);
 }

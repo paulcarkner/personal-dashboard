@@ -3,7 +3,7 @@ import { RootState } from "../../app/store";
 import { fetchJson } from "../../app/utils";
 
 //Declared Types
-export type DataChartStateType = {
+export type dataChartStateType = {
   dataSources: Array<{
     url: string;
     status: string;
@@ -11,16 +11,16 @@ export type DataChartStateType = {
   }>;
 };
 
-export type JsonStatusType = "idle" | "pending" | "fulfilled" | "failed";
+export type jsonStatusType = "idle" | "pending" | "fulfilled" | "failed";
 
 //State Interface
-const initialState: DataChartStateType = {
+const initialState: dataChartStateType = {
   dataSources: [],
 };
 
 //Actions
-export const FetchDataSource = createAsyncThunk(
-  "DataChartManager/FetchDataSource",
+export const fetchDataSource = createAsyncThunk(
+  "dataChartManager/fetchDataSource",
   async (props: { url: string }) => {
     const response = await fetchJson(props.url);
     return response.data;
@@ -28,7 +28,7 @@ export const FetchDataSource = createAsyncThunk(
   {
     condition: (props: { url: string }, { getState }) => {
       const state: any = getState();
-      return !state.DataChartManager.dataSources.some(
+      return !state.dataChartManager.dataSources.some(
         (source: { url: string; status: string; data: any }) =>
           source.url === props.url
       );
@@ -36,30 +36,30 @@ export const FetchDataSource = createAsyncThunk(
   }
 );
 
-export const DataChartSlice = createSlice({
-  name: "DataChartManager",
+export const dataChartSlice = createSlice({
+  name: "dataChartManager",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(FetchDataSource.pending, (state, action) => {
+      .addCase(fetchDataSource.pending, (state, action) => {
         let url: string = action.meta.arg.url;
         addDataSourceIfMissing(url, state);
         setDataSourceStatus(url, state, "pending");
       })
-      .addCase(FetchDataSource.fulfilled, (state, action) => {
+      .addCase(fetchDataSource.fulfilled, (state, action) => {
         let url: string = action.meta.arg.url;
         setDataSourceData(url, state, action.payload);
         setDataSourceStatus(url, state, "fulfilled");
       })
-      .addCase(FetchDataSource.rejected, (state, action) => {
+      .addCase(fetchDataSource.rejected, (state, action) => {
         let url: string = action.meta.arg.url;
         setDataSourceStatus(url, state, "failed");
       });
   },
 });
 
-const addDataSourceIfMissing = (url: string, state: DataChartStateType) => {
+const addDataSourceIfMissing = (url: string, state: dataChartStateType) => {
   if (!state.dataSources.some((source) => source.url === url))
     state.dataSources.push({
       url: url,
@@ -70,8 +70,8 @@ const addDataSourceIfMissing = (url: string, state: DataChartStateType) => {
 
 const setDataSourceStatus = (
   url: string,
-  state: DataChartStateType,
-  status: JsonStatusType
+  state: dataChartStateType,
+  status: jsonStatusType
 ) => {
   state.dataSources
     .filter((source) => source.url === url)
@@ -80,7 +80,7 @@ const setDataSourceStatus = (
 
 const setDataSourceData = (
   url: string,
-  state: DataChartStateType,
+  state: dataChartStateType,
   data: any
 ) => {
   state.dataSources
@@ -89,7 +89,7 @@ const setDataSourceData = (
 };
 
 //Selectors
-export const DataChartStateSelector = (state: RootState) =>
-  state.DataChartManager;
+export const dataChartStateSelector = (state: RootState) =>
+  state.dataChartManager;
 
-export default DataChartSlice.reducer;
+export default dataChartSlice.reducer;

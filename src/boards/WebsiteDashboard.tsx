@@ -14,8 +14,8 @@ import { TransactionTemplate } from "./../features/DataList/Templates/Transactio
 export class WebsiteDashboard extends React.Component {
   render() {
     return (
-      <div className={styles.Board}>
-        <div className={styles.MiniPanelsContainer}>
+      <div className={styles.board}>
+        <div className={styles.miniPanelsContainer}>
           <Panel title="Monthly Sales Goal" info="Visualization of JSON Data">
             <GoalChart
               url="/sample_data/sample_website_stats_api.json"
@@ -108,7 +108,7 @@ export class WebsiteDashboard extends React.Component {
             />
           </Panel>
         </div>
-        <div className={styles.PanelsContainer}>
+        <div className={styles.panelsContainer}>
           <Panel title="Website Tasks" info="localStorage Data" rowSpan={2}>
             <Notes category="website" />
           </Panel>

@@ -14,8 +14,8 @@ import { CurrentWeather } from "./../features/Weather/Weather";
 export class VacationDashboard extends React.Component {
   render() {
     return (
-      <div className={styles.Board}>
-        <div className={styles.MiniPanelsContainer}>
+      <div className={styles.board}>
+        <div className={styles.miniPanelsContainer}>
           <Panel title="Days Until Trip" info="Date Count Down">
             <DateCountDown dueDate={new Date("2023-08-15")} />
           </Panel>
@@ -43,7 +43,7 @@ export class VacationDashboard extends React.Component {
             />
           </Panel>
         </div>
-        <div className={styles.PanelsContainer}>
+        <div className={styles.panelsContainer}>
           <Panel title="Vacation Notes" info="localStorage Data">
             <Notes category="vacation" />
           </Panel>

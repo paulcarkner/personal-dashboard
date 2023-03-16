@@ -11,46 +11,46 @@ import React, { useEffect } from "react";
 
 //Redux Imports
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
-import { RssFeedType, RssFeedItemType, RssFeedStateType } from "./RssFeedSlice"; //type import
+import { rssFeedType, rssFeedItemType, rssFeedStateType } from "./RssFeedSlice"; //type import
 import {
-  RssFeedFetchUrl,
-  FeedSelector,
-  FeedStateSelector,
+  rssFeedFetchUrl,
+  feedSelector,
+  feedStateSelector,
 } from "./RssFeedSlice"; //action/selector import
 
 //Styles
 import styles from "./RssFeed.module.css";
 
 //Type Declarations
-type Props = {
+type props = {
   url: string;
 };
 
-export const RssFeed: React.FC<Props> = ({ url }: Props): JSX.Element => {
-  const feed: RssFeedType | undefined = useAppSelector(FeedSelector);
-  const feedState: RssFeedStateType | undefined =
-    useAppSelector(FeedStateSelector);
+export const RssFeed: React.FC<props> = ({ url }: props): JSX.Element => {
+  const feed: rssFeedType | undefined = useAppSelector(feedSelector);
+  const feedState: rssFeedStateType | undefined =
+    useAppSelector(feedStateSelector);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(RssFeedFetchUrl(url));
+    dispatch(rssFeedFetchUrl(url));
   }, [dispatch, url]);
 
   return (
     <div
-      className={`${styles.RssFeed} customScroll ${
+      className={`${styles.rssFeed} customScroll ${
         feedState.status === "loading" ? "loading" : ""
       }`}
     >
-      {feed?.items?.map((movie: RssFeedItemType, index: number) => (
+      {feed?.items?.map((movie: rssFeedItemType, index: number) => (
         <a
           key={index}
-          className={styles.FeedLink}
+          className={styles.feedLink}
           href={movie.link}
           target="_blank"
           rel="noreferrer"
         >
-          <div className={styles.FeedImageContainer}>
+          <div className={styles.feedImageContainer}>
             <img
               src={Array.from(
                 movie.content_encoded.matchAll(
@@ -61,9 +61,9 @@ export const RssFeed: React.FC<Props> = ({ url }: Props): JSX.Element => {
               alt="Movie Poster"
             />
           </div>
-          <div className={styles.FeedText}>
-            <div className={styles.FeedTitle}>{movie.title}</div>
-            <div className={styles.FeedDescription}>{movie.description}</div>
+          <div className={styles.feedText}>
+            <div className={styles.feedTitle}>{movie.title}</div>
+            <div className={styles.feedDescription}>{movie.description}</div>
           </div>
         </a>
       ))}

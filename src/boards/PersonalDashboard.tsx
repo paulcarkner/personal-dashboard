@@ -24,7 +24,7 @@ import {
 } from "./../features/DataList/Templates/EmailTemplate";
 import {
   CalendarTemplate,
-  Props as calendarType,
+  props as calendarType,
 } from "./../features/DataList/Templates/CalendarTemplate";
 
 //Type Declarations
@@ -32,8 +32,8 @@ import {
 export class PersonalDashboard extends React.Component {
   render() {
     return (
-      <div className={styles.Board}>
-        <div className={styles.PanelsContainer}>
+      <div className={styles.board}>
+        <div className={styles.panelsContainer}>
           <Panel title="Unread Emails" info="JSON List Template" colSpan={2}>
             <DataList
               url="/sample_data/sample_email_api.json"

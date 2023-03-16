@@ -1,4 +1,4 @@
-.ListContainer {
+.listContainer {
   margin-top: 1em;
   overflow-y: auto;
   border-top: 1px solid var(--theme-bg-secondary);

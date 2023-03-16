@@ -1,4 +1,4 @@
-.Container {
+.container {
   padding: 0.5em;
 }
 
@@ -12,17 +12,17 @@
   margin-bottom: 1rem;
 }
 
-.Item {
+.item {
   display: grid;
   grid-template-columns: 6.5em 1fr;
 }
 
-.Times {
+.times {
   display: inline;
   color: var(--theme-text-secondary);
 }
 
-.Location {
+.location {
   display: inline;
   color: var(--theme-text-secondary);
   font-size: 0.75em;

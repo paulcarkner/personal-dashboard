@@ -5,38 +5,38 @@ import { useAppSelector, useAppDispatch } from "../../app/hooks";
 
 import {
   //types
-  DataChartStateType,
+  dataChartStateType,
 
   //actions
-  FetchDataSource,
+  fetchDataSource,
 
   //selectors
-  DataChartStateSelector,
+  dataChartStateSelector,
 } from "./DataChartSlice";
 
 //Styles
 import styles from "./DataChart.module.css";
 
 //Type Declarations
-type Props = {
+type props = {
   url: string;
   dataProcessor: Function;
 };
 
 function getCssValue(param: string) {
-  const AppEl = document.getElementById("App");
+  const appEl = document.getElementById("App");
   return getComputedStyle(
-    AppEl || document.createElement("div")
+    appEl || document.createElement("div")
   ).getPropertyValue(param);
 }
 
-export const MapChart = ({ url, dataProcessor }: Props): JSX.Element => {
+export const MapChart = ({ url, dataProcessor }: props): JSX.Element => {
   const svgRef = useRef<SVGSVGElement>(null);
-  const dataChartState: DataChartStateType = useAppSelector(
-    DataChartStateSelector
+  const dataChartState: dataChartStateType = useAppSelector(
+    dataChartStateSelector
   );
   const dataChart = dataChartState.dataSources?.filter(
-    (source) => source.url === url
+    (source: { url: string }) => source.url === url
   )[0];
   const dispatch = useAppDispatch();
   const colorAccentComp = {
@@ -46,7 +46,7 @@ export const MapChart = ({ url, dataProcessor }: Props): JSX.Element => {
   };
 
   useEffect(() => {
-    if (dataChart?.url !== url) dispatch(FetchDataSource({ url }));
+    if (dataChart?.url !== url) dispatch(fetchDataSource({ url }));
   });
 
   useEffect(() => {
@@ -87,14 +87,14 @@ export const MapChart = ({ url, dataProcessor }: Props): JSX.Element => {
 
   return (
     <div
-      className={`${styles.MapContainer} ${
+      className={`${styles.mapContainer} ${
         dataChart?.status === "idle" || dataChart?.status === "pending"
           ? "loading"
           : ""
       }`}
     >
       <svg
-        className={styles.Map}
+        className={styles.map}
         baseProfile="tiny"
         fill="#ececec"
         stroke="black"

@@ -1,19 +1,19 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 
 //Reducers
-import DarkModeReducer from "../features/DarkMode/DarkModeSlice";
-import RssFeedReducer from "../features/RssFeed/RssFeedSlice";
-import WeatherManagerReducer from "../features/Weather/WeatherSlice";
-import NotesReducer from "../features/Notes/NotesSlice";
-import DataChartReducer from "../features/DataChart/DataChartSlice";
+import darkModeReducer from "../features/DarkMode/DarkModeSlice";
+import rssFeedReducer from "../features/RssFeed/RssFeedSlice";
+import weatherManagerReducer from "../features/Weather/WeatherSlice";
+import notesReducer from "../features/Notes/NotesSlice";
+import dataChartReducer from "../features/DataChart/DataChartSlice";
 
 export const store = configureStore({
   reducer: {
-    DarkModeManager: DarkModeReducer,
-    RssFeed: RssFeedReducer,
-    WeatherManager: WeatherManagerReducer,
-    NotesManager: NotesReducer,
-    DataChartManager: DataChartReducer,
+    darkModeManager: darkModeReducer,
+    rssFeed: rssFeedReducer,
+    weatherManager: weatherManagerReducer,
+    notesManager: notesReducer,
+    dataChartManager: dataChartReducer,
   },
 });
 

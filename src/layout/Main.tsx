@@ -23,7 +23,7 @@ import styles from "./Main.module.css";
 
 export function Main(): JSX.Element {
   return (
-    <main className={styles.Main}>
+    <main className={styles.main}>
       <Settings />
       <Routes>
         <Route path="/" element={<Dashboard />} />

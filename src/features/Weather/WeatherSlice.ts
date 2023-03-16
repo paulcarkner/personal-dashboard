@@ -3,15 +3,15 @@ import { RootState } from "../../app/store";
 import { fetchJson } from "../../app/utils";
 
 //Declared Types
-export type LocationType = {
+export type locationType = {
   name: string;
-  status: JsonStatusType;
-  weather?: WeatherType;
+  status: jsonStatusType;
+  weather?: weatherType;
 };
 
-export type JsonStatusType = "idle" | "pending" | "fulfilled" | "failed";
+export type jsonStatusType = "idle" | "pending" | "fulfilled" | "failed";
 
-export type WeatherType = {
+export type weatherType = {
   timezone_offset: number;
   current: {
     dt: number;
@@ -33,19 +33,19 @@ export type WeatherType = {
 };
 
 //State Interface
-export interface WeatherManagerStateType {
-  locations: Array<LocationType>;
+export interface weatherManagerStateType {
+  locations: Array<locationType>;
 }
 
-const initialState: WeatherManagerStateType = {
+const initialState: weatherManagerStateType = {
   locations: [],
 };
 
 const apiKey = "f4bcb6a805ca765f7df85383dc7fdbab"; //for demonstration only, key is domain-restricted
 
 //Actions
-export const FetchWeather = createAsyncThunk(
-  "WeatherManager/FetchWeather",
+export const fetchWeather = createAsyncThunk(
+  "weatherManager/fetchWeather",
   async (props: {
     location: string;
     lat: number;
@@ -59,24 +59,23 @@ export const FetchWeather = createAsyncThunk(
   }
 );
 
-export const WeatherManagerSlice = createSlice({
-  name: "WeatherManager",
+export const weatherManagerSlice = createSlice({
+  name: "weatherManager",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    //handle imported actions or Thunk status
     builder
-      .addCase(FetchWeather.pending, (state, action) => {
+      .addCase(fetchWeather.pending, (state, action) => {
         let location: string = action.meta.arg.location;
         addLocationIfMissing(location, state);
         setLocationStatus(location, state, "pending");
       })
-      .addCase(FetchWeather.fulfilled, (state, action) => {
+      .addCase(fetchWeather.fulfilled, (state, action) => {
         let location: string = action.meta.arg.location;
         setLocationWeather(location, state, action.payload);
         setLocationStatus(location, state, "fulfilled");
       })
-      .addCase(FetchWeather.rejected, (state, action) => {
+      .addCase(fetchWeather.rejected, (state, action) => {
         let location: string = action.meta.arg.location;
         setLocationStatus(location, state, "failed");
       });
@@ -85,7 +84,7 @@ export const WeatherManagerSlice = createSlice({
 
 const addLocationIfMissing = (
   location: string,
-  state: WeatherManagerStateType
+  state: weatherManagerStateType
 ) => {
   if (!state.locations.some((item) => item.name === location))
     state.locations.push({
@@ -97,8 +96,8 @@ const addLocationIfMissing = (
 
 const setLocationStatus = (
   location: string,
-  state: WeatherManagerStateType,
-  status: JsonStatusType
+  state: weatherManagerStateType,
+  status: jsonStatusType
 ) => {
   state.locations
     .filter((item) => item.name === location)
@@ -107,8 +106,8 @@ const setLocationStatus = (
 
 const setLocationWeather = (
   location: string,
-  state: WeatherManagerStateType,
-  weather: WeatherType
+  state: weatherManagerStateType,
+  weather: weatherType
 ) => {
   state.locations
     .filter((item) => item.name === location)
@@ -116,6 +115,6 @@ const setLocationWeather = (
 };
 
 //Selectors
-export const WeatherManagerState = (state: RootState) => state.WeatherManager;
+export const weatherManagerState = (state: RootState) => state.weatherManager;
 
-export default WeatherManagerSlice.reducer;
+export default weatherManagerSlice.reducer;

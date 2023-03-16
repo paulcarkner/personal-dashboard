@@ -1,5 +1,5 @@
 /* THEMES */
-.App.Light {
+.app.light {
   --theme-text-primary: #222;
   --theme-text-shadow: #fff;
   --theme-text-secondary: hsl(225, 15%, 25%);
@@ -31,7 +31,7 @@
   );
 }
 
-.App.Dark {
+.app.dark {
   --theme-text-primary: #fff;
   --theme-text-shadow: #000;
   --theme-text-secondary: hsl(225, 15%, 65%);
@@ -92,7 +92,7 @@ sup {
 }
 
 /* APP SPECIFIC STYLES */
-.App {
+.app {
   display: flex;
   flex-direction: row;
   height: 100vh;

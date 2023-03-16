@@ -1,22 +1,22 @@
 import React from "react";
 import styles from "./TransactionTemplate.module.css";
 
-export type Props = {
+export type props = {
   name: string;
   date: Date;
   amount: number;
 };
 
-export const TransactionTemplate: React.FC<Props> = ({
+export const TransactionTemplate: React.FC<props> = ({
   name,
   date,
   amount,
-}: Props) => {
+}: props) => {
   return (
-    <div className={styles.Container}>
-      <div className={styles.Name}>{name}</div>
+    <div className={styles.container}>
+      <div className={styles.name}>{name}</div>
       <div
-        className={`${styles.Amount} ${
+        className={`${styles.amount} ${
           styles[amount < 0 ? "Negative" : "Positive"]
         }`}
       >
@@ -25,7 +25,7 @@ export const TransactionTemplate: React.FC<Props> = ({
           .toFixed(2)
           .replace(/(\d)(?=(\d{3})+\.\d{2}$)/g, `$1,`)}
       </div>
-      <div className={styles.Date}>{date.toString().substring(0, 10)}</div>
+      <div className={styles.date}>{date.toString().substring(0, 10)}</div>
     </div>
   );
 };

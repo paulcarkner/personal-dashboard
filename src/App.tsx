@@ -19,7 +19,7 @@ function App(): JSX.Element {
     <Router>
       <div
         id="App"
-        className={`${styles.App} ${isDark ? styles.Dark : styles.Light}`}
+        className={`${styles.app} ${isDark ? styles.dark : styles.light}`}
       >
         <SideBar />
         <Main />

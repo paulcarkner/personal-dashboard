@@ -1,8 +1,8 @@
 import React from "react";
-import { UNIXtoDateTime } from "./WeatherUtils";
+import { unixToDateTime } from "./WeatherUtils";
 
 //Date Component
-type WeatherDateProps = {
+type weatherDateProps = {
   className: string;
   time?: number;
   timezone?: number;
@@ -12,9 +12,9 @@ export const WeatherDate = ({
   className,
   time,
   timezone,
-}: WeatherDateProps): JSX.Element => {
+}: weatherDateProps): JSX.Element => {
   if (!(time && timezone)) return <div></div>;
-  const d: Date = UNIXtoDateTime(time, timezone);
+  const d: Date = unixToDateTime(time, timezone);
   const DoW = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   const today = new Date();
   const isToday =

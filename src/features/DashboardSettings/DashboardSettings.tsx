@@ -21,31 +21,31 @@ export const DashboardSettings = forwardRef<HTMLDialogElement, DialogProps>(
     };
 
     return (
-      <dialog ref={ref} className={styles.Dialog}>
-        <div className={styles.Container}>
-          <h3 className={styles.ModalTitle}>Settings</h3>
-          <div className={styles.Setting}>
+      <dialog ref={ref} className={styles.dialog}>
+        <div className={styles.container}>
+          <h3 className={styles.modalTitle}>Settings</h3>
+          <div className={styles.setting}>
             <div>Dark Mode</div>
             <CustomToggle
               checked={isDark}
               onChangeHandler={toggleDarkModeHandler}
             />
           </div>
-          <hr className={styles.Divider} />
-          <div className={styles.Title}>Email Settings</div>
-          <div className={styles.Setting}>
+          <hr className={styles.divider} />
+          <div className={styles.title}>Email Settings</div>
+          <div className={styles.setting}>
             <div>Notifications</div>
             <CustomToggle checked={true} />
           </div>
-          <div className={styles.Setting}>
+          <div className={styles.setting}>
             <div>Updates</div>
             <CustomToggle checked={true} />
           </div>
-          <div className={styles.Setting}>
+          <div className={styles.setting}>
             <div>Promotions</div>
             <CustomToggle checked={false} />
           </div>
-          <div className={styles.RightAlign}>
+          <div className={styles.rightAlign}>
             <button className="btn" onClick={props.closeDialog}>
               Close
             </button>

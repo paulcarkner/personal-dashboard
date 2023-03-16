@@ -1,9 +1,9 @@
-.Dialog {
+.dialog {
   width: 200px;
   padding: 1em;
 }
 
-.Container {
+.container {
   display: flex;
   flex-direction: column;
   gap: 1em;
@@ -11,7 +11,7 @@
   text-align: center;
 }
 
-.Close {
+.close {
   align-self: self-end;
   border: none;
   background: none;
@@ -21,13 +21,13 @@
   cursor: pointer;
 }
 
-.Image {
+.image {
   width: 150px;
   height: 150px;
   border-radius: 50%;
 }
 
-.Email {
+.email {
   color: var(--theme-text-secondary);
   font-size: 0.75em;
   margin-top: 0.3em;

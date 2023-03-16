@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./CalendarTemplate.module.css";
 
-export type Props = {
+export type props = {
   isFirst?: boolean;
   name: string;
   location?: string;
@@ -25,23 +25,23 @@ export const CalendarTemplate = ({
   location,
   startTime,
   duration,
-}: Props): JSX.Element => {
+}: props): JSX.Element => {
   const st = new Date(startTime);
   const et = new Date(st.getTime() + duration * 60 * 1000);
   return (
     <div
-      className={`${styles.Container} ${isFirst ? styles.isFirst : null}`}
+      className={`${styles.container} ${isFirst ? styles.isFirst : null}`}
       data-date={isFirst ? `${st.getDate()} ${days[st.getDay()]}` : null}
     >
-      <div className={styles.Item}>
-        <div className={styles.Times}>
+      <div className={styles.item}>
+        <div className={styles.times}>
           {st.getHours()}:{("0" + st.getMinutes().toString()).slice(-2)}-
           {et.getHours()}:{("0" + et.getMinutes().toString()).slice(-2)}
         </div>
         <div>
           {name}{" "}
           {location ? (
-            <div className={styles.Location}>({location})</div>
+            <div className={styles.location}>({location})</div>
           ) : null}{" "}
         </div>
       </div>
