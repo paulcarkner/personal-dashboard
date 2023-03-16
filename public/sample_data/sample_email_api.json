@@ -1,4 +1,5 @@
 {
+  "__comment": "This is a fictitious sample response from an email/calendar API.",
   "profiles": [
     { "id": 1, "name": "Laureen Mariel", "email": "lmariel89@gmail.com" },
     { "id": 2, "name": "Shelby Jools", "email": "shelby_jools@hotmail.com" },

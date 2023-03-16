@@ -1,4 +1,5 @@
 {
+  "__comment": "This is a fictitious sample response from a bank API.",
   "accounts": {
     "0048394_482904757": {
       "currency": "CAD",

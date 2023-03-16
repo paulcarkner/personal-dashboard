@@ -1,4 +1,5 @@
 {
+  "__comment": "This is a fictitious sample response from a fitness tracker API.",
   "steps": [12586, 10496, 5944, 9125, 11966, 10427, 3578],
   "intensity": {
     "low": 23,
