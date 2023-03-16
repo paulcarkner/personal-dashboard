@@ -20,6 +20,7 @@ import { DisplayValue } from "./../features/DataChart/DataChartValue";
 import { DateCountDown } from "./../features/DateCountDown/DateCountDown";
 import { Props as calendarType } from "./../features/DataList/Templates/CalendarTemplate";
 import { BarChart } from "./../features/DataChart/DataChartBar";
+import { DoughnutChart } from "./../features/DataChart/DataChartDoughnut";
 
 //Type Declarations
 
@@ -118,6 +119,23 @@ export class Dashboard extends React.Component {
           <Panel title="Days Until Trip" info="Date Count Down">
             <DateCountDown dueDate={new Date("2023-08-15")} />
           </Panel>
+          <Panel title="Daily Step Goal" info="Visualization of JSON Data">
+            <GoalChart
+              url="/sample_data/sample_fitness_api.json"
+              dataProcessor={(data: any) => {
+                return {
+                  value: data.steps.at(-1),
+                  valueText: data.steps
+                    .at(-1)
+                    .toString()
+                    .replace(/(\d)(?=(\d{3})+$)/g, `$1,`),
+                  goal: 10000,
+                  goalText: "10,000",
+                  goalLabel: "Goal",
+                };
+              }}
+            />
+          </Panel>
         </div>
         <div className={styles.PanelsContainer}>
           <Panel title="Current Weather (Toronto)" info="API JSON">
@@ -144,6 +162,20 @@ export class Dashboard extends React.Component {
                         ).getDate();
                   }),
                   values: data.steps,
+                };
+              }}
+            />
+          </Panel>
+          <Panel title="Last Workout Intensity" info="JSON Data Visualization">
+            <DoughnutChart
+              url="/sample_data/sample_fitness_api.json"
+              dataProcessor={(data: any) => {
+                return {
+                  labels: Object.keys(data.intensity),
+                  values: Object.keys(data.intensity).map(
+                    (intensityLevelName: string) =>
+                      data.intensity[intensityLevelName]
+                  ),
                 };
               }}
             />
