@@ -24,8 +24,6 @@ import { props as calendarType } from "./../features/DataList/Templates/Calendar
 import { BarChart } from "./../features/DataChart/DataChartBar";
 import { DoughnutChart } from "./../features/DataChart/DataChartDoughnut";
 
-//Type Declarations
-
 export class Dashboard extends React.Component {
   render() {
     return (
@@ -54,8 +52,11 @@ export class Dashboard extends React.Component {
                       new Date(b.startTime).getTime()
                     );
                   }
-                )[0];
-                const st = new Date(nextEvent?.startTime);
+                )[0]; //sort by start time and get first event
+                if (!nextEvent) return { value: "--" };
+
+                //get date details
+                const st = new Date(nextEvent.startTime);
                 const et = new Date(
                   st.getTime() + nextEvent.duration * 60 * 1000
                 );
@@ -79,7 +80,7 @@ export class Dashboard extends React.Component {
                     " - " +
                     et.getHours() +
                     ":" +
-                    ("0" + et.getMinutes().toString()).slice(-2),
+                    ("0" + et.getMinutes().toString()).slice(-2), //example: "Sunday, 15:05 - 16:20"
                   value: nextEvent.name,
                 };
               }}
@@ -97,13 +98,13 @@ export class Dashboard extends React.Component {
                     data.monthly_sales["2023"]
                       .slice(-1)[0]
                       .toString()
-                      .replace(/(\d)(?=(\d{3})+$)/g, `$1,`),
+                      .replace(/(\d)(?=(\d{3})+$)/g, `$1,`), //currency w/ commas, no decimals
                   goal: data.monthly_sales_goal,
                   goalText:
                     "$" +
                     data.monthly_sales_goal
                       .toString()
-                      .replace(/(\d)(?=(\d{3})+$)/g, `$1,`),
+                      .replace(/(\d)(?=(\d{3})+$)/g, `$1,`), //currency w/ commas, no decimals
                 };
               }}
             />
@@ -117,7 +118,7 @@ export class Dashboard extends React.Component {
                   prepend: "$",
                   value: data.accounts["0048394_156842315"].funds
                     .toFixed(2)
-                    .replace(/(\d)(?=(\d{3})+\.\d{2}$)/g, `$1,`),
+                    .replace(/(\d)(?=(\d{3})+\.\d{2}$)/g, `$1,`), //currency w/ commas, 2 decimals
                 };
               }}
             />
@@ -135,7 +136,7 @@ export class Dashboard extends React.Component {
                   valueText: data.steps
                     .at(-1)
                     .toString()
-                    .replace(/(\d)(?=(\d{3})+$)/g, `$1,`),
+                    .replace(/(\d)(?=(\d{3})+$)/g, `$1,`), //get most recent step count, add number commas
                   goal: 10000,
                   goalText: "10,000",
                   goalLabel: "Goal",
@@ -167,7 +168,7 @@ export class Dashboard extends React.Component {
                     return i === 6
                       ? "Today"
                       : new Date(
-                          new Date().getTime() - (6 - i) * 24 * 60 * 60 * 1000
+                          new Date().getTime() - (6 - i) * 24 * 60 * 60 * 1000 // get date number for previous days
                         ).getDate();
                   }),
                   values: data.steps,
