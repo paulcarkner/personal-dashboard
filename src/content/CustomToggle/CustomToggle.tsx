@@ -1,7 +1,22 @@
+/******************************************************************
+
+           Name: CustomToggle
+    Description: A CSS animated checkbox rendered as a clickable sliding toggle.
+    Return Type: JSX.Element
+          Props: checked: boolean
+                 onChangeHandler?: ChangeEventHandler<HTMLInputElement>
+  Redux Actions: (none)
+Redux Selectors: (none)
+
+******************************************************************/
+
 import React from "react";
+
+//Styles
 import styles from "./CustomToggle.module.css";
 
-export type Props = {
+//Type Declarations
+export type props = {
   checked: boolean;
   onChangeHandler?: React.ChangeEventHandler<HTMLInputElement>;
 };
@@ -9,7 +24,7 @@ export type Props = {
 export const CustomToggle = ({
   checked,
   onChangeHandler,
-}: Props): JSX.Element => {
+}: props): JSX.Element => {
   return (
     <label className={styles.customToggle}>
       <input
