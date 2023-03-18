@@ -16,6 +16,7 @@
   font-size: 2.5rem;
 }
 
+/* show tighter icon and no name on small screens */
 @media (max-width: 40em) {
   .logo {
     margin-block: 1em;

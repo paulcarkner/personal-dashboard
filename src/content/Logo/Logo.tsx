@@ -1,11 +1,13 @@
-/*****************
+/******************************************************************
 
-Name: Logo
-Description: Website logo
-Props: (none)
-Output: JSX.Element
+           Name: Logo
+    Description: Website logo at top of Sidebar
+    Return Type: JSX.Element
+          Props: (none)
+  Redux Actions: (none)
+Redux Selectors: (none)
 
-*****************/
+******************************************************************/
 
 import React from "react";
 

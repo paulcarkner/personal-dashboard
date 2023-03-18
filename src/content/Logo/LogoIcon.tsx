@@ -1,21 +1,23 @@
-/*****************
+/******************************************************************
 
-Name: LogoIcon
-Description: Website logo icon
-Props: (none)
-Output: SVG
+           Name: LogoIcon
+    Description: Graphic used as logo icon and favicon
+    Return Type: SVG
+          Props: className: string
+  Redux Actions: (none)
+Redux Selectors: (none)
 
-*****************/
+******************************************************************/
 
 import React from "react";
 
 //Type Declarations
-type Props = {
+type props = {
   className: string;
 };
 
 //Icon create by Shai Rilov from the Noun Project https://thenounproject.com/icon/grid-26071/
-export const LogoIcon = ({ className }: Props): JSX.Element => {
+export const LogoIcon = ({ className }: props): JSX.Element => {
   return (
     <svg
       className={className}
