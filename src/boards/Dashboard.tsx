@@ -29,7 +29,6 @@ export class Dashboard extends React.Component {
     return (
       <div className={styles.board}>
         <div className={styles.miniPanelsContainer}>
-          {/* Unread Emails - DisplayValue */}
           <Panel title="Unread Emails" info="JSON Data Visualization">
             <DisplayValue
               url="/sample_data/sample_email_api.json"
@@ -40,7 +39,6 @@ export class Dashboard extends React.Component {
               }}
             />
           </Panel>
-          {/* Next Appointment - DisplayValue */}
           <Panel title="Next Appointment" info="JSON Data Visualization">
             <DisplayValue
               url="/sample_data/sample_email_api.json"
@@ -86,7 +84,6 @@ export class Dashboard extends React.Component {
               }}
             />
           </Panel>
-          {/* Monthly Sales Goal - GoalChart */}
           <Panel title="Monthly Sales Goal" info="Visualization of JSON Data">
             <GoalChart
               url="/sample_data/sample_website_stats_api.json"
@@ -109,7 +106,6 @@ export class Dashboard extends React.Component {
               }}
             />
           </Panel>
-          {/* Chequing Balance-  DisplayValue */}
           <Panel title="Chequing Account Balance" info="JSON Data">
             <DisplayValue
               url="/sample_data/sample_bank_api.json"
@@ -123,7 +119,6 @@ export class Dashboard extends React.Component {
               }}
             />
           </Panel>
-          {/* Trip Count Down - DateCountDown */}
           <Panel title="Days Until Trip" info="Date Count Down">
             <DateCountDown dueDate={new Date("2023-08-15")} />
           </Panel>
@@ -146,7 +141,6 @@ export class Dashboard extends React.Component {
           </Panel>
         </div>
         <div className={styles.panelsContainer}>
-          {/* Weather - Current Weather */}
           <Panel title="Current Weather (Toronto)" info="API JSON">
             <CurrentWeather
               lat={43.6534817}
@@ -154,7 +148,6 @@ export class Dashboard extends React.Component {
               location="Toronto, ON"
             />
           </Panel>
-          {/* Daily Steps - BarChart */}
           <Panel
             title="Last 7 Days of Steps"
             info="JSON Data Visualization"
@@ -176,7 +169,6 @@ export class Dashboard extends React.Component {
               }}
             />
           </Panel>
-          {/* Workout Chart - DoughnutChart */}
           <Panel title="Last Workout Intensity" info="JSON Data Visualization">
             <DoughnutChart
               url="/sample_data/sample_fitness_api.json"

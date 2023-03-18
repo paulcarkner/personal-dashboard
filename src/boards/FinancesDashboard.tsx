@@ -1,10 +1,21 @@
+/******************************************************************
+
+           Name: FinancesDashboard
+    Description: Dashboard for displaying financial api data
+    Return Type: JSX.Element
+          Props: (none)
+  Redux Actions: (none)
+Redux Selectors: (none)
+
+******************************************************************/
+
 import React from "react";
 
+//Styles
 import styles from "./BoardStyles.module.css";
 
 //Components
 import { Panel } from "./../layout/Panel";
-
 import { BarChart } from "./../features/DataChart/DataChartBar";
 import { DisplayValue } from "./../features/DataChart/DataChartValue";
 import { DoughnutChart } from "./../features/DataChart/DataChartDoughnut";
@@ -12,6 +23,15 @@ import { GoalChart } from "./../features/DataChart/DataChartGoal";
 import { DateCountDown } from "./../features/DateCountDown/DateCountDown";
 import { DataList } from "./../features/DataList/DataList";
 import { TransactionTemplate } from "./../features/DataList/Templates/TransactionTemplate";
+
+//Types
+type transactionType = {
+  id: string;
+  amount: number;
+  company: string;
+  transaction_date: Date;
+  category: string;
+};
 
 export class FinancesDashboard extends React.Component {
   render() {
@@ -26,7 +46,7 @@ export class FinancesDashboard extends React.Component {
                   prepend: "$",
                   value: data.accounts["0048394_156842315"].funds
                     .toFixed(2)
-                    .replace(/(\d)(?=(\d{3})+\.\d{2}$)/g, `$1,`),
+                    .replace(/(\d)(?=(\d{3})+\.\d{2}$)/g, `$1,`), //currency with commas, 2 decimals
                 };
               }}
             />
@@ -39,7 +59,7 @@ export class FinancesDashboard extends React.Component {
                   prepend: "$",
                   value: data.accounts["0048394_482904757"].funds
                     .toFixed(2)
-                    .replace(/(\d)(?=(\d{3})+\.\d{2}$)/g, `$1,`),
+                    .replace(/(\d)(?=(\d{3})+\.\d{2}$)/g, `$1,`), //currency with commas, 2 decimals
                 };
               }}
             />
@@ -54,7 +74,7 @@ export class FinancesDashboard extends React.Component {
                     "$" +
                     data.accounts["0048394_485125813"].funds
                       .toFixed(0)
-                      .replace(/(\d)(?=(\d{3})+$)/g, `$1,`),
+                      .replace(/(\d)(?=(\d{3})+$)/g, `$1,`), //currency with commas, no decimals
                   goal: 1000000,
                   goalText: "$1,000,000",
                 };
@@ -76,37 +96,32 @@ export class FinancesDashboard extends React.Component {
               dataProcessor={(data: any) => {
                 let runningBalance = data.accounts["0048394_156842315"].funds;
                 let dailyBalance = [
-                  { date: new Date().getDate(), balance: runningBalance },
+                  { date: new Date().getDate(), balance: runningBalance }, //today's values
                 ];
 
+                //add previous days' values
                 for (let x = 1; x < 30; x++) {
+                  //loop through last 30 days in reverse order
                   let dailyTotal = 0;
                   let dateCode = new Date(
-                    new Date().getTime() - x * 24 * 60 * 60 * 1000
+                    new Date().getTime() - x * 24 * 60 * 60 * 1000 //get dates for previous days
                   );
                   data.accounts[
                     "0048394_156842315"
-                  ].recent_transactions.forEach(
-                    (t: {
-                      id: string;
-                      amount: number;
-                      company: string;
-                      transaction_date: Date;
-                      category: string;
-                    }) => {
-                      if (
-                        new Date(t.transaction_date).toDateString() ===
-                        dateCode.toDateString()
-                      ) {
-                        dailyTotal += t.amount;
-                      }
+                  ].recent_transactions.forEach((t: transactionType) => {
+                    //if transaction was on current loop day add to running daily total
+                    if (
+                      new Date(t.transaction_date).toDateString() ===
+                      dateCode.toDateString()
+                    ) {
+                      dailyTotal += t.amount;
                     }
-                  );
-                  runningBalance -= dailyTotal;
+                  });
+                  runningBalance -= dailyTotal; //add to running multi-day total
                   dailyBalance.push({
                     date: dateCode.getDate(),
                     balance: runningBalance,
-                  });
+                  }); //add to array that will be used for graph
                 }
 
                 dailyBalance.reverse();
@@ -124,30 +139,21 @@ export class FinancesDashboard extends React.Component {
               dataProcessor={(data: any) => {
                 let categories: Array<{ name: string; total: number }> = [];
                 data.accounts["0048394_156842315"].recent_transactions.forEach(
-                  (
-                    transaction: {
-                      id: string;
-                      amount: number;
-                      company: string;
-                      transaction_date: Date;
-                      category: string;
-                    },
-                    index: number
-                  ) => {
-                    if (transaction.category === "Deposit") return;
+                  (transaction: transactionType, index: number) => {
+                    if (transaction.category === "Deposit") return; //do not include deposits in expense summary
                     if (
                       !categories.some(
                         (category) => category.name === transaction.category
                       )
                     )
-                      categories.push({ name: transaction.category, total: 0 });
+                      categories.push({ name: transaction.category, total: 0 }); //if current transacion category doesn't exist, add it
                     categories.forEach((category) => {
                       if (category.name === transaction.category)
-                        category.total += transaction.amount;
+                        category.total += transaction.amount; //add transaction about to category total
                     });
                   }
                 );
-                categories.sort((a, b) => (a.name < b.name ? -1 : 1));
+                categories.sort((a, b) => (a.name < b.name ? -1 : 1)); //sort categories by name
                 return {
                   labels: categories.map((category) => category.name),
                   values: categories.map((category) => category.total * -1),
@@ -162,13 +168,13 @@ export class FinancesDashboard extends React.Component {
               dataProcessor={(data: any) => {
                 return [
                   ...data.accounts["0048394_156842315"].recent_transactions,
-                ]
-                  .filter((t) => new Date(t.transaction_date) < new Date())
+                ] //clone for manipulation
+                  .filter((t) => new Date(t.transaction_date) < new Date()) //only transactions in the past (sample data contains a large range of dates)
                   .sort((a, b) =>
                     new Date(a.transaction_date) > new Date(b.transaction_date)
                       ? -1
                       : 1
-                  )
+                  ) //sort by transaction date
                   .map((t: any) => {
                     return {
                       name: t.company,

@@ -1,5 +1,17 @@
+/******************************************************************
+
+           Name: VacationDashboard
+    Description: Dashboard for vacation panels
+    Return Type: JSX.Element
+          Props: (none)
+  Redux Actions: (none)
+Redux Selectors: (none)
+
+******************************************************************/
+
 import React from "react";
 
+//Styles
 import styles from "./BoardStyles.module.css";
 
 //Components
@@ -29,7 +41,7 @@ export class VacationDashboard extends React.Component {
                     "$" +
                     data.accounts["0048394_482904757"].funds
                       .toFixed(2)
-                      .replace(/(\d)(?=(\d{3})+\.\d{2}$)/g, `$1,`),
+                      .replace(/(\d)(?=(\d{3})+\.\d{2}$)/g, `$1,`), //currency w/ commas, 2 decimals
                   goal: 5000,
                   goalText: "$5,000",
                 };
@@ -48,6 +60,7 @@ export class VacationDashboard extends React.Component {
             <Notes category="vacation" />
           </Panel>
           <Panel title="Destination" info="Google Map">
+            {/* Santo Domingo, Domincan Republic */}
             <GoogleMap lng={-69.9316065} lat={18.486021} zoom={10} />
           </Panel>
           <Panel title="Current Weather (Dominican Republic)" info="API JSON">

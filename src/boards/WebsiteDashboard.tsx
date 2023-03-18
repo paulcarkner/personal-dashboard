@@ -1,5 +1,17 @@
+/******************************************************************
+
+           Name: WebsiteDashboard
+    Description: Dashboard for website panels
+    Return Type: JSX.Element
+          Props: (none)
+  Redux Actions: (none)
+Redux Selectors: (none)
+
+******************************************************************/
+
 import React from "react";
 
+//Styles
 import styles from "./BoardStyles.module.css";
 
 //Components
@@ -21,19 +33,19 @@ export class WebsiteDashboard extends React.Component {
               url="/sample_data/sample_website_stats_api.json"
               dataProcessor={(data: any) => {
                 return {
-                  value: data.monthly_sales["2023"].slice(-1)[0],
+                  value: data.monthly_sales["2023"].slice(-1)[0], //get most recent month
                   valueText:
                     "$" +
                     data.monthly_sales["2023"]
                       .slice(-1)[0]
                       .toString()
-                      .replace(/(\d)(?=(\d{3})+$)/g, `$1,`),
+                      .replace(/(\d)(?=(\d{3})+$)/g, `$1,`), //currency w/ commas
                   goal: data.monthly_sales_goal,
                   goalText:
                     "$" +
                     data.monthly_sales_goal
                       .toString()
-                      .replace(/(\d)(?=(\d{3})+$)/g, `$1,`),
+                      .replace(/(\d)(?=(\d{3})+$)/g, `$1,`), //currency w/ commas
                 };
               }}
             />
@@ -43,8 +55,8 @@ export class WebsiteDashboard extends React.Component {
               url="/sample_data/sample_website_stats_api.json"
               dataProcessor={(data: any) => {
                 return {
-                  value: data.monthly_new_accounts["2023"].slice(-1)[0],
-                  valueText: data.monthly_new_accounts["2023"].slice(-1)[0],
+                  value: data.monthly_new_accounts["2023"].slice(-1)[0], //get most recent month
+                  valueText: data.monthly_new_accounts["2023"].slice(-1)[0], //get most recent month
                   goal: 75,
                   goalText: "75",
                 };
@@ -135,7 +147,7 @@ export class WebsiteDashboard extends React.Component {
                     "November",
                     "December",
                   ],
-                  values: Object.entries(data.monthly_visits || {}),
+                  values: Object.entries(data.monthly_visits || {}), //create empty object if month does not have data yet
                 };
               }}
             />

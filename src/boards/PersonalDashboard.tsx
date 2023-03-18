@@ -1,11 +1,13 @@
-/*****************
+/******************************************************************
 
-Name: PersonalDashboard
-Description: Container for the summary board
-Props: (none)
-Output: JSX.Element
+           Name: PersonalDashboard
+    Description: Dashboard for personal panels
+    Return Type: JSX.Element
+          Props: (none)
+  Redux Actions: (none)
+Redux Selectors: (none)
 
-*****************/
+******************************************************************/
 
 import React from "react";
 
@@ -27,8 +29,6 @@ import {
   props as calendarType,
 } from "./../features/DataList/Templates/CalendarTemplate";
 
-//Type Declarations
-
 export class PersonalDashboard extends React.Component {
   render() {
     return (
@@ -39,17 +39,17 @@ export class PersonalDashboard extends React.Component {
               url="/sample_data/sample_email_api.json"
               template={EmailTemplate}
               dataProcessor={(data: any) => {
-                return [...data.emails]
+                return [...data.emails] //clone for manipulations
                   .sort((a: emailType, b: emailType) => {
                     return (
                       new Date(b.received).getTime() -
                       new Date(a.received).getTime()
                     );
-                  })
+                  }) //sort emails by date
                   .map((e: emailType) => {
                     let profile = data.profiles.find(
                       (p: profileType) => p.id === e.profile
-                    );
+                    ); //get profile details
                     return {
                       profile: e.profile,
                       from: profile.name,
@@ -69,15 +69,16 @@ export class PersonalDashboard extends React.Component {
               template={CalendarTemplate}
               dataProcessor={(data: any) => {
                 let lastDate = 0;
-                return [...data.schedule]
+                return [...data.schedule] //clone for manipulations
                   .sort((a: calendarType, b: calendarType) => {
                     return (
                       new Date(a.startTime).getTime() -
                       new Date(b.startTime).getTime()
                     );
-                  })
+                  }) //sort emails by date
                   .map((e: calendarType) => {
                     let isFirst = false;
+                    //mark the first item on each day so template knows to add date before it
                     if (lastDate !== new Date(e.startTime).getDate()) {
                       lastDate = new Date(e.startTime).getDate();
                       isFirst = true;
