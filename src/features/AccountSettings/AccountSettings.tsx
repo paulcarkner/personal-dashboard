@@ -1,11 +1,26 @@
+/******************************************************************
+
+           Name: AccountSettings
+    Description: Dialog pop-up for changing account settings (demonstration only)
+    Return Type: JSX.Element (HTMLDialogElement) with ref
+          Props: closeDialog: (event: React.MouseEvent<HTMLButtonElement>) => void
+                 ref: React forwardRef 
+  Redux Actions: (none)
+Redux Selectors: (none)
+
+******************************************************************/
+
 import React, { forwardRef } from "react";
+
+//Styles
 import styles from "./AccountSettings.module.css";
 
-export type DialogProps = {
+//Types
+export type dialogProps = {
   closeDialog: (event: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
-export const AccountSettings = forwardRef<HTMLDialogElement, DialogProps>(
+export const AccountSettings = forwardRef<HTMLDialogElement, dialogProps>(
   (props, ref) => {
     const handleLogOutClick = () => {
       alert("This feature is for demonstration purposes only.");
