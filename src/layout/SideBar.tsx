@@ -14,7 +14,7 @@ import { NavLink } from "react-router-dom";
 import styles from "./SideBar.module.css";
 
 //Components
-import { Logo } from "./../content/Logo";
+import { Logo } from "./../content/Logo/Logo";
 
 export function SideBar(): JSX.Element {
   return (
