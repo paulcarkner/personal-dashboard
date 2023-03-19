@@ -1,3 +1,14 @@
+/******************************************************************
+
+           Name: DarkMode
+    Description: Controls the dark mode theme for the website
+     Slice Name: darkModeSlice
+        Actions: toggleDarkMode
+      Selectors: isDarkSelector
+          Slice: darkModeSlice
+
+******************************************************************/
+
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
 
