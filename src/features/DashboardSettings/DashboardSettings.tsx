@@ -1,17 +1,32 @@
+/******************************************************************
+
+           Name: DashboardSettings
+    Description: Dialog pop-up for changing dashboard settings (demonstration only except dark mode) 
+    Return Type: JSX.Element (HTMLDialogElement) with ref
+          Props: closeDialog: (event: React.MouseEvent<HTMLButtonElement>) => void
+                 ref: React forwardRef 
+  Redux Actions: toggleDarkMode
+Redux Selectors: isDarkSelector
+
+******************************************************************/
+
 import React, { forwardRef } from "react";
+
+//Styles
 import styles from "./DashboardSettings.module.css";
 
+//Components
 import { CustomToggle } from "./../../content/CustomToggle/CustomToggle";
 
 //Redux Imports
 import { useAppSelector, useAppDispatch } from "./../../app/hooks";
 import { isDarkSelector, toggleDarkMode } from "./../DarkMode/DarkModeSlice";
 
-export type DialogProps = {
+export type dialogProps = {
   closeDialog: (event: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
-export const DashboardSettings = forwardRef<HTMLDialogElement, DialogProps>(
+export const DashboardSettings = forwardRef<HTMLDialogElement, dialogProps>(
   (props, ref) => {
     const isDark: boolean = useAppSelector(isDarkSelector);
     const dispatch = useAppDispatch();
