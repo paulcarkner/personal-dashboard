@@ -1,6 +1,26 @@
+/******************************************************************
+
+           Name: EmailTemplate
+    Description: List element showing profile photo, name, email, subject, and preview
+    Return Type: JSX.Element
+          Props: profile: number,
+                 from: string,
+                 email: string,
+                 subject: string,
+                 received: data,
+                 preview: string,
+                 attachment: boolean
+  Redux Actions: (none)
+Redux Selectors: (none)
+
+******************************************************************/
+
 import React from "react";
+
+//Styles
 import styles from "./EmailTemplate.module.css";
 
+//Types
 export type props = {
   profile: number;
   from: string;
@@ -10,7 +30,6 @@ export type props = {
   preview: string;
   attachment: boolean;
 };
-
 export type profileType = { id: number; name: string; email: string };
 export type emailType = {
   profile: number;
@@ -39,8 +58,10 @@ export const EmailTemplate = ({
         <span className={styles.email}>&lt;{email}&gt;</span>
       </div>
       <div className={styles.received}>
+        {/* Get date component of string */}
         {received.toString().substring(0, 10)}{" "}
         {new Date(received).getHours().toString()}:
+        {/* Make minutes two digits long */}
         {("0" + new Date(received).getMinutes().toString()).slice(-2)}
       </div>
       <div className={styles.subject}>
