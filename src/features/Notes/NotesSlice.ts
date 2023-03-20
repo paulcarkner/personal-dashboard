@@ -1,3 +1,19 @@
+/******************************************************************
+
+       Name: Notes
+Description: Controls the notes data interface
+ Slice Name: notesManager
+    Actions: createNote(note: noteType),
+             deleteNote(id: string),
+             updateNoteName(id: string, name: string),
+             updateNoteContent(id: string, contentId: string, checked: boolean, value: string),
+             addNoteItem(id: string, contentId: string),
+             deleteNoteContent(id: string, contentId: string)
+  Selectors: notesStateSelector
+      Slice: notesSlice
+
+******************************************************************/
+
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
 
