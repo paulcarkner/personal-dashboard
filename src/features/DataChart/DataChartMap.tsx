@@ -1,8 +1,25 @@
+/******************************************************************
+
+           Name: MapChart
+    Description: A world map of the given data
+    Return Type: JSX.Element
+          Props: url: string
+                 dataProcessor(data) => Array<string, number>
+  Redux Actions: fetchDataSource(url: string)
+Redux Selectors: dataChartSelector
+
+******************************************************************/
+
 import React, { useEffect, useRef } from "react";
+
+//Styles
+import styles from "./DataChart.module.css";
+
+//Components
+import { getCssValue } from "./DataChartUtilities";
 
 //Redux Imports
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
-
 import {
   //types
   dataChartStateType,
@@ -14,37 +31,30 @@ import {
   dataChartStateSelector,
 } from "./DataChartSlice";
 
-//Styles
-import styles from "./DataChart.module.css";
-
-//Type Declarations
+//Types
 type props = {
   url: string;
   dataProcessor: Function;
 };
 
-function getCssValue(param: string) {
-  const appEl = document.getElementById("App");
-  return getComputedStyle(
-    appEl || document.createElement("div")
-  ).getPropertyValue(param);
-}
-
 export const MapChart = ({ url, dataProcessor }: props): JSX.Element => {
-  const svgRef = useRef<SVGSVGElement>(null);
+  const svgRef = useRef<SVGSVGElement>(null); //create reference for SVG map
   const dataChartState: dataChartStateType = useAppSelector(
     dataChartStateSelector
   );
   const dataChart = dataChartState.dataSources?.filter(
     (source: { url: string }) => source.url === url
-  )[0];
+  )[0]; //get data for passed url
   const dispatch = useAppDispatch();
+
+  //get theme colors from CSS for graph
   const colorAccentComp = {
     hue: getCssValue("--theme-accent-hue"),
     sat: getCssValue("--theme-accent-sat"),
     lit: getCssValue("--theme-accent-lit"),
   };
 
+  //fetchData if doesn't exist
   useEffect(() => {
     if (dataChart?.url !== url) dispatch(fetchDataSource({ url }));
   });
@@ -53,14 +63,18 @@ export const MapChart = ({ url, dataProcessor }: props): JSX.Element => {
     if (dataChart?.data) {
       (svgRef.current as SVGSVGElement)
         ?.querySelectorAll("[fill]")
-        .forEach((el: Element, key: number) => el.removeAttribute("fill"));
+        .forEach((el: Element, key: number) => el.removeAttribute("fill")); //make map transparent
+
+      //find country with highest value
       let maxValue: number = 1;
       Object.entries(dataProcessor(dataChart.data)).forEach((country) => {
         if ((country[1] as number) > maxValue) maxValue = country[1] as number;
       });
+
       Object.entries(dataProcessor(dataChart.data)).forEach((country) => {
+        //for each country in dataset
         (svgRef.current as SVGSVGElement)
-          ?.querySelectorAll("[data-code='" + country[0] + "']")
+          ?.querySelectorAll("[data-code='" + country[0] + "']") //find country geometeries
           .forEach((el: Element, key: number) =>
             el.setAttribute(
               "fill",
@@ -74,7 +88,7 @@ export const MapChart = ({ url, dataProcessor }: props): JSX.Element => {
                 ) +
                 "%)"
             )
-          );
+          ); //set fill colour lightness as a fraction of the highest country value starting at 80% so not completely white
       });
     }
   }, [
@@ -85,6 +99,7 @@ export const MapChart = ({ url, dataProcessor }: props): JSX.Element => {
     dataProcessor,
   ]);
 
+  //map SVG
   return (
     <div
       className={`${styles.mapContainer} ${

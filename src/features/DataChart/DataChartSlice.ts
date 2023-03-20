@@ -1,8 +1,21 @@
+/******************************************************************
+
+       Name: DataChart
+Description: Fetches and stores JSON data from a URL
+ Slice Name: dataChartManager
+    Actions: async fetchDataSource(url: string)
+  Selectors: dataChartStateSelector
+      Slice: dataChartSlice
+
+******************************************************************/
+
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
+
+//Utilities
 import { fetchJson } from "../../app/utils";
 
-//Declared Types
+//Types
 export type dataChartStateType = {
   dataSources: Array<{
     url: string;
@@ -26,6 +39,7 @@ export const fetchDataSource = createAsyncThunk(
     return response.data;
   },
   {
+    //cancel if url has already been loaded
     condition: (props: { url: string }, { getState }) => {
       const state: any = getState();
       return !state.dataChartManager.dataSources.some(

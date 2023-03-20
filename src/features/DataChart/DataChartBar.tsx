@@ -1,4 +1,21 @@
+/******************************************************************
+
+           Name: BarChart
+    Description: A bar chart graph of the given data
+    Return Type: JSX.Element
+          Props: url: string
+                 dataProcessor(data) => {labels: Array<string>, values: Array<number>}
+  Redux Actions: fetchDataSource(url: string)
+Redux Selectors: dataChartSelector
+
+******************************************************************/
+
 import React, { useEffect } from "react";
+
+//Styles
+import styles from "./DataChart.module.css";
+
+//Components
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -7,10 +24,10 @@ import {
   BarElement,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
+import { getCssValue } from "./DataChartUtilities";
 
 //Redux Imports
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
-
 import {
   //types
   dataChartStateType,
@@ -22,23 +39,14 @@ import {
   dataChartStateSelector,
 } from "./DataChartSlice";
 
-//Styles
-import styles from "./DataChart.module.css";
-
-//Type Declarations
+//Types
 type props = {
   url: string;
   dataProcessor: Function;
 };
 
+//Utility Functions
 ChartJS.register(CategoryScale, LinearScale, Tooltip, BarElement);
-
-function getCssValue(param: string) {
-  const appEl = document.getElementById("App");
-  return getComputedStyle(
-    appEl || document.createElement("div")
-  ).getPropertyValue(param);
-}
 
 export const BarChart = ({ url, dataProcessor }: props): JSX.Element => {
   const dataChartState: dataChartStateType = useAppSelector(
@@ -46,9 +54,10 @@ export const BarChart = ({ url, dataProcessor }: props): JSX.Element => {
   );
   const dataChart = dataChartState.dataSources?.filter(
     (source) => source.url === url
-  )[0];
+  )[0]; //get data for passed url
   const dispatch = useAppDispatch();
 
+  //fetchData if doesn't exist
   useEffect(() => {
     if (dataChart?.url !== url) dispatch(fetchDataSource({ url }));
   });

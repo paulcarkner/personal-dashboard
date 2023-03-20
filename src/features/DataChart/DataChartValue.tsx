@@ -1,8 +1,22 @@
+/******************************************************************
+
+           Name: DisplayValue
+    Description: A text panel displaying the given data
+    Return Type: JSX.Element
+          Props: url: string
+                 dataProcessor(data) => {prepend: string, value: string, append: string, subValue: string}
+  Redux Actions: fetchDataSource(url: string)
+Redux Selectors: dataChartSelector
+
+******************************************************************/
+
 import React, { useEffect } from "react";
+
+//Styles
+import styles from "./DataChart.module.css";
 
 //Redux Imports
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
-
 import {
   //types
   dataChartStateType,
@@ -14,10 +28,7 @@ import {
   dataChartStateSelector,
 } from "./DataChartSlice";
 
-//Styles
-import styles from "./DataChart.module.css";
-
-//Type Declarations
+//Types
 type props = {
   url: string;
   dataProcessor: Function;
@@ -29,9 +40,10 @@ export const DisplayValue = ({ url, dataProcessor }: props): JSX.Element => {
   );
   const dataChart = dataChartState.dataSources?.filter(
     (source) => source.url === url
-  )[0];
+  )[0]; //get data for passed url
   const dispatch = useAppDispatch();
 
+  //fetchData if doesn't exist
   useEffect(() => {
     if (dataChart?.url !== url) dispatch(fetchDataSource({ url }));
   });

@@ -1,11 +1,14 @@
-/*****************
+/******************************************************************
 
-Name: DataChart
-Description: Takes data from Redux and given object selectors
-Props: *******************************************************************
-Output: JSX.Element
+           Name: LineChart
+    Description: A line chart graph of the given data
+    Return Type: JSX.Element
+          Props: url: string
+                 dataProcessor(data) => {labels: Array<string>, values: Array<string, Array<number>>}
+  Redux Actions: fetchDataSource(url: string)
+Redux Selectors: dataChartSelector
 
-*****************/
+******************************************************************/
 
 import React, { useEffect } from "react";
 import {
@@ -17,10 +20,13 @@ import {
   Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
+import { getCssValue } from "./DataChartUtilities";
+
+//Styles
+import styles from "./DataChart.module.css";
 
 //Redux Imports
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
-
 import {
   //types
   dataChartStateType,
@@ -32,23 +38,14 @@ import {
   dataChartStateSelector,
 } from "./DataChartSlice";
 
-//Styles
-import styles from "./DataChart.module.css";
-
-//Type Declarations
+//Types
 type props = {
   url: string;
   dataProcessor: Function;
 };
 
+//Utility Functions
 ChartJS.register(LinearScale, PointElement, LineElement, Tooltip, Legend);
-
-function getCssValue(param: string) {
-  const appEl = document.getElementById("App");
-  return getComputedStyle(
-    appEl || document.createElement("div")
-  ).getPropertyValue(param);
-}
 
 export const LineChart = ({ url, dataProcessor }: props): JSX.Element => {
   const dataChartState: dataChartStateType = useAppSelector(
@@ -56,14 +53,17 @@ export const LineChart = ({ url, dataProcessor }: props): JSX.Element => {
   );
   const dataChart = dataChartState.dataSources?.filter(
     (source) => source.url === url
-  )[0];
+  )[0]; //get data for passed url
   const dispatch = useAppDispatch();
+
+  //get theme colors from CSS for graph
   const colorArray = [
     getCssValue("--theme-accent-primary"),
     getCssValue("--theme-accent-secondary"),
     getCssValue("--theme-accent-tertiary"),
   ];
 
+  //fetchData if doesn't exist
   useEffect(() => {
     if (dataChart?.url !== url) dispatch(fetchDataSource({ url }));
   });
@@ -116,12 +116,12 @@ export const LineChart = ({ url, dataProcessor }: props): JSX.Element => {
                   label: " " + d[0],
                   data: d[1],
                   pointRadius: 5,
-                  pointBorderColor: colorArray[i % 3],
+                  pointBorderColor: colorArray[i % 3], //loop through theme colours
                   pointBorderWidth: 2,
                   pointBackgroundColor: colorArray[i % 3].replace(
                     ")",
                     ", 75%)"
-                  ), //make slightly transparent
+                  ), //loop through theme colours, make slightly transparent
                   borderColor: colorArray[i % 3],
                   borderWidth: 1.5,
                   backgroundColor: "transparent",
