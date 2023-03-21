@@ -1,10 +1,22 @@
+/******************************************************************
+
+       Name: RssFeed
+Description: Fetches and stores RSS data
+ Slice Name: rssFeed
+    Actions: fetchUrl(url: string)
+  Selectors: feedSelector: rssFeedType,
+             feedStateSelector: rssFeedStateType
+      Slice: rssFeedSlice
+
+******************************************************************/
+
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
 
-//Function/Type Imports
+//Utilities
 import { fetchUrl } from "./RssFeedAPI";
 
-//Declared Types
+//Types
 export type rssFeedType = {
   title: string;
   link: string;
@@ -44,7 +56,7 @@ const initialState: rssFeedStateType = {
   feed: undefined,
 };
 
-//Async Actions
+//Actions
 export const rssFeedFetchUrl = createAsyncThunk(
   "rssFeed/fetchUrl",
   async (url: string) => {
@@ -53,7 +65,6 @@ export const rssFeedFetchUrl = createAsyncThunk(
   }
 );
 
-//Actions
 export const rssFeedSlice = createSlice({
   name: "rssFeed",
   initialState,
