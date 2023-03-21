@@ -1,13 +1,19 @@
-/*****************
+/******************************************************************
 
-Name: RssFeed
-Description: Creates a list of articles from an RSS feed
-Props: url: string;
-Output: JSX.Element
+           Name: RssFeed
+    Description: Creates a list of articles from an RSS feed
+    Return Type: JSX.Element
+          Props: url: string
+  Redux Actions: rssFeedFetchUrl
+Redux Selectors: feedSelector: rssFeedType,
+                 feedStateSelector: rssFeedStateType
 
-*****************/
+******************************************************************/
 
 import React, { useEffect } from "react";
+
+//Styles
+import styles from "./RssFeed.module.css";
 
 //Redux Imports
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
@@ -18,10 +24,7 @@ import {
   feedStateSelector,
 } from "./RssFeedSlice"; //action/selector import
 
-//Styles
-import styles from "./RssFeed.module.css";
-
-//Type Declarations
+//Types
 type props = {
   url: string;
 };
@@ -52,12 +55,15 @@ export const RssFeed: React.FC<props> = ({ url }: props): JSX.Element => {
         >
           <div className={styles.feedImageContainer}>
             <img
-              src={Array.from(
-                movie.content_encoded.matchAll(
-                  /<img\s.*?src=(?:'|")([^'">]+)(?:'|")/gi
-                ),
-                (m) => m[1]
-              ).pop()}
+              src={
+                Array.from(
+                  movie.content_encoded.matchAll(
+                    /<img\s.*?src=(?:'|")([^'">]+)(?:'|")/gi
+                  ),
+                  (m) => m[1]
+                ).pop()
+                //find image and get src value from feed content
+              }
               alt="Movie Poster"
             />
           </div>
