@@ -16,7 +16,7 @@ import React, { useEffect, useRef } from "react";
 import styles from "./DataChart.module.css";
 
 //Components
-import { getCssValue } from "./DataChartUtilities";
+import { getCssValue } from "./DataChartAPI";
 
 //Redux Imports
 import { useAppSelector, useAppDispatch } from "../../app/hooks";

@@ -18,7 +18,7 @@ import styles from "./DataChart.module.css";
 //Components
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
-import { getCssValue } from "./DataChartUtilities";
+import { getCssValue } from "./DataChartAPI";
 
 //Redux Imports
 import { useAppSelector, useAppDispatch } from "../../app/hooks";

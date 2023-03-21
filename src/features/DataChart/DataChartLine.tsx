@@ -20,7 +20,7 @@ import {
   Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
-import { getCssValue } from "./DataChartUtilities";
+import { getCssValue } from "./DataChartAPI";
 
 //Styles
 import styles from "./DataChart.module.css";

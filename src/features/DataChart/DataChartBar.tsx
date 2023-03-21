@@ -24,7 +24,7 @@ import {
   BarElement,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
-import { getCssValue } from "./DataChartUtilities";
+import { getCssValue } from "./DataChartAPI";
 
 //Redux Imports
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
