@@ -8,12 +8,12 @@ Output: JSX.Element
 *****************/
 
 import React from "react";
-import { NavLink } from "react-router-dom";
 
 //Styles
 import styles from "./SideBar.module.css";
 
 //Components
+import { NavLink } from "react-router-dom";
 import { Logo } from "./../content/Logo/Logo";
 
 export function SideBar(): JSX.Element {

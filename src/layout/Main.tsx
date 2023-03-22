@@ -10,6 +10,9 @@ Output: JSX.Element
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
+//Styles
+import styles from "./Main.module.css";
+
 //Components
 import { Settings } from "./Settings";
 import { Dashboard } from "./../boards/Dashboard";
@@ -17,9 +20,6 @@ import { PersonalDashboard } from "./../boards/PersonalDashboard";
 import { WebsiteDashboard } from "./../boards/WebsiteDashboard";
 import { VacationDashboard } from "./../boards/VacationDashboard";
 import { FinancesDashboard } from "./../boards/FinancesDashboard";
-
-//Styles
-import styles from "./Main.module.css";
 
 export function Main(): JSX.Element {
   return (

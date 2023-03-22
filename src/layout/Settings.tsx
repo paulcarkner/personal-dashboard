@@ -8,6 +8,11 @@ Output: JSX.Element
 *****************/
 
 import React, { useEffect, useState, useRef } from "react";
+
+//Styles
+import styles from "./Settings.module.css";
+
+//Components
 import { AccountSettings } from "./../features/AccountSettings/AccountSettings";
 import { DashboardSettings } from "./../features/DashboardSettings/DashboardSettings";
 
@@ -18,9 +23,6 @@ import {
   isDarkSelector,
   toggleDarkMode,
 } from "./../features/DarkMode/DarkModeSlice";
-
-//Styles
-import styles from "./Settings.module.css";
 
 export const Settings: React.FC = (): JSX.Element => {
   const isDark: boolean = useAppSelector(isDarkSelector);

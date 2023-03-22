@@ -13,7 +13,7 @@ import ErrorBoundary from "./ErrorBoundary";
 //Styles
 import styles from "./Panel.module.css";
 
-//Type Declarations
+//Types
 type props = {
   title: string;
   info: string;
