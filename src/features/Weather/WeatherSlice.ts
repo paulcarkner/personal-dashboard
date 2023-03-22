@@ -1,8 +1,19 @@
+/******************************************************************
+
+       Name: Weather
+Description: Fetches and stores weather data for a location
+ Slice Name: weatherManager
+    Actions: async fetchWeather(location: string, lat: number, lon: number, exclude: string;)
+  Selectors: weatherManagerState
+      Slice: weatherManagerSlice
+
+******************************************************************/
+
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
 import { fetchJson } from "../../app/utils";
 
-//Declared Types
+//Types
 export type locationType = {
   name: string;
   status: jsonStatusType;

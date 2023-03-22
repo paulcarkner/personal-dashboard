@@ -1,6 +1,19 @@
+/******************************************************************
+
+           Name: CelsiusTemperature
+    Description: Returns a temperature in Celsius for display
+    Return Type: JSX.Element
+          Props: className: string,
+                 temperatureC?: number,
+                 temperatureK?: number
+  Redux Actions: (none)
+Redux Selectors: (none)
+
+******************************************************************/
+
 import React from "react";
 
-//Temperature Component
+//Types
 type temperatureProps = {
   className: string;
   temperatureC?: number;

@@ -1,4 +1,20 @@
+/******************************************************************
+
+           Name: CurrentWeather
+    Description: Displays the current weather, today's overall weather and the next 3 days 
+    Return Type: JSX.Element
+          Props: lat: number,
+                 lon: number,
+                 location: string
+  Redux Actions: fetchWeather(url: string)
+Redux Selectors: weatherManagerState
+
+******************************************************************/
+
 import React, { useEffect } from "react";
+
+//Styles
+import styles from "./Weather.module.css";
 
 //Redux Imports
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
@@ -13,15 +29,12 @@ import {
   weatherManagerState,
 } from "./WeatherSlice";
 
-//Styles
-import styles from "./Weather.module.css";
-
 //Components
 import { CelsiusTemperature } from "./WeatherTemperature";
 import { WeatherIcon } from "./WeatherIcon";
 import { WeatherDate } from "./WeatherDate";
 
-//Type Declarations
+//Types
 type props = {
   lat: number;
   lon: number;
@@ -37,9 +50,10 @@ export const CurrentWeather: React.FC<props> = ({
     useAppSelector(weatherManagerState);
   const weatherObj = weatherState.locations.filter(
     (item) => item.name === location
-  )[0];
+  )[0]; //get weather data for this location
   const dispatch = useAppDispatch();
 
+  //fether weather on parameter change
   const exclude = "minutely,alerts";
   useEffect(() => {
     dispatch(fetchWeather({ location, lat, lon, exclude }));

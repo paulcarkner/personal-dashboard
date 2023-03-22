@@ -1,8 +1,26 @@
+/******************************************************************
+
+           Name: WeatherIcon
+    Description: Returns the font icon symbol based on weather code
+    Return Type: JSX.Element
+          Props: className: string,
+                 icon: number,
+                 time: number (UNIX date format),
+                 timezone: number
+  Redux Actions: (none)
+Redux Selectors: (none)
+
+******************************************************************/
+
 import React from "react";
+
+//Styles
 import icons from "../../assets/DripIcons-Weather/webfont.module.css";
+
+//Utilities
 import { unixToDateTime } from "./WeatherUtils";
 
-//Icon Component
+//Types
 type iconProps = {
   className: string;
   icon?: number;
@@ -10,7 +28,6 @@ type iconProps = {
   timezone?: number;
 };
 
-//get weather icon
 export const WeatherIcon = ({
   className,
   icon,
@@ -25,7 +42,7 @@ export const WeatherIcon = ({
         icons[
           "diw-" +
             iconLookup[icon as keyof typeof iconLookup][
-              Math.abs(unixToDateTime(time, timezone).getUTCHours() - 14.5) < 7 //convert time to local time then determin if it is day or night
+              Math.abs(unixToDateTime(time, timezone).getUTCHours() - 14.5) < 7 //convert time to local time then determine if it is day or night
                 ? "day"
                 : "night"
             ]
