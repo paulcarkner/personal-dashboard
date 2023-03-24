@@ -4,11 +4,11 @@ A personal dashboard sample with real and simulated API calls to asyncronously l
 
 ## Built Using...
 
-TypeScript
-Redux
-React Router
-ChartJS
-Google Maps
+- TypeScript
+- Redux
+- React Router
+- ChartJS
+- Google Maps
 
 ## Functionality
 
