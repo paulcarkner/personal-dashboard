@@ -17,6 +17,7 @@ A sidebar displays links to five dashboards using React Router. Dashboards conta
 - Responsive CSS design
 - Notes feature (CRUD using localStorage)
 - Live weather
+- Google Maps
 - Various charts using ChartJS
 - Lists from RSS and JSON data
 - Light/dark mode
