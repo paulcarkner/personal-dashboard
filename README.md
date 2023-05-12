@@ -1,6 +1,6 @@
 # dash-y - A customized personal dashboard
 
-A personal dashboard sample with real and simulated API calls to asyncronously load data, and functioning notes feature (CRUD demonstration using localStorage).
+A personal dashboard sample with real and simulated API calls to asynchronously load data, and functioning notes feature (CRUD demonstration using localStorage).
 
 ## Built Using...
 
